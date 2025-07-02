@@ -3,7 +3,7 @@ project:
   output-dir: "."
 
 website:
-  title: "kai-do.github.io"
+  title: "kai.do"
   navbar:
     left:
       - href: index.qmd
@@ -13,8 +13,7 @@ website:
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      - quartz
     css: styles.css
     toc: true
 
