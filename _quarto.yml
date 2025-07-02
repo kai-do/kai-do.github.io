@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: "."
 
 website:
   title: "kai-do.github.io"
