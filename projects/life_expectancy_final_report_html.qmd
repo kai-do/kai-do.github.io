@@ -1,0 +1,764 @@
+---
+title: "Predicting Life Expectancy"
+author: "Nakai Zemer"
+date: "2024-11-17"
+format: html
+---
+
+```{r setup}
+#| echo: false
+#| include: false
+
+library(tidyverse)
+library(knitr)
+library(maps)
+library(kableExtra)
+library(htmltools)
+library(patchwork)
+library(gridExtra)
+library(broom)
+library(car)
+library(lmtest)
+library(GGally)
+library(caret)
+
+who_life_expectancy_pred_df <- read.csv('datasets/who_life_expectancy.csv') %>%
+  transmute(IND_NAME = Indicator,
+            DIM_GEO_NAME = Location,
+            IND_CODE = IndicatorCode,
+            DIM_GEO_CODE = SpatialDimValueCode,
+            DIM_TIME_YEAR = Period,
+            DIM_1_CODE = Dim1ValueCode,
+            VALUE_NUMERIC = FactValueNumeric,
+            VALUE_STRING = Value,
+            VALUE_COMMENTS = NA)
+
+who_life_expectancy_long_df <- read.csv('datasets/who_life_expectancy_indicators.csv') %>%
+  bind_rows(who_life_expectancy_pred_df) %>%
+  mutate(field_value = if_else(
+    is.na(DIM_1_CODE), as.character(IND_CODE), 
+    paste0(IND_CODE, "__", DIM_1_CODE)
+    ))
+
+value_definitions_df <- who_life_expectancy_long_df %>%
+  mutate(name = paste0("N_COUNTRIES_", DIM_TIME_YEAR)) %>%
+  group_by(IND_NAME, IND_CODE, field_value, name) %>%
+  summarise(COUNT = n()) %>%
+  pivot_wider(id_cols = c(IND_NAME, IND_CODE, field_value),
+              values_from = COUNT,
+              names_from = name)
+
+years <- sort(unique(who_life_expectancy_long_df$DIM_TIME_YEAR))
+
+who_life_expectancy_dfs <- list()
+
+for (year in years) {
+  append(who_life_expectancy_dfs, who_life_expectancy_long_df %>% 
+           filter(DIM_TIME_YEAR == year) %>%
+           pivot_wider(id_cols = c(DIM_GEO_CODE, DIM_GEO_NAME, DIM_TIME_YEAR),
+              names_from = field_value,
+              values_from = VALUE_NUMERIC,
+              names_sep = "__"))
+}
+
+who_life_expectancy_dfs <- lapply(years, function(year) {
+  who_life_expectancy_long_df %>%
+    filter(DIM_TIME_YEAR == year) %>%
+    pivot_wider(
+      id_cols = c(DIM_GEO_CODE, DIM_GEO_NAME, DIM_TIME_YEAR),
+      names_from = field_value,
+      values_from = VALUE_NUMERIC,
+      names_sep = "__"
+    )
+})
+
+names(who_life_expectancy_dfs) <- paste0('df_', years)
+
+who_life_expectancy_2021_df <- who_life_expectancy_dfs$df_2021
+
+```
+
+## Introduction
+
+### Overview
+
+-   **Objective**: Predict life expectancy in 2021 using WHO data.
+-   **Approach**: Build a linear regression model with selected predictors.
+
+## Data Sources
+
+::: {style="font-size: 0.7em;"}
+-   [**World Health Statistics**](https://www.who.int/data/gho/data/themes/world-health-statistics): Explore global health statistics compiled by WHO, covering key health indicators and trends worldwide.
+-   [**Life Expectancy Data**](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/life-expectancy-at-birth-(years)): Access detailed data on life expectancy at birth, including global and regional comparisons.
+:::
+
+#### Data Description
+
+::: {style="font-size: 0.7em;"}
+-   2021 year data selected for largest number of variables with data.
+-   Collected globally for multiple years and countries.
+-   Variables include economic, health, and demographic indicators.
+-   Aggregated by year and country.
+:::
+
+## 2021 Variable Selection
+
+| Indicator Code | Indicator Name | Number of Countries |
+|------------------------|------------------------------|------------------|
+| WHOSIS_000001 | Life expectancy at birth (years) | 185 |
+| GHED_GGHE-DGGE_SHA2011 | Domestic general government health expenditure | 196 |
+| VIOLENCE_HOMICIDERATE | Mortality rate due to homicide (per 100,000 pop) | 192 |
+| SDGPOISON | Mortality rate from unintentional poisoning (per 100,000 pop) | 192 |
+| SDGSUICIDE | Suicide mortality rate (per 100,000 pop) | 192 |
+| RS_198 | Road traffic mortality rate (per 100,000 pop) | 202 |
+| UHC_INDEX_REPORTED | UHC: Service coverage index | 201 |
+
+## Exploratory Data Analysis
+
+```{r}
+#| echo: false
+
+# Get the world map data
+world_map_df <- map_data("world")
+
+cleaned_wle_2021_df <- who_life_expectancy_2021_df %>%
+  select(WHOSIS_000001__SEX_BTSX, DIM_GEO_NAME) %>%
+  mutate(DIM_GEO_NAME = case_when(DIM_GEO_NAME == "Antigua and Barbuda" ~ "Antigua",
+                                  DIM_GEO_NAME == "Czechia" ~ "Czech Republic",
+                                  DIM_GEO_NAME == "Bolivia (Plurinational State of)" ~ "Bolivia",
+                                  DIM_GEO_NAME == "Brunei Darussalam" ~ "Brunei",
+                                  DIM_GEO_NAME == "Democratic People's Republic of Korea" ~ "North Korea",
+                                  DIM_GEO_NAME == "Congo" ~ "Republic of Congo",
+                                  DIM_GEO_NAME == "Eswatini" ~ "Swaziland",
+                                  DIM_GEO_NAME == "Cote d'Ivoire" ~ "Ivory Coast",
+                                  DIM_GEO_NAME == "Russian Federation" ~ "Russia",
+                                  DIM_GEO_NAME == "Venezuela (Bolivarian Republic of)" ~ "Venezuela",
+                                  DIM_GEO_NAME == "Trinidad and Tobago" ~ "Trinidad",
+                                  DIM_GEO_NAME == "Micronesia (Federated States of)" ~ "Micronesia",
+                                  DIM_GEO_NAME == "United Republic of Tanzania" ~ "Tanzania",
+                                  DIM_GEO_NAME == "Lao People's Democratic Republic" ~ "Laos",
+                                  DIM_GEO_NAME == "Iran (Islamic Republic of)" ~ "Iran",
+                                  DIM_GEO_NAME == "Viet Nam" ~ "Vietnam",
+                                  DIM_GEO_NAME == "Republic of Moldova" ~ "Moldova",
+                                  DIM_GEO_NAME == "Syrian Arab Republic" ~ "Syria",
+                                  DIM_GEO_NAME == "Saint Vincent and the Grenadines" ~ "Saint Vincent",
+                                  DIM_GEO_NAME == "occupied Palestinian territory, including east Jerusalem" ~ "Palestine",
+                                  DIM_GEO_NAME == "Republic of Korea" ~ "South Korea",
+                                  DIM_GEO_NAME == "United States of America" ~ "USA",
+                                  DIM_GEO_NAME == "Netherlands (Kingdom of the)" ~ "Netherlands",
+                                  DIM_GEO_NAME == "United Kingdom of Great Britain and Northern Ireland" ~ "United Kingdom",
+                                  DIM_GEO_NAME == "Cabo Verde" ~ "Cape Verde",
+                                  DIM_GEO_NAME == "Türkiye" ~ "Turkey",
+                                  TRUE ~ DIM_GEO_NAME))
+
+world_map_life_expectancy_2021_df <- full_join(world_map_df, cleaned_wle_2021_df,
+                                               by = c('region'='DIM_GEO_NAME'))
+
+test <- world_map_life_expectancy_2021_df %>%
+  filter(is.na(long) | is.na(WHOSIS_000001__SEX_BTSX)) %>%
+  distinct(region, WHOSIS_000001__SEX_BTSX)
+
+write.csv(test, 'test.csv')
+
+ggplot(data = world_map_life_expectancy_2021_df, aes(x = long, y = lat, group = group, fill = WHOSIS_000001__SEX_BTSX)) +
+  geom_polygon(color = "black") + 
+  scale_fill_viridis_c(option = "plasma", na.value = "lightgrey") +
+  theme_minimal() + 
+  labs(
+    title = "Life Expectancy",
+    x = "Longitude",
+    y = "Latitude",
+    fill = "Life Expectancy at Birth" 
+  )
+
+
+```
+
+## Exploratory Data Analysis
+
+```{r}
+
+histogram_plot <- ggplot(data = cleaned_wle_2021_df, 
+                         aes(x = WHOSIS_000001__SEX_BTSX)) +
+  geom_histogram(binwidth = 2, fill = "skyblue", color = "black", alpha = 0.7) +
+  theme_minimal() +
+  labs(
+    title = "Distribution of Life Expectancy - Histogram",
+    x = "Life Expectancy from Birth",
+    y = "Frequency"
+  )
+
+boxplot_plot <- ggplot(data = cleaned_wle_2021_df, 
+                       aes(x = WHOSIS_000001__SEX_BTSX, y = 0)) +
+  geom_boxplot(width = 0.5, fill = "orange", alpha = 0.7) +
+  theme_minimal() +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), 
+        axis.title.y = element_blank()) + # Remove y-axis elements for cleaner look
+  labs(
+    x = "Life Expectancy from Birth"
+  )
+
+(histogram_plot / boxplot_plot) + 
+  plot_layout(heights = c(3, 1))
+
+```
+
+
+```{r}
+
+table_df <- who_life_expectancy_2021_df %>%
+  filter(!is.na(WHOSIS_000001__SEX_BTSX)) %>%
+  transmute(Country = DIM_GEO_NAME,
+            `Life expectancy` = WHOSIS_000001__SEX_BTSX,
+            `Diff from mean` = round(WHOSIS_000001__SEX_BTSX - mean(WHOSIS_000001__SEX_BTSX), 2)) %>%
+  arrange(desc(`Life expectancy`))
+
+stats_table <- table_df %>%
+  summarise(
+    `N` = n(),
+    `Mean` = round(mean(`Life expectancy`), 2),
+    `Median` = round(median(`Life expectancy`), 2),
+    `Minimum` = round(min(`Life expectancy`), 2),
+    `Maximum` = round(max(`Life expectancy`), 2),
+    `SD` = round(sd(`Life expectancy`), 2)
+  )
+
+
+kable(stats_table, 
+                   format = "html") %>%
+  kable_styling(font_size = 30)
+
+```
+
+## Exploratory Data Analysis
+
+```{r}
+
+# Generate the Top 5 and Bottom 5 tables
+top_table <- kable(head(table_df, 5), 
+                   caption = "Top 5",
+                   format = "html") %>%
+  kable_styling(font_size = 22)
+
+bottom_table <- kable(tail(table_df, 5), 
+                      caption = "Bottom 5",
+                      format = "html") %>%
+  kable_styling(font_size = 22)
+
+kable(table_df %>% filter(Country == 'United States of America'), 
+                   format = "html") %>%
+  kable_styling(font_size = 30)
+
+# Combine tables in columns using HTML
+htmltools::tagList(
+  htmltools::tags$div(
+    style = "display: flex; justify-content: space-between;",
+    htmltools::tags$div(style = "width: 48%;", HTML(top_table)),
+    htmltools::tags$div(style = "width: 48%;", HTML(bottom_table))
+  )
+)
+
+```
+
+## Exploratory Data Analysis
+
+```{r}
+
+who_life_expectancy_2021_model_df <- who_life_expectancy_2021_df %>%
+  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE,  `GHED_GGHE-DGGE_SHA2011`, UHC_INDEX_REPORTED, RS_198) %>% na.omit()
+
+ggpairs(who_life_expectancy_2021_model_df %>% select(-DIM_GEO_NAME), title = "Pairs Plot with Correlations and Scatterplots")
+
+```
+
+## 1st Multiple Linear Regression Model
+
+::: {style="font-size: 0.4em;"}
+$$
+\begin{aligned}
+\text{WHOSIS_000001_SEX_BTSX} &= \beta_0 + \beta_1 (\text{SDGSUICIDE}) + \beta_2 (\text{SDGPOISON}) + \beta_3 (\text{VIOLENCE_HOMICIDERATE}) \\
+&\quad + \beta_4 (\text{GHED_GGHE-DGGE_SHA2011}) + \beta_5 (\text{UHC_INDEX_REPORTED}) + \beta_6 (\text{RS_198}) + \epsilon
+\end{aligned}
+$$
+:::
+
+
+```{r}
+
+le_2021_lm <- lm(WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + 
+   `GHED_GGHE-DGGE_SHA2011` + UHC_INDEX_REPORTED + RS_198, data = who_life_expectancy_2021_model_df)
+
+mod <- summary(le_2021_lm)
+
+coef_df <- mod$coefficients %>%
+  as.data.frame() %>%
+  rename(p = `Pr(>|t|)`) %>%
+  mutate(p = ifelse(p < 0.0001, "<0.0001", format(round(p, 4), scientific = FALSE)))
+
+kable(coef_df) %>%
+  kable_styling(font_size = 24)
+
+
+dof <- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')
+f_stat <- round(mod$fstatistic[[1]], 4)
+
+kable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '<0.0001')) %>%
+  kable_styling(font_size = 24)
+
+```
+
+## 1st Multiple Linear Regression Model
+
+```{r}
+ 
+plot1 <- ggplot(augment(le_2021_lm), aes(.fitted, .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(title = "Residuals vs Fitted", x = "Fitted Values", y = "Residuals") +
+  theme_minimal()
+
+# Normal Q-Q Plot
+plot2 <- ggplot(augment(le_2021_lm), aes(sample = .std.resid)) +
+  stat_qq() +
+  stat_qq_line() +
+  labs(title = "Normal Q-Q Plot", x = "Theoretical Quantiles", y = "Standardized Residuals") +
+  theme_minimal()
+
+# Combine plots side by side with patchwork
+plot1 + plot2
+
+```
+
+## 1st Multiple Linear Regression Model
+
+```{r}
+
+plot3 <- ggplot(augment(le_2021_lm), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Scale-Location Plot", x = "Fitted Values", y = "Sqrt |Standardized Residuals|") +
+  theme_minimal()
+
+plot4 <- ggplot(augment(le_2021_lm), aes(x = .hat, y = .std.resid)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Residuals vs Leverage Plot", x = "Leverage", y = "Standardized Residuals") +
+  theme_minimal()
+
+plot3 + plot4
+
+
+```
+## 1st Multiple Linear Regression Model
+
+```{r}
+
+dw_test <- dwtest(le_2021_lm)
+bp_test <- bptest(le_2021_lm)
+ncv_test <- ncvTest(le_2021_lm)
+shapiro_test <- shapiro.test(residuals(le_2021_lm))
+ks_test <- ks.test(residuals(le_2021_lm), "pnorm", mean = mean(residuals(le_2021_lm)), sd = sd(residuals(le_2021_lm)))
+
+# Combine results into a data frame
+test_results <- data.frame(
+  Test = c("Durbin-Watson Test", "Breusch-Pagan Test", "Non-Constant Variance Test", 
+           "Shapiro-Wilk Test", "Kolmogorov-Smirnov Test"),
+  Statistic = c(dw_test$statistic, bp_test$statistic, ncv_test$ChiSquare, 
+                shapiro_test$statistic, ks_test$statistic),
+  P_Value = c(dw_test$p.value, bp_test$p.value, ncv_test$p, 
+              shapiro_test$p.value, ks_test$p.value)
+)
+
+
+# Generate kable table
+kable(test_results, row.names = FALSE, caption = "Results of Diagnostic Tests for Linear Regression")
+
+```
+
+## 1st Multiple Linear Regression Model
+
+### VIF
+
+```{r}
+
+vif_values <- vif(le_2021_lm)
+
+# Display VIF values
+print(vif_values)
+
+```
+## 1st Multiple Linear Regression Model
+
+### Outliers
+```{r}
+
+cooks_d <- cooks.distance(le_2021_lm)
+
+influential <- which(cooks_d > (4/nrow(who_life_expectancy_2021_model_df)))
+cat("Influential Observations:\n", influential)
+
+who_life_expectancy_2021_model_df[influential, ]$DIM_GEO_NAME
+
+
+```
+
+## 2nd Multiple Linear Regression Model
+
+::: {style="font-size: 0.4em;"}
+$$
+\begin{aligned}
+\text{WHOSIS_000001_SEX_BTSX} &= \beta_0 + \beta_1 (\text{SDGSUICIDE}) + \beta_2 (\text{SDGPOISON}) + \beta_3 (\text{VIOLENCE_HOMICIDERATE})  \\
+&\quad  + \beta_4 (\text{UHC_INDEX_REPORTED}) + \beta_5 (\text{RS_198}) + \epsilon
+\end{aligned}
+$$
+:::
+
+```{r}
+
+who_life_expectancy_2021_model_2_df <- who_life_expectancy_2021_df %>%
+  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE, UHC_INDEX_REPORTED, RS_198) %>% 
+  na.omit()
+
+le_2021_lm_2 <- lm(WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + UHC_INDEX_REPORTED + RS_198, data = who_life_expectancy_2021_model_2_df)
+
+mod <- summary(le_2021_lm_2)
+
+coef_df <- mod$coefficients %>%
+  as.data.frame() %>%
+  rename(p = `Pr(>|t|)`) %>%
+  mutate(p = ifelse(p < 0.0001, "<0.0001", format(round(p, 4), scientific = FALSE)))
+
+kable(coef_df) %>%
+  kable_styling(font_size = 24)
+
+
+dof <- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')
+f_stat <- round(mod$fstatistic[[1]], 4)
+
+kable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '<0.0001')) %>%
+  kable_styling(font_size = 24)
+
+```
+
+
+
+## 2nd Multiple Linear Regression Model
+
+```{r}
+ 
+plot1 <- ggplot(augment(le_2021_lm_2), aes(.fitted, .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(title = "Residuals vs Fitted", x = "Fitted Values", y = "Residuals") +
+  theme_minimal()
+
+# Normal Q-Q Plot
+plot2 <- ggplot(augment(le_2021_lm_2), aes(sample = .std.resid)) +
+  stat_qq() +
+  stat_qq_line() +
+  labs(title = "Normal Q-Q Plot", x = "Theoretical Quantiles", y = "Standardized Residuals") +
+  theme_minimal()
+
+# Combine plots side by side with patchwork
+plot1 + plot2
+
+```
+
+## 2nd Multiple Linear Regression Model
+
+```{r}
+
+plot3 <- ggplot(augment(le_2021_lm_2), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Scale-Location Plot", x = "Fitted Values", y = "Sqrt |Standardized Residuals|") +
+  theme_minimal()
+
+plot4 <- ggplot(augment(le_2021_lm_2), aes(x = .hat, y = .std.resid)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Residuals vs Leverage Plot", x = "Leverage", y = "Standardized Residuals") +
+  theme_minimal()
+
+plot3 + plot4
+
+
+```
+
+## 2nd Multiple Linear Regression Model
+
+```{r}
+
+dw_test_2 <- dwtest(le_2021_lm_2)
+bp_test_2 <- bptest(le_2021_lm_2)
+ncv_test_2 <- ncvTest(le_2021_lm_2)
+shapiro_test_2 <- shapiro.test(residuals(le_2021_lm_2))
+ks_test_2 <- ks.test(residuals(le_2021_lm_2), "pnorm", mean = mean(residuals(le_2021_lm_2)), sd = sd(residuals(le_2021_lm_2)))
+
+# Combine results into a data frame
+test_results_2 <- data.frame(
+  Test = c("Durbin-Watson Test", "Breusch-Pagan Test", "Non-Constant Variance Test", 
+           "Shapiro-Wilk Test", "Kolmogorov-Smirnov Test"),
+  Statistic = c(dw_test_2$statistic, bp_test_2$statistic, ncv_test_2$ChiSquare, 
+                shapiro_test_2$statistic, ks_test_2$statistic),
+  P_Value = c(dw_test_2$p.value, bp_test_2$p.value, ncv_test_2$p, 
+              shapiro_test_2$p.value, ks_test_2$p.value)
+)
+
+
+# Generate kable table
+kable(test_results_2, row.names = FALSE, caption = "Results of Diagnostic Tests for Linear Regression")
+
+```
+## 2nd Multiple Linear Regression Model
+
+### VIF
+
+```{r}
+
+vif_values <- vif(le_2021_lm_2)
+
+# Display VIF values
+print(vif_values)
+
+```
+## 2nd Multiple Linear Regression Model
+
+### Outliers
+```{r}
+
+cooks_d <- cooks.distance(le_2021_lm_2)
+
+influential <- which(cooks_d > (4/nrow(who_life_expectancy_2021_model_2_df)))
+cat("Influential Observations:\n", influential)
+
+who_life_expectancy_2021_model_2_df[influential, ]$DIM_GEO_NAME
+
+
+```
+
+## Cross-validated 2nd Multiple Linear Regression Model
+
+::: {style="font-size: 0.4em;"}
+$$
+\begin{aligned}
+\text{WHOSIS_000001_SEX_BTSX} &= \beta_0 + \beta_1 (\text{SDGSUICIDE}) + \beta_2 (\text{SDGPOISON}) + \beta_3 (\text{VIOLENCE_HOMICIDERATE})  \\
+&\quad  + \beta_4 (\text{UHC_INDEX_REPORTED}) + \beta_5 (\text{RS_198}) + \epsilon
+\end{aligned}
+$$
+Cross validation with 10 folds and outliers removed if Cooks D is over 4/n = 0.02424242.
+:::
+
+```{r}
+
+who_life_expectancy_2021_model_2_cv_df <- who_life_expectancy_2021_df[-influential, ] %>%
+  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE, UHC_INDEX_REPORTED, RS_198) %>%
+  na.omit()
+
+
+set.seed(123)
+
+train_control <- trainControl(method = "cv", number = 10) 
+
+le_2021_lm_2_cv <- train(
+  WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + UHC_INDEX_REPORTED + RS_198,
+  data = who_life_expectancy_2021_model_2_cv_df,
+  method = "lm",
+  trControl = train_control
+)
+
+mod <- summary(le_2021_lm_2_cv)
+
+coef_df <- mod$coefficients %>%
+  as.data.frame() %>%
+  rename(p = `Pr(>|t|)`) %>%
+  mutate(p = ifelse(p < 0.0001, "<0.0001", format(round(p, 4), scientific = FALSE)))
+
+kable(coef_df) %>%
+  kable_styling(font_size = 24)
+
+
+dof <- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')
+f_stat <- round(mod$fstatistic[[1]], 4)
+
+kable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '<0.0001')) %>%
+  kable_styling(font_size = 24)
+
+```
+
+
+
+## Cross-validated 2nd Multiple Linear Regression Model
+
+```{r}
+ 
+plot1 <- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(.fitted, .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(title = "Residuals vs Fitted", x = "Fitted Values", y = "Residuals") +
+  theme_minimal()
+
+plot2 <- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(sample = .std.resid)) +
+  stat_qq() +
+  stat_qq_line() +
+  labs(title = "Normal Q-Q Plot", x = "Theoretical Quantiles", y = "Standardized Residuals") +
+  theme_minimal()
+
+plot1 + plot2
+
+```
+
+## Cross-validated 2nd Multiple Linear Regression Model
+
+```{r}
+
+plot3 <- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Scale-Location Plot", x = "Fitted Values", y = "Sqrt |Standardized Residuals|") +
+  theme_minimal()
+
+plot4 <- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(x = .hat, y = .std.resid)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = "loess", color = "blue") +
+  labs(title = "Residuals vs Leverage Plot", x = "Leverage", y = "Standardized Residuals") +
+  theme_minimal()
+
+plot3 + plot4
+
+
+```
+
+## Cross-validated 2nd Multiple Linear Regression Model
+
+```{r}
+
+dw_test_cv <- dwtest(le_2021_lm_2_cv$finalModel)
+bp_test_cv <- bptest(le_2021_lm_2_cv$finalModel)
+ncv_test_cv <- ncvTest(le_2021_lm_2_cv$finalModel)
+shapiro_test_cv <- shapiro.test(residuals(le_2021_lm_2_cv$finalModel))
+ks_test_cv <- ks.test(residuals(le_2021_lm_2_cv$finalModel), "pnorm", mean = mean(residuals(le_2021_lm_2_cv$finalModel)), sd = sd(residuals(le_2021_lm_2_cv$finalModel)))
+
+test_results_cv <- data.frame(
+  Test = c("Durbin-Watson Test", "Breusch-Pagan Test", "Non-Constant Variance Test", 
+           "Shapiro-Wilk Test", "Kolmogorov-Smirnov Test"),
+  Statistic = c(dw_test_cv$statistic, bp_test_cv$statistic, ncv_test_cv$ChiSquare, 
+                shapiro_test_cv$statistic, ks_test_cv$statistic),
+  P_Value = c(dw_test_cv$p.value, bp_test_cv$p.value, ncv_test_cv$p, 
+              shapiro_test_cv$p.value, ks_test_cv$p.value)
+)
+
+
+kable(test_results_cv, row.names = FALSE, caption = "Results of Diagnostic Tests for Linear Regression")
+
+```
+## Cross-validated 2nd Multiple Linear Regression Model
+
+### VIF
+
+```{r}
+
+vif_values <- vif(le_2021_lm_2_cv$finalModel)
+
+print(vif_values)
+
+```
+
+## Model Performance
+
+```{r}
+
+calculate_lm_metrics <- function(model) {
+  residuals <- model$residuals
+  
+  rmse <- sqrt(mean(residuals^2))
+  mae <- mean(abs(residuals))
+  r_squared <- summary(model)$r.squared
+  adj_r_squared <- summary(model)$adj.r.squared
+  
+  aic <- AIC(model)
+  bic <- BIC(model)
+  
+  list(
+    RMSE = rmse,
+    MAE = mae,
+    R2 = r_squared,
+    Adjusted_R2 = adj_r_squared,
+    AIC = aic,
+    BIC = bic
+  )
+}
+
+
+cv_metrics <- calculate_lm_metrics(le_2021_lm_2_cv$finalModel)
+
+lm_2_metrics <- calculate_lm_metrics(le_2021_lm_2)
+
+lm_metrics <- calculate_lm_metrics(le_2021_lm)
+
+
+comparison_df <- data.frame(
+  Model = c("le_2021_lm", "le_2021_lm_2", "le_2021_lm_2_cv"),
+  RMSE = c(lm_metrics$RMSE, lm_2_metrics$RMSE, cv_metrics$RMSE),
+  MAE = c(lm_metrics$MAE, lm_2_metrics$MAE, cv_metrics$MAE),
+  R2 = c(lm_metrics$R2, lm_2_metrics$R2, cv_metrics$R2),
+  Adjusted_R2 = c(lm_metrics$Adjusted_R2, lm_2_metrics$Adjusted_R2, cv_metrics$Adjusted_R2),
+  AIC = c(lm_metrics$AIC, lm_2_metrics$AIC, cv_metrics$AIC),
+  BIC = c(lm_metrics$BIC, lm_2_metrics$BIC, cv_metrics$BIC)
+)
+
+kable(comparison_df, caption = "Comparison of Model Performance Metrics") %>%
+  kable_styling(font_size = 26, full_width = FALSE)
+
+
+```
+
+## References
+
+::: {style="font-size: 0.5em;"}
+
+### Datasets
+1. World Health Organization. (n.d.). *World Health Statistics*. Retrieved from [https://www.who.int/data/gho/data/themes/world-health-statistics](https://www.who.int/data/gho/data/themes/world-health-statistics).  
+   Description: Explore global health statistics compiled by WHO, covering key health indicators and trends worldwide.
+
+2. World Health Organization. (n.d.). *Life Expectancy at Birth (Years)*. Retrieved from [https://www.who.int/data/gho/data/indicators/indicator-details/GHO/life-expectancy-at-birth-(years)](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/life-expectancy-at-birth-(years)).  
+   Description: Access detailed data on life expectancy at birth, including global and regional comparisons.
+
+:::
+
+## References
+
+::: {style="font-size: 0.4em;"}
+
+### Software and Packages
+1. Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L., François, R., ... & Yutani, H. (2019). *Welcome to the tidyverse*. Journal of Open Source Software, 4(43), 1686.  
+   Description: A collection of R packages for data science, including `ggplot2`, `dplyr`, and `tidyr`.
+
+2. Xie, Y. (2015). *Dynamic Documents with R and knitr*. 2nd edition. CRC Press.  
+   Description: A package for dynamic report generation in R, enabling reproducible research.
+
+3. Becker, R. A., Wilks, A. R., & Brownrigg, R. (2018). *maps: Draw Geographical Maps*. R package version 3.3.0.  
+   Description: Provides data and functions to create geographical maps.
+
+4. Zhu, H. (2021). *kableExtra: Construct Complex Table with kable and Pipe Syntax*. R package version 1.3.4. Retrieved from [https://CRAN.R-project.org/package=kableExtra](https://CRAN.R-project.org/package=kableExtra).  
+   Description: Enhances `knitr::kable()` for richly formatted tables.
+
+5. Allaire, J. (2018). *htmltools: Tools for HTML*. R package version 0.5.2. Retrieved from [https://CRAN.R-project.org/package=htmltools](https://CRAN.R-project.org/package=htmltools).  
+   Description: Tools for creating and rendering HTML in R Markdown and Quarto.
+
+6. Pedersen, T. L. (2020). *patchwork: The Composer of ggplot2 Plots*. R package version 1.1.1. Retrieved from [https://CRAN.R-project.org/package=patchwork](https://CRAN.R-project.org/package=patchwork).  
+   Description: Simplifies combining multiple ggplot2 plots into cohesive layouts.
+
+7. Auguie, B. (2017). *gridExtra: Miscellaneous Functions for "Grid" Graphics*. R package version 2.3. Retrieved from [https://CRAN.R-project.org/package=gridExtra](https://CRAN.R-project.org/package=gridExtra).  
+   Description: Provides functions for arranging multiple grid-based plots.
+
+8. Robinson, D., Hayes, A., & Couch, S. (2022). *broom: Convert Statistical Analysis Objects into Tidy Tibbles*. R package version 0.7.12. Retrieved from [https://CRAN.R-project.org/package=broom](https://CRAN.R-project.org/package=broom).  
+    Description: Converts statistical analysis objects into tidy data frames.
+
+9. Fox, J., & Weisberg, S. (2018). *An R Companion to Applied Regression*. 3rd edition. Sage Publications.  
+    Description: Provides diagnostic tools for linear and generalized linear models.
+
+10. Zeileis, A., & Hothorn, T. (2002). *Diagnostic Checking in Regression Relationships*. *R News*, 2(3), 7–10.  
+    Description: Implements diagnostic tests for linear regression, including the Breusch-Pagan test.
+
+:::

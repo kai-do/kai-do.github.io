@@ -1,0 +1,23 @@
+---
+title: "Portfolio"
+format:
+  html:
+    execute:
+      enabled: true
+---
+
+
+## My Projects
+
+```{r project_links, echo=FALSE, results='asis'}
+
+files <- dir("projects", pattern = "\\.qmd$", full.names = FALSE)
+files <- sort(files)
+
+for (f in files) {
+  name  <- tools::file_path_sans_ext(f)
+  title <- gsub("_", " ", name) |> tools::toTitleCase()
+  cat(sprintf("- [%s](projects/%s.html)\n", title, name))
+}
+
+```

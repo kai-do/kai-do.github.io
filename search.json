@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "kai.do",
+    "objectID": "projects/social_media_addiction.html",
+    "href": "projects/social_media_addiction.html",
+    "title": "Social Media Addiction",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Test project"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Life Expectancy Final Report Html\nSocial Media Addiction"
+  },
+  {
+    "objectID": "portfolio.html#my-projects",
+    "href": "portfolio.html#my-projects",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Life Expectancy Final Report Html\nSocial Media Addiction"
   },
   {
     "objectID": "about.html",
@@ -12,5 +26,208 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "kai.do",
+    "section": "",
+    "text": "New website coming soon…"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html",
+    "href": "projects/life_expectancy_final_report_html.html",
+    "title": "Predicting Life Expectancy",
+    "section": "",
+    "text": "Objective: Predict life expectancy in 2021 using WHO data.\nApproach: Build a linear regression model with selected predictors."
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#introduction",
+    "href": "projects/life_expectancy_final_report_html.html#introduction",
+    "title": "Predicting Life Expectancy",
+    "section": "",
+    "text": "Objective: Predict life expectancy in 2021 using WHO data.\nApproach: Build a linear regression model with selected predictors."
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#data-sources",
+    "href": "projects/life_expectancy_final_report_html.html#data-sources",
+    "title": "Predicting Life Expectancy",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\nWorld Health Statistics: Explore global health statistics compiled by WHO, covering key health indicators and trends worldwide.\nLife Expectancy Data: Access detailed data on life expectancy at birth, including global and regional comparisons.\n\n\n\nData Description\n\n\n2021 year data selected for largest number of variables with data.\nCollected globally for multiple years and countries.\nVariables include economic, health, and demographic indicators.\nAggregated by year and country."
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#variable-selection",
+    "href": "projects/life_expectancy_final_report_html.html#variable-selection",
+    "title": "Predicting Life Expectancy",
+    "section": "2021 Variable Selection",
+    "text": "2021 Variable Selection\n\n\n\n\n\n\n\n\nIndicator Code\nIndicator Name\nNumber of Countries\n\n\n\n\nWHOSIS_000001\nLife expectancy at birth (years)\n185\n\n\nGHED_GGHE-DGGE_SHA2011\nDomestic general government health expenditure\n196\n\n\nVIOLENCE_HOMICIDERATE\nMortality rate due to homicide (per 100,000 pop)\n192\n\n\nSDGPOISON\nMortality rate from unintentional poisoning (per 100,000 pop)\n192\n\n\nSDGSUICIDE\nSuicide mortality rate (per 100,000 pop)\n192\n\n\nRS_198\nRoad traffic mortality rate (per 100,000 pop)\n202\n\n\nUHC_INDEX_REPORTED\nUHC: Service coverage index\n201"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis",
+    "href": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis",
+    "title": "Predicting Life Expectancy",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-1",
+    "href": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-1",
+    "title": "Predicting Life Expectancy",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\n\nhistogram_plot &lt;- ggplot(data = cleaned_wle_2021_df, \n                         aes(x = WHOSIS_000001__SEX_BTSX)) +\n  geom_histogram(binwidth = 2, fill = \"skyblue\", color = \"black\", alpha = 0.7) +\n  theme_minimal() +\n  labs(\n    title = \"Distribution of Life Expectancy - Histogram\",\n    x = \"Life Expectancy from Birth\",\n    y = \"Frequency\"\n  )\n\nboxplot_plot &lt;- ggplot(data = cleaned_wle_2021_df, \n                       aes(x = WHOSIS_000001__SEX_BTSX, y = 0)) +\n  geom_boxplot(width = 0.5, fill = \"orange\", alpha = 0.7) +\n  theme_minimal() +\n  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), \n        axis.title.y = element_blank()) + # Remove y-axis elements for cleaner look\n  labs(\n    x = \"Life Expectancy from Birth\"\n  )\n\n(histogram_plot / boxplot_plot) + \n  plot_layout(heights = c(3, 1))\n\nWarning: Removed 23 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\nWarning: Removed 23 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\n\n\n\n\n\n\n\n\ntable_df &lt;- who_life_expectancy_2021_df %&gt;%\n  filter(!is.na(WHOSIS_000001__SEX_BTSX)) %&gt;%\n  transmute(Country = DIM_GEO_NAME,\n            `Life expectancy` = WHOSIS_000001__SEX_BTSX,\n            `Diff from mean` = round(WHOSIS_000001__SEX_BTSX - mean(WHOSIS_000001__SEX_BTSX), 2)) %&gt;%\n  arrange(desc(`Life expectancy`))\n\nstats_table &lt;- table_df %&gt;%\n  summarise(\n    `N` = n(),\n    `Mean` = round(mean(`Life expectancy`), 2),\n    `Median` = round(median(`Life expectancy`), 2),\n    `Minimum` = round(min(`Life expectancy`), 2),\n    `Maximum` = round(max(`Life expectancy`), 2),\n    `SD` = round(sd(`Life expectancy`), 2)\n  )\n\n\nkable(stats_table, \n                   format = \"html\") %&gt;%\n  kable_styling(font_size = 30)\n\n\n\n\nN\nMean\nMedian\nMinimum\nMaximum\nSD\n\n\n\n\n185\n71.29\n72.19\n51.48\n84.46\n7.14"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-2",
+    "href": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-2",
+    "title": "Predicting Life Expectancy",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\n\n# Generate the Top 5 and Bottom 5 tables\ntop_table &lt;- kable(head(table_df, 5), \n                   caption = \"Top 5\",\n                   format = \"html\") %&gt;%\n  kable_styling(font_size = 22)\n\nbottom_table &lt;- kable(tail(table_df, 5), \n                      caption = \"Bottom 5\",\n                      format = \"html\") %&gt;%\n  kable_styling(font_size = 22)\n\nkable(table_df %&gt;% filter(Country == 'United States of America'), \n                   format = \"html\") %&gt;%\n  kable_styling(font_size = 30)\n\n\n\n\nCountry\nLife expectancy\nDiff from mean\n\n\n\n\nUnited States of America\n76.37\n5.08\n\n\n\n\n\n\n# Combine tables in columns using HTML\nhtmltools::tagList(\n  htmltools::tags$div(\n    style = \"display: flex; justify-content: space-between;\",\n    htmltools::tags$div(style = \"width: 48%;\", HTML(top_table)),\n    htmltools::tags$div(style = \"width: 48%;\", HTML(bottom_table))\n  )\n)\n\n\n\n\nTop 5\n\n\nCountry\nLife expectancy\nDiff from mean\n\n\n\n\nJapan\n84.46\n13.17\n\n\nSingapore\n83.86\n12.57\n\n\nRepublic of Korea\n83.80\n12.51\n\n\nSwitzerland\n83.33\n12.04\n\n\nAustralia\n83.10\n11.81\n\n\n\n\n\n\nBottom 5\n\n\nCountry\nLife expectancy\nDiff from mean\n\n\n\n\nMozambique\n57.66\n-13.63\n\n\nEswatini\n54.59\n-16.70\n\n\nSomalia\n53.95\n-17.34\n\n\nCentral African Republic\n52.31\n-18.98\n\n\nLesotho\n51.48\n-19.81"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-3",
+    "href": "projects/life_expectancy_final_report_html.html#exploratory-data-analysis-3",
+    "title": "Predicting Life Expectancy",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\n\nwho_life_expectancy_2021_model_df &lt;- who_life_expectancy_2021_df %&gt;%\n  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE,  `GHED_GGHE-DGGE_SHA2011`, UHC_INDEX_REPORTED, RS_198) %&gt;% na.omit()\n\nggpairs(who_life_expectancy_2021_model_df %&gt;% select(-DIM_GEO_NAME), title = \"Pairs Plot with Correlations and Scatterplots\")"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\n\\[\n\\begin{aligned}\n\\text{WHOSIS_000001_SEX_BTSX} &= \\beta_0 + \\beta_1 (\\text{SDGSUICIDE}) + \\beta_2 (\\text{SDGPOISON}) + \\beta_3 (\\text{VIOLENCE_HOMICIDERATE}) \\\\\n&\\quad + \\beta_4 (\\text{GHED_GGHE-DGGE_SHA2011}) + \\beta_5 (\\text{UHC_INDEX_REPORTED}) + \\beta_6 (\\text{RS_198}) + \\epsilon\n\\end{aligned}\n\\]\n\n\nle_2021_lm &lt;- lm(WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + \n   `GHED_GGHE-DGGE_SHA2011` + UHC_INDEX_REPORTED + RS_198, data = who_life_expectancy_2021_model_df)\n\nmod &lt;- summary(le_2021_lm)\n\ncoef_df &lt;- mod$coefficients %&gt;%\n  as.data.frame() %&gt;%\n  rename(p = `Pr(&gt;|t|)`) %&gt;%\n  mutate(p = ifelse(p &lt; 0.0001, \"&lt;0.0001\", format(round(p, 4), scientific = FALSE)))\n\nkable(coef_df) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\n\nEstimate\nStd. Error\nt value\np\n\n\n\n\n(Intercept)\n56.3063380\n1.5535484\n36.243698\n&lt;0.0001\n\n\nSDGSUICIDE\n-0.1507814\n0.0408496\n-3.691136\n0.0003\n\n\nSDGPOISON\n-1.6042932\n0.3694605\n-4.342259\n&lt;0.0001\n\n\nVIOLENCE_HOMICIDERATE\n-0.0997750\n0.0177839\n-5.610420\n&lt;0.0001\n\n\n`GHED_GGHE-DGGE_SHA2011`\n0.0717588\n0.0597367\n1.201251\n0.2313\n\n\nUHC_INDEX_REPORTED\n0.2948442\n0.0226499\n13.017443\n&lt;0.0001\n\n\nRS_198\n-0.1361027\n0.0406599\n-3.347347\n0.0010\n\n\n\n\n\n\ndof &lt;- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')\nf_stat &lt;- round(mod$fstatistic[[1]], 4)\n\nkable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '&lt;0.0001')) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\ndof\nadjusted_r_sq\nf\np\n\n\n\n\n168 (6)\n0.8382467\n151.2854\n&lt;0.0001"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-1",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-1",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\nplot1 &lt;- ggplot(augment(le_2021_lm), aes(.fitted, .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  labs(title = \"Residuals vs Fitted\", x = \"Fitted Values\", y = \"Residuals\") +\n  theme_minimal()\n\n# Normal Q-Q Plot\nplot2 &lt;- ggplot(augment(le_2021_lm), aes(sample = .std.resid)) +\n  stat_qq() +\n  stat_qq_line() +\n  labs(title = \"Normal Q-Q Plot\", x = \"Theoretical Quantiles\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\n# Combine plots side by side with patchwork\nplot1 + plot2"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-2",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-2",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\nplot3 &lt;- ggplot(augment(le_2021_lm), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Scale-Location Plot\", x = \"Fitted Values\", y = \"Sqrt |Standardized Residuals|\") +\n  theme_minimal()\n\nplot4 &lt;- ggplot(augment(le_2021_lm), aes(x = .hat, y = .std.resid)) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Residuals vs Leverage Plot\", x = \"Leverage\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\nplot3 + plot4\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-3",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-3",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\ndw_test &lt;- dwtest(le_2021_lm)\nbp_test &lt;- bptest(le_2021_lm)\nncv_test &lt;- ncvTest(le_2021_lm)\nshapiro_test &lt;- shapiro.test(residuals(le_2021_lm))\nks_test &lt;- ks.test(residuals(le_2021_lm), \"pnorm\", mean = mean(residuals(le_2021_lm)), sd = sd(residuals(le_2021_lm)))\n\n# Combine results into a data frame\ntest_results &lt;- data.frame(\n  Test = c(\"Durbin-Watson Test\", \"Breusch-Pagan Test\", \"Non-Constant Variance Test\", \n           \"Shapiro-Wilk Test\", \"Kolmogorov-Smirnov Test\"),\n  Statistic = c(dw_test$statistic, bp_test$statistic, ncv_test$ChiSquare, \n                shapiro_test$statistic, ks_test$statistic),\n  P_Value = c(dw_test$p.value, bp_test$p.value, ncv_test$p, \n              shapiro_test$p.value, ks_test$p.value)\n)\n\n\n# Generate kable table\nkable(test_results, row.names = FALSE, caption = \"Results of Diagnostic Tests for Linear Regression\")\n\n\nResults of Diagnostic Tests for Linear Regression\n\n\nTest\nStatistic\nP_Value\n\n\n\n\nDurbin-Watson Test\n2.3498186\n0.9893840\n\n\nBreusch-Pagan Test\n7.1365819\n0.3084008\n\n\nNon-Constant Variance Test\n3.4501468\n0.0632462\n\n\nShapiro-Wilk Test\n0.9882313\n0.1534889\n\n\nKolmogorov-Smirnov Test\n0.0536419\n0.6951746"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-4",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-4",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\nVIF\n\nvif_values &lt;- vif(le_2021_lm)\n\n# Display VIF values\nprint(vif_values)\n\n              SDGSUICIDE                SDGPOISON    VIOLENCE_HOMICIDERATE \n                1.331199                 1.594088                 1.141473 \n`GHED_GGHE-DGGE_SHA2011`       UHC_INDEX_REPORTED                   RS_198 \n                2.136879                 2.877204                 1.942718"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-5",
+    "href": "projects/life_expectancy_final_report_html.html#st-multiple-linear-regression-model-5",
+    "title": "Predicting Life Expectancy",
+    "section": "1st Multiple Linear Regression Model",
+    "text": "1st Multiple Linear Regression Model\n\nOutliers\n\ncooks_d &lt;- cooks.distance(le_2021_lm)\n\ninfluential &lt;- which(cooks_d &gt; (4/nrow(who_life_expectancy_2021_model_df)))\ncat(\"Influential Observations:\\n\", influential)\n\nInfluential Observations:\n 20 50 54 55 69 71 82 92 112 130 148\n\nwho_life_expectancy_2021_model_df[influential, ]$DIM_GEO_NAME\n\n [1] \"Bolivia (Plurinational State of)\" \"El Salvador\"                     \n [3] \"Eswatini\"                         \"Ethiopia\"                        \n [5] \"Guyana\"                           \"Honduras\"                        \n [7] \"Japan\"                            \"Lesotho\"                         \n [9] \"Nepal\"                            \"Republic of Korea\"               \n[11] \"South Africa\""
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\n\\[\n\\begin{aligned}\n\\text{WHOSIS_000001_SEX_BTSX} &= \\beta_0 + \\beta_1 (\\text{SDGSUICIDE}) + \\beta_2 (\\text{SDGPOISON}) + \\beta_3 (\\text{VIOLENCE_HOMICIDERATE})  \\\\\n&\\quad  + \\beta_4 (\\text{UHC_INDEX_REPORTED}) + \\beta_5 (\\text{RS_198}) + \\epsilon\n\\end{aligned}\n\\]\n\n\nwho_life_expectancy_2021_model_2_df &lt;- who_life_expectancy_2021_df %&gt;%\n  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE, UHC_INDEX_REPORTED, RS_198) %&gt;% \n  na.omit()\n\nle_2021_lm_2 &lt;- lm(WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + UHC_INDEX_REPORTED + RS_198, data = who_life_expectancy_2021_model_2_df)\n\nmod &lt;- summary(le_2021_lm_2)\n\ncoef_df &lt;- mod$coefficients %&gt;%\n  as.data.frame() %&gt;%\n  rename(p = `Pr(&gt;|t|)`) %&gt;%\n  mutate(p = ifelse(p &lt; 0.0001, \"&lt;0.0001\", format(round(p, 4), scientific = FALSE)))\n\nkable(coef_df) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\n\nEstimate\nStd. Error\nt value\np\n\n\n\n\n(Intercept)\n55.5344011\n1.4987284\n37.054346\n&lt;0.0001\n\n\nSDGSUICIDE\n-0.1504010\n0.0405660\n-3.707558\n0.0003\n\n\nSDGPOISON\n-1.6593428\n0.3605409\n-4.602371\n&lt;0.0001\n\n\nVIOLENCE_HOMICIDERATE\n-0.1017178\n0.0174390\n-5.832793\n&lt;0.0001\n\n\nUHC_INDEX_REPORTED\n0.3156003\n0.0179705\n17.562144\n&lt;0.0001\n\n\nRS_198\n-0.1123031\n0.0376799\n-2.980452\n0.0033\n\n\n\n\n\n\ndof &lt;- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')\nf_stat &lt;- round(mod$fstatistic[[1]], 4)\n\nkable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '&lt;0.0001')) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\ndof\nadjusted_r_sq\nf\np\n\n\n\n\n173 (5)\n0.8399323\n187.8059\n&lt;0.0001"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-1",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-1",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\nplot1 &lt;- ggplot(augment(le_2021_lm_2), aes(.fitted, .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  labs(title = \"Residuals vs Fitted\", x = \"Fitted Values\", y = \"Residuals\") +\n  theme_minimal()\n\n# Normal Q-Q Plot\nplot2 &lt;- ggplot(augment(le_2021_lm_2), aes(sample = .std.resid)) +\n  stat_qq() +\n  stat_qq_line() +\n  labs(title = \"Normal Q-Q Plot\", x = \"Theoretical Quantiles\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\n# Combine plots side by side with patchwork\nplot1 + plot2"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-2",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-2",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\nplot3 &lt;- ggplot(augment(le_2021_lm_2), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Scale-Location Plot\", x = \"Fitted Values\", y = \"Sqrt |Standardized Residuals|\") +\n  theme_minimal()\n\nplot4 &lt;- ggplot(augment(le_2021_lm_2), aes(x = .hat, y = .std.resid)) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Residuals vs Leverage Plot\", x = \"Leverage\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\nplot3 + plot4\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-3",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-3",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\ndw_test_2 &lt;- dwtest(le_2021_lm_2)\nbp_test_2 &lt;- bptest(le_2021_lm_2)\nncv_test_2 &lt;- ncvTest(le_2021_lm_2)\nshapiro_test_2 &lt;- shapiro.test(residuals(le_2021_lm_2))\nks_test_2 &lt;- ks.test(residuals(le_2021_lm_2), \"pnorm\", mean = mean(residuals(le_2021_lm_2)), sd = sd(residuals(le_2021_lm_2)))\n\n# Combine results into a data frame\ntest_results_2 &lt;- data.frame(\n  Test = c(\"Durbin-Watson Test\", \"Breusch-Pagan Test\", \"Non-Constant Variance Test\", \n           \"Shapiro-Wilk Test\", \"Kolmogorov-Smirnov Test\"),\n  Statistic = c(dw_test_2$statistic, bp_test_2$statistic, ncv_test_2$ChiSquare, \n                shapiro_test_2$statistic, ks_test_2$statistic),\n  P_Value = c(dw_test_2$p.value, bp_test_2$p.value, ncv_test_2$p, \n              shapiro_test_2$p.value, ks_test_2$p.value)\n)\n\n\n# Generate kable table\nkable(test_results_2, row.names = FALSE, caption = \"Results of Diagnostic Tests for Linear Regression\")\n\n\nResults of Diagnostic Tests for Linear Regression\n\n\nTest\nStatistic\nP_Value\n\n\n\n\nDurbin-Watson Test\n2.3230996\n0.9847699\n\n\nBreusch-Pagan Test\n6.8131376\n0.2349126\n\n\nNon-Constant Variance Test\n2.3655306\n0.1240417\n\n\nShapiro-Wilk Test\n0.9890196\n0.1817105\n\n\nKolmogorov-Smirnov Test\n0.0573625\n0.5978729"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-4",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-4",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\nVIF\n\nvif_values &lt;- vif(le_2021_lm_2)\n\n# Display VIF values\nprint(vif_values)\n\n           SDGSUICIDE             SDGPOISON VIOLENCE_HOMICIDERATE \n             1.327656              1.617461              1.096931 \n   UHC_INDEX_REPORTED                RS_198 \n             1.884449              1.837350"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-5",
+    "href": "projects/life_expectancy_final_report_html.html#nd-multiple-linear-regression-model-5",
+    "title": "Predicting Life Expectancy",
+    "section": "2nd Multiple Linear Regression Model",
+    "text": "2nd Multiple Linear Regression Model\n\nOutliers\n\ncooks_d &lt;- cooks.distance(le_2021_lm_2)\n\ninfluential &lt;- which(cooks_d &gt; (4/nrow(who_life_expectancy_2021_model_2_df)))\ncat(\"Influential Observations:\\n\", influential)\n\nInfluential Observations:\n 50 54 55 69 71 92 107 113 131 150\n\nwho_life_expectancy_2021_model_2_df[influential, ]$DIM_GEO_NAME\n\n [1] \"El Salvador\"       \"Eswatini\"          \"Ethiopia\"         \n [4] \"Guyana\"            \"Honduras\"          \"Lesotho\"          \n [7] \"Mongolia\"          \"Nepal\"             \"Republic of Korea\"\n[10] \"South Africa\""
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model",
+    "href": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model",
+    "title": "Predicting Life Expectancy",
+    "section": "Cross-validated 2nd Multiple Linear Regression Model",
+    "text": "Cross-validated 2nd Multiple Linear Regression Model\n\n\\[\n\\begin{aligned}\n\\text{WHOSIS_000001_SEX_BTSX} &= \\beta_0 + \\beta_1 (\\text{SDGSUICIDE}) + \\beta_2 (\\text{SDGPOISON}) + \\beta_3 (\\text{VIOLENCE_HOMICIDERATE})  \\\\\n&\\quad  + \\beta_4 (\\text{UHC_INDEX_REPORTED}) + \\beta_5 (\\text{RS_198}) + \\epsilon\n\\end{aligned}\n\\] Cross validation with 10 folds and outliers removed if Cooks D is over 4/n = 0.02424242.\n\n\nwho_life_expectancy_2021_model_2_cv_df &lt;- who_life_expectancy_2021_df[-influential, ] %&gt;%\n  select(DIM_GEO_NAME, WHOSIS_000001__SEX_BTSX, SDGSUICIDE, SDGPOISON, VIOLENCE_HOMICIDERATE, UHC_INDEX_REPORTED, RS_198) %&gt;%\n  na.omit()\n\n\nset.seed(123)\n\ntrain_control &lt;- trainControl(method = \"cv\", number = 10) \n\nle_2021_lm_2_cv &lt;- train(\n  WHOSIS_000001__SEX_BTSX ~ SDGSUICIDE + SDGPOISON + VIOLENCE_HOMICIDERATE + UHC_INDEX_REPORTED + RS_198,\n  data = who_life_expectancy_2021_model_2_cv_df,\n  method = \"lm\",\n  trControl = train_control\n)\n\nmod &lt;- summary(le_2021_lm_2_cv)\n\ncoef_df &lt;- mod$coefficients %&gt;%\n  as.data.frame() %&gt;%\n  rename(p = `Pr(&gt;|t|)`) %&gt;%\n  mutate(p = ifelse(p &lt; 0.0001, \"&lt;0.0001\", format(round(p, 4), scientific = FALSE)))\n\nkable(coef_df) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\n\nEstimate\nStd. Error\nt value\np\n\n\n\n\n(Intercept)\n55.3603598\n1.5484979\n35.751007\n&lt;0.0001\n\n\nSDGSUICIDE\n-0.1572935\n0.0415137\n-3.788950\n0.0002\n\n\nSDGPOISON\n-1.6994817\n0.3980872\n-4.269120\n&lt;0.0001\n\n\nVIOLENCE_HOMICIDERATE\n-0.1002785\n0.0175822\n-5.703413\n&lt;0.0001\n\n\nUHC_INDEX_REPORTED\n0.3169513\n0.0186606\n16.985073\n&lt;0.0001\n\n\nRS_198\n-0.1060533\n0.0390329\n-2.717026\n0.0073\n\n\n\n\n\n\ndof &lt;- paste0(mod$df[2], ' (', mod$df[1] - 1, ')')\nf_stat &lt;- round(mod$fstatistic[[1]], 4)\n\nkable(data.frame(dof = dof, adjusted_r_sq = mod$adj.r.squared, f = f_stat, p = '&lt;0.0001')) %&gt;%\n  kable_styling(font_size = 24)\n\n\n\n\ndof\nadjusted_r_sq\nf\np\n\n\n\n\n165 (5)\n0.8381847\n177.1161\n&lt;0.0001"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-1",
+    "href": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-1",
+    "title": "Predicting Life Expectancy",
+    "section": "Cross-validated 2nd Multiple Linear Regression Model",
+    "text": "Cross-validated 2nd Multiple Linear Regression Model\n\nplot1 &lt;- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(.fitted, .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  labs(title = \"Residuals vs Fitted\", x = \"Fitted Values\", y = \"Residuals\") +\n  theme_minimal()\n\nplot2 &lt;- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(sample = .std.resid)) +\n  stat_qq() +\n  stat_qq_line() +\n  labs(title = \"Normal Q-Q Plot\", x = \"Theoretical Quantiles\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\nplot1 + plot2"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-2",
+    "href": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-2",
+    "title": "Predicting Life Expectancy",
+    "section": "Cross-validated 2nd Multiple Linear Regression Model",
+    "text": "Cross-validated 2nd Multiple Linear Regression Model\n\nplot3 &lt;- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(x = .fitted, y = sqrt(abs(.std.resid)))) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Scale-Location Plot\", x = \"Fitted Values\", y = \"Sqrt |Standardized Residuals|\") +\n  theme_minimal()\n\nplot4 &lt;- ggplot(augment(le_2021_lm_2_cv$finalModel), aes(x = .hat, y = .std.resid)) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"loess\", color = \"blue\") +\n  labs(title = \"Residuals vs Leverage Plot\", x = \"Leverage\", y = \"Standardized Residuals\") +\n  theme_minimal()\n\nplot3 + plot4\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-3",
+    "href": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-3",
+    "title": "Predicting Life Expectancy",
+    "section": "Cross-validated 2nd Multiple Linear Regression Model",
+    "text": "Cross-validated 2nd Multiple Linear Regression Model\n\ndw_test_cv &lt;- dwtest(le_2021_lm_2_cv$finalModel)\nbp_test_cv &lt;- bptest(le_2021_lm_2_cv$finalModel)\nncv_test_cv &lt;- ncvTest(le_2021_lm_2_cv$finalModel)\nshapiro_test_cv &lt;- shapiro.test(residuals(le_2021_lm_2_cv$finalModel))\nks_test_cv &lt;- ks.test(residuals(le_2021_lm_2_cv$finalModel), \"pnorm\", mean = mean(residuals(le_2021_lm_2_cv$finalModel)), sd = sd(residuals(le_2021_lm_2_cv$finalModel)))\n\ntest_results_cv &lt;- data.frame(\n  Test = c(\"Durbin-Watson Test\", \"Breusch-Pagan Test\", \"Non-Constant Variance Test\", \n           \"Shapiro-Wilk Test\", \"Kolmogorov-Smirnov Test\"),\n  Statistic = c(dw_test_cv$statistic, bp_test_cv$statistic, ncv_test_cv$ChiSquare, \n                shapiro_test_cv$statistic, ks_test_cv$statistic),\n  P_Value = c(dw_test_cv$p.value, bp_test_cv$p.value, ncv_test_cv$p, \n              shapiro_test_cv$p.value, ks_test_cv$p.value)\n)\n\n\nkable(test_results_cv, row.names = FALSE, caption = \"Results of Diagnostic Tests for Linear Regression\")\n\n\nResults of Diagnostic Tests for Linear Regression\n\n\nTest\nStatistic\nP_Value\n\n\n\n\nDurbin-Watson Test\n2.3769557\n0.9932708\n\n\nBreusch-Pagan Test\n6.0301515\n0.3032961\n\n\nNon-Constant Variance Test\n2.8903527\n0.0891114\n\n\nShapiro-Wilk Test\n0.9894765\n0.2359149\n\n\nKolmogorov-Smirnov Test\n0.0502646\n0.7806274"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-4",
+    "href": "projects/life_expectancy_final_report_html.html#cross-validated-2nd-multiple-linear-regression-model-4",
+    "title": "Predicting Life Expectancy",
+    "section": "Cross-validated 2nd Multiple Linear Regression Model",
+    "text": "Cross-validated 2nd Multiple Linear Regression Model\n\nVIF\n\nvif_values &lt;- vif(le_2021_lm_2_cv$finalModel)\n\nprint(vif_values)\n\n           SDGSUICIDE             SDGPOISON VIOLENCE_HOMICIDERATE \n             1.347350              1.721961              1.099314 \n   UHC_INDEX_REPORTED                RS_198 \n             1.902331              1.845280"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#model-performance",
+    "href": "projects/life_expectancy_final_report_html.html#model-performance",
+    "title": "Predicting Life Expectancy",
+    "section": "Model Performance",
+    "text": "Model Performance\n\ncalculate_lm_metrics &lt;- function(model) {\n  residuals &lt;- model$residuals\n  \n  rmse &lt;- sqrt(mean(residuals^2))\n  mae &lt;- mean(abs(residuals))\n  r_squared &lt;- summary(model)$r.squared\n  adj_r_squared &lt;- summary(model)$adj.r.squared\n  \n  aic &lt;- AIC(model)\n  bic &lt;- BIC(model)\n  \n  list(\n    RMSE = rmse,\n    MAE = mae,\n    R2 = r_squared,\n    Adjusted_R2 = adj_r_squared,\n    AIC = aic,\n    BIC = bic\n  )\n}\n\n\ncv_metrics &lt;- calculate_lm_metrics(le_2021_lm_2_cv$finalModel)\n\nlm_2_metrics &lt;- calculate_lm_metrics(le_2021_lm_2)\n\nlm_metrics &lt;- calculate_lm_metrics(le_2021_lm)\n\n\ncomparison_df &lt;- data.frame(\n  Model = c(\"le_2021_lm\", \"le_2021_lm_2\", \"le_2021_lm_2_cv\"),\n  RMSE = c(lm_metrics$RMSE, lm_2_metrics$RMSE, cv_metrics$RMSE),\n  MAE = c(lm_metrics$MAE, lm_2_metrics$MAE, cv_metrics$MAE),\n  R2 = c(lm_metrics$R2, lm_2_metrics$R2, cv_metrics$R2),\n  Adjusted_R2 = c(lm_metrics$Adjusted_R2, lm_2_metrics$Adjusted_R2, cv_metrics$Adjusted_R2),\n  AIC = c(lm_metrics$AIC, lm_2_metrics$AIC, cv_metrics$AIC),\n  BIC = c(lm_metrics$BIC, lm_2_metrics$BIC, cv_metrics$BIC)\n)\n\nkable(comparison_df, caption = \"Comparison of Model Performance Metrics\") %&gt;%\n  kable_styling(font_size = 26, full_width = FALSE)\n\n\nComparison of Model Performance Metrics\n\n\nModel\nRMSE\nMAE\nR2\nAdjusted_R2\nAIC\nBIC\n\n\n\n\nle_2021_lm\n2.805954\n2.212388\n0.8438244\n0.8382467\n873.7387\n899.0570\n\n\nle_2021_lm_2\n2.820613\n2.234396\n0.8444286\n0.8399323\n893.2097\n915.5214\n\n\nle_2021_lm_2_cv\n2.828850\n2.243908\n0.8429440\n0.8381847\n854.9127\n876.9043"
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#references",
+    "href": "projects/life_expectancy_final_report_html.html#references",
+    "title": "Predicting Life Expectancy",
+    "section": "References",
+    "text": "References\n\nDatasets\n\nWorld Health Organization. (n.d.). World Health Statistics. Retrieved from https://www.who.int/data/gho/data/themes/world-health-statistics.\nDescription: Explore global health statistics compiled by WHO, covering key health indicators and trends worldwide.\nWorld Health Organization. (n.d.). Life Expectancy at Birth (Years). Retrieved from https://www.who.int/data/gho/data/indicators/indicator-details/GHO/life-expectancy-at-birth-(years).\nDescription: Access detailed data on life expectancy at birth, including global and regional comparisons."
+  },
+  {
+    "objectID": "projects/life_expectancy_final_report_html.html#references-1",
+    "href": "projects/life_expectancy_final_report_html.html#references-1",
+    "title": "Predicting Life Expectancy",
+    "section": "References",
+    "text": "References\n\nSoftware and Packages\n\nWickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L., François, R., … & Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686.\nDescription: A collection of R packages for data science, including ggplot2, dplyr, and tidyr.\nXie, Y. (2015). Dynamic Documents with R and knitr. 2nd edition. CRC Press.\nDescription: A package for dynamic report generation in R, enabling reproducible research.\nBecker, R. A., Wilks, A. R., & Brownrigg, R. (2018). maps: Draw Geographical Maps. R package version 3.3.0.\nDescription: Provides data and functions to create geographical maps.\nZhu, H. (2021). kableExtra: Construct Complex Table with kable and Pipe Syntax. R package version 1.3.4. Retrieved from https://CRAN.R-project.org/package=kableExtra.\nDescription: Enhances knitr::kable() for richly formatted tables.\nAllaire, J. (2018). htmltools: Tools for HTML. R package version 0.5.2. Retrieved from https://CRAN.R-project.org/package=htmltools.\nDescription: Tools for creating and rendering HTML in R Markdown and Quarto.\nPedersen, T. L. (2020). patchwork: The Composer of ggplot2 Plots. R package version 1.1.1. Retrieved from https://CRAN.R-project.org/package=patchwork.\nDescription: Simplifies combining multiple ggplot2 plots into cohesive layouts.\nAuguie, B. (2017). gridExtra: Miscellaneous Functions for “Grid” Graphics. R package version 2.3. Retrieved from https://CRAN.R-project.org/package=gridExtra.\nDescription: Provides functions for arranging multiple grid-based plots.\nRobinson, D., Hayes, A., & Couch, S. (2022). broom: Convert Statistical Analysis Objects into Tidy Tibbles. R package version 0.7.12. Retrieved from https://CRAN.R-project.org/package=broom.\nDescription: Converts statistical analysis objects into tidy data frames.\nFox, J., & Weisberg, S. (2018). An R Companion to Applied Regression. 3rd edition. Sage Publications.\nDescription: Provides diagnostic tools for linear and generalized linear models.\nZeileis, A., & Hothorn, T. (2002). Diagnostic Checking in Regression Relationships. R News, 2(3), 7–10.\nDescription: Implements diagnostic tests for linear regression, including the Breusch-Pagan test."
   }
 ]

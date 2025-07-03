@@ -9,11 +9,15 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - portfolio.qmd
+        
+  page-footer:
+    center: "Copyright © {{< now year >}} Kaido Analytics LLC"
+
 
 format:
   html:
-    theme:
-      - quartz
+    theme: lumen
     css: styles.css
     toc: true
 
