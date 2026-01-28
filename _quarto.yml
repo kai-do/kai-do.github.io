@@ -8,8 +8,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - portfolio.qmd
+      #- about.qmd
+      #- portfolio.qmd
         
   page-footer:
     center: "Copyright © {{< now year >}} Kaido Analytics LLC"

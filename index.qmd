@@ -1,5 +1,30 @@
 ---
-title: "kai.do"
+title: "Kaido Analytics"
+page-layout: full
+format:
+  html:
+    toc: false
+    code-fold: false
+    code-tools: false
 ---
 
-New website coming soon...
+
+**Data analytics & decision support for public safety and compliance.**
+
+Transparent, reproducible, and tailored to your needs.
+
+### Focus areas
+
+* **Public safety analytics:** incident patterns, demand, performance measurement
+* **Compliance & inspections:** coverage, workload, risk-based prioritization
+* **Benchmarking:** peer comparisons, targets, and variance drivers
+
+### What I deliver
+
+* Interactive reports (Quarto/HTML)
+* Dashboards
+* Reproducible pipelines (SQL + R/Python) with documentation
+
+---
+
+*Selected demos and case studies will be published here as they’re ready.*
