@@ -1,25 +1,59 @@
 project:
   type: website
-  output-dir: "."
+  output-dir: docs
+  resources:
+    - CNAME
+    - .nojekyll
+
+execute:
+  freeze: auto
 
 website:
-  title: "kai.do"
+  title: "Nakai Zemer"
+  site-url: https://kai.do
+  favicon: assets/favicon.svg
+  draft-mode: gone
+  open-graph: true
+  twitter-card: true
+  # TODO: add assets/share-card.png (1200x630) as the site-wide default share image
+  # image: assets/share-card.png
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      #- about.qmd
-      #- portfolio.qmd
-        
+    title: '<span class="brand-domain">kai.do</span> Nakai Zemer'
+    right:
+      - href: posts.qmd
+        text: Writing
+      - href: notes.qmd
+        text: Notes
+      - href: projects.qmd
+        text: Projects
+      - href: resume.qmd
+        text: Resume
+      - href: about.qmd
+        text: About
+      - icon: github
+        href: https://github.com/kai-do
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/nakai-zemer
+        aria-label: LinkedIn
+      - icon: rss
+        href: posts.xml
+        aria-label: RSS
   page-footer:
-    center: "Copyright © {{< now year >}} Kaido Analytics LLC"
-
+    left: "© {{< now year >}} Kaido Analytics LLC"
+    right:
+      - text: RSS
+        href: posts.xml
 
 format:
   html:
-    theme: lumen
-    css: styles.css
-    toc: true
-
-
-
+    theme:
+      light: [cosmo, assets/_light.scss, styles.scss]
+      dark: [cosmo, assets/_dark.scss, styles.scss]
+    highlight-style:
+      light: github
+      dark: nord
+    html-math-method: katex
+    date-format: iso
+    toc: false
+    include-in-header: assets/goatcounter.html

@@ -1,0 +1,34 @@
+---
+title: "Call Volume and Seasonality Dashboard"
+description: "A map and incident-type explorer with time-series and seasonality views and forecasts."
+categories: [shiny, time-series]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+A map and incident-type explorer with a time-series and seasonality explorer, including ARIMA predictions. This has already been mostly built (with a lot of AI help); the plan is to resurrect the project and rebuild it without heavy assistance.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+## Links
+
+TODO:

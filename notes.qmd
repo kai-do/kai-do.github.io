@@ -1,0 +1,14 @@
+---
+title: "Notes"
+description: "Math, physics, and learning."
+toc: false
+listing:
+  contents: notes
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  feed: true
+  fields: [date, title, description, categories, reading-time]
+---

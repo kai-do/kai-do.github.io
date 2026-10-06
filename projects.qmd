@@ -1,0 +1,11 @@
+---
+title: "Projects"
+description: "Selected work, built with synthetic or public data."
+toc: false
+listing:
+  contents: projects
+  type: grid
+  sort: "title"
+  grid-columns: 2
+  fields: [title, description, categories]
+---

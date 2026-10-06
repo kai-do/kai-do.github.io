@@ -1,0 +1,36 @@
+---
+title: "Response Time Dashboard"
+description: "A Shiny dashboard that breaks response times into segments (turnout, drive time, on-scene) by battalion, station, and call type, and lets a user compare selected groups."
+categories: [shiny, statistics]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+Break down response times by battalion, station, and type, and by segment (turnout, drive time, on-scene time, etc.). Let the user select and compare groups and run a t-test on them. Meant to demonstrate Shiny capability.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+TODO: decide whether this becomes a shinylive embed.
+
+## Links
+
+TODO:

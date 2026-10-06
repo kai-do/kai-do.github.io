@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Download PDF"
+  },
+  {
+    "objectID": "resume.html#experience",
+    "href": "resume.html#experience",
+    "title": "Resume",
+    "section": "Experience",
+    "text": "Experience\n\nFire Data Analyst\nCobb County Fire & Emergency Services · Sep 2022–present\n\nPrimary support contact for ImageTrend RMS across roughly 800 department users\nPrimary resource on the TeleStaff database schema; led the SSRS reporting cutover for TeleStaff’s migration to Google BigQuery\nDesigns and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations\nBuilt an incomplete-report accountability system with chain-of-command escalation\nBuilt a SQL Server database and SSRS reports tracking apparatus capabilities and assignments from a live CAD feed, ahead of a department-wide apparatus reallocation; designed the schema and architecture for a related apparatus-assignment/GIS run-card prototype\nDesigned and deployed a NERIS ImageTrend form with a versioned 52-page user guide; implemented the NEMSIS 3.5 PCR form\nLeading a data warehouse modernization effort to unify source systems for reporting\n\n\n\nFounder & Data Science Consultant\nKaido Analytics LLC · Jan 2023–present · remote\n\nReproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report maintained for a client over two consecutive years\n\n\n\nFire Data Technician III\nCobb County Fire & Emergency Services · Dec 2019–Sep 2022\n\nIntroduced R and RStudio for analysis; managed R projects with Git and GitHub\nAdded about 40 SSRS reports\n\n\n\nFire Data Technician II\nCobb County Fire & Emergency Services · May 2019–Dec 2019\n\nT-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server\nCreated about 58 SSRS reports\n\n\n\nFire Data Technician I\nCobb County Fire & Emergency Services · Aug 2018–May 2019\n\nAdministered ImageTrend Elite forms and validations\nSQL for SSRS and Excel reports; SSRS projects in Visual Studio with Azure DevOps\n\n\n\nIndependent IT Contractor\nFeb 2015–Aug 2018\n\nServers and infrastructure for small businesses\nBuilt a website and web store for a CNC manufacturing start-up"
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Resume",
+    "section": "Education",
+    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA\nChattahoochee Technical College: AAS in Cybersecurity, 2016–2018"
+  },
+  {
+    "objectID": "resume.html#certification",
+    "href": "resume.html#certification",
+    "title": "Resume",
+    "section": "Certification",
+    "text": "Certification\nData Science: R Basics (HarvardX, 2021)"
+  },
+  {
+    "objectID": "resume.html#languages",
+    "href": "resume.html#languages",
+    "title": "Resume",
+    "section": "Languages",
+    "text": "Languages\nEnglish (native), Spanish (basic)"
+  },
+  {
+    "objectID": "resume.html#also",
+    "href": "resume.html#also",
+    "title": "Resume",
+    "section": "Also",
+    "text": "Also\n100+ independent R and SQL projects"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a data analyst at Cobb County Fire & Emergency Services in Georgia, where I’ve worked on incident data and reporting for eight years. I’m interested in anywhere math and analytics meet public safety, and I’m still learning a lot of it. This site is where I write up what I learn and share projects."
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About",
+    "section": "Interests",
+    "text": "Interests\n\nOptimization and simulation for emergency services: unit and station deployment, coverage, run cards\nMeasuring response times with sound statistics\nCommunity risk assessment and accreditation analytics\nData engineering for public-safety data (SQL Server, warehousing, NFIRS/NERIS)\nOutside work: math, computer science, physics, and learning science"
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\nR & analytics. R (8 years), Quarto & R Markdown, Shiny (incl. shinylive), tidyverse & data.table, ggplot2, plotly, leaflet, rvest\nSQL & reporting. SQL Server, T-SQL, SSRS paginated reports, Power BI, database design, data marts, performance tuning\nStatistics & modeling. Linear & logistic regression, ANOVA & non-parametric methods, Poisson models & anomaly detection, time-series forecasting (fpp3), XGBoost & random forest, integer programming (ompr + HiGHS), simulation\nGIS. sf, OSRM routing & travel-time analysis, tidycensus, geocoding\nPlatforms & domain. Azure DevOps, Git & GitHub, CI/CD, Docker, Python, ImageTrend Elite (NERIS, NEMSIS 3.5), PremierOne CAD, TeleStaff"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA\nChattahoochee Technical College: AAS in Cybersecurity, 2016–2018\nPlanning to pursue Georgia Tech’s OMSCS after the BS"
+  },
+  {
+    "objectID": "about.html#kaido-analytics",
+    "href": "about.html#kaido-analytics",
+    "title": "About",
+    "section": "Kaido Analytics",
+    "text": "Kaido Analytics\nKaido Analytics LLC is the company I founded in 2023 for reproducible statistical analyses and reports in R and Quarto. I occasionally take on analytics and reporting work through Kaido Analytics."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\nEmail: n@kai.do\nLinkedIn · GitHub"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Nakai Zemer",
+    "section": "",
+    "text": "Math and analytics for fire & EMS\nI’m a data analyst at Cobb County Fire & Emergency Services in Georgia, where I’ve worked on incident data and reporting for eight years. I’m interested in anywhere math and analytics meet public safety: statistics, simulation, and optimization problems like where to place units and how to measure response times honestly. I’m still learning a lot of it, and this site is where I write up what I learn and share projects."
+  },
+  {
+    "objectID": "index.html#recent-writing",
+    "href": "index.html#recent-writing",
+    "title": "Nakai Zemer",
+    "section": "Recent writing",
+    "text": "Recent writing\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Nakai Zemer",
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Writing",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "about.html#use-of-artificial-intelligence",
+    "href": "about.html#use-of-artificial-intelligence",
+    "title": "About",
+    "section": "Use of Artificial Intelligence",
+    "text": "Use of Artificial Intelligence\nLast Updated: 2026-10-06\nMy feelings about using AI are complicated. On one hand, AI can be a genuinely useful tool for breaking down concepts beyond textbook explanations, generating boilerplate and debugging code, automating tedious tasks, and finding resources (textbooks, code, tutorials, etc.). It can accelerate learning and shift the focus off some less rewarding tasks if used properly.\nOn the other hand, the purist approach of completely abstaining from using it is also appealing to me, just like how film photography is appealing because of its manual, tactile nature. One prompt could generate a photo that realizes my vision with a high degree of accuracy, synthetic film grain and all, but the satisfaction of the process is traded for ease and “perfection”. Prompting doesn’t compare to the joy of finding an algorithm for a knotty programming problem, figuring out an elegant math problem, getting out into the world with a camera, or crafting a thoughtfully worded paragraph through personal effort, even if those processes don’t result in “perfection”. Often, what’s gained through the process outweighs the goal, and true satisfaction comes from having developed the skills yourself to self-sufficiently realize that goal. For this site, the process is the goal. There’s plenty of mathematics, stats, computer science, and public safety domain-specific resources that are far better than what I can offer here. This site will focus on my learning process and showcase some of its results. Posting my content online just holds me to a higher standard of completion.\nSo, how will I use AI?\n\nWriting: Every post, analysis, and conclusion on this site is mine. I am responsible for all content on this site.\nPhotography: All photos on this site are mine, and no generative AI is used to create or edit them.\nEditing: I may use AI for proofreading, grammar, spellchecking, and some word reordering suggestions, depending on how “perfectionist” I am feeling.\nCode: I generally write my own code. I usually work out my own (often inelegant) solution first, then sometimes use AI to help me find a better one. I won’t post code I don’t understand, and I’ll note any code that relies heavily on AI.\nResearch: I may use AI tools to give background on a subject, locate sources, and teach me about code libraries. All claims will be checked against, and cited to, their original source.\nLearning: I will try to work through problems and concepts myself first, and then only use AI to help me if I get stuck or to check my understanding."
+  }
+]

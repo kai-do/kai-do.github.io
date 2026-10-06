@@ -1,0 +1,45 @@
+/*-- scss:rules --*/
+
+body { line-height: 1.6; }
+
+#quarto-content main.content,
+.page-columns .content { max-width: 70ch; }
+
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
+h2 { margin-top: 2rem; border-bottom: 1px solid var(--bs-border-color); padding-bottom: .25rem; }
+
+a { text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+.navbar-brand .navbar-title { font-weight: 600; letter-spacing: -0.01em; }
+
+/* Mono for small details */
+.quarto-title-meta, .quarto-title-meta-heading, .quarto-title-meta-contents,
+.listing-date, .listing-categories, .listing-category, .quarto-category,
+.listing-reading-time, figcaption, .figure-caption, .quarto-figure figcaption,
+.nav-footer, .card-subtitle {
+  font-family: var(--bs-font-monospace);
+  font-size: .8rem;
+}
+.listing-date { color: var(--bs-secondary-color); }
+.quarto-category { border-radius: 2px; background: transparent; border: 1px solid var(--bs-border-color); color: var(--bs-secondary-color); }
+
+.quarto-title-block .quarto-title-banner { display: none; }
+
+/* Code and math */
+pre.sourceCode, div.sourceCode { border: 1px solid var(--bs-border-color); border-radius: 3px; }
+code { font-size: .85em; }
+.katex { font-size: 1em; }
+
+/* Listing items */
+.quarto-listing-default .list.quarto-listing-default .listing-item { padding: .75rem 0; }
+.quarto-grid-item.card { border-radius: 3px; box-shadow: none; }
+
+.tagline { font-size: 1.25rem; color: var(--bs-secondary-color); margin-top: -.25rem; }
+
+.brand-domain {
+  font-family: var(--bs-font-monospace);
+  font-weight: 500;
+  color: inherit;
+  opacity: .7;
+  margin-right: .4em;
+}

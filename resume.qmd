@@ -1,0 +1,65 @@
+---
+title: "Resume"
+toc: false
+---
+
+[Download PDF](assets/nakai-zemer-resume.pdf){.btn .btn-outline-primary .btn-sm}
+
+## Experience
+
+### Fire Data Analyst
+Cobb County Fire & Emergency Services · Sep 2022–present
+
+- Primary support contact for ImageTrend RMS across roughly 800 department users
+- Primary resource on the TeleStaff database schema; led the SSRS reporting cutover for TeleStaff's migration to Google BigQuery
+- Designs and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations
+- Built an incomplete-report accountability system with chain-of-command escalation
+- Built a SQL Server database and SSRS reports tracking apparatus capabilities and assignments from a live CAD feed, ahead of a department-wide apparatus reallocation; designed the schema and architecture for a related apparatus-assignment/GIS run-card prototype
+- Designed and deployed a NERIS ImageTrend form with a versioned 52-page user guide; implemented the NEMSIS 3.5 PCR form
+- Leading a data warehouse modernization effort to unify source systems for reporting
+
+### Founder & Data Science Consultant
+Kaido Analytics LLC · Jan 2023–present · remote
+
+- Reproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report maintained for a client over two consecutive years
+
+### Fire Data Technician III
+Cobb County Fire & Emergency Services · Dec 2019–Sep 2022
+
+- Introduced R and RStudio for analysis; managed R projects with Git and GitHub
+- Added about 40 SSRS reports
+
+### Fire Data Technician II
+Cobb County Fire & Emergency Services · May 2019–Dec 2019
+
+- T-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server
+- Created about 58 SSRS reports
+
+### Fire Data Technician I
+Cobb County Fire & Emergency Services · Aug 2018–May 2019
+
+- Administered ImageTrend Elite forms and validations
+- SQL for SSRS and Excel reports; SSRS projects in Visual Studio with Azure DevOps
+
+### Independent IT Contractor
+Feb 2015–Aug 2018
+
+- Servers and infrastructure for small businesses
+- Built a website and web store for a CNC manufacturing start-up
+
+## Education
+
+- **Kennesaw State University:** BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA
+- **Chattahoochee Technical College:** AAS in Cybersecurity, 2016–2018
+
+## Certification
+
+Data Science: R Basics (HarvardX, 2021)
+
+## Languages
+
+English (native), Spanish (basic)
+
+## Also
+
+100+ independent R and SQL projects

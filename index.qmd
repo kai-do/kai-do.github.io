@@ -1,30 +1,37 @@
 ---
-title: "Kaido Analytics"
-page-layout: full
-format:
-  html:
-    toc: false
-    code-fold: false
-    code-tools: false
+title: "Nakai Zemer"
+page-layout: article
+toc: false
+listing:
+  - id: recent
+    contents: [posts, notes]
+    type: default
+    sort: "date desc"
+    max-items: 5
+    fields: [date, title, description, categories]
+    feed: false
+  - id: featured-projects
+    contents: projects
+    type: grid
+    sort: "title"
+    grid-columns: 2
+    fields: [title, description, categories]
 ---
 
+::: {.tagline}
+Math and analytics for fire & EMS
+:::
 
-**Data analytics & decision support for public safety and compliance.**
+<!-- Alternative tagline: "Statistics, simulation, and optimization for public safety" -->
 
-Transparent, reproducible, and tailored to your needs.
+I'm a data analyst at Cobb County Fire & Emergency Services in Georgia, where I've worked on incident data and reporting for eight years. I'm interested in anywhere math and analytics meet public safety: statistics, simulation, and optimization problems like where to place units and how to measure response times honestly. I'm still learning a lot of it, and this site is where I write up what I learn and share projects.
 
-### Focus areas
+## Recent writing
 
-* **Public safety analytics:** incident patterns, demand, performance measurement
-* **Compliance & inspections:** coverage, workload, risk-based prioritization
-* **Benchmarking:** peer comparisons, targets, and variance drivers
+::: {#recent}
+:::
 
-### What I deliver
+## Projects
 
-* Interactive reports (Quarto/HTML)
-* Dashboards
-* Reproducible pipelines (SQL + R/Python) with documentation
-
----
-
-*Selected demos and case studies will be published here as they’re ready.*
+::: {#featured-projects}
+:::

@@ -1,0 +1,36 @@
+---
+title: "CRA-SOC Accreditation Report"
+description: "A generic example of a community risk assessment and standards-of-cover report written to the accreditation format, using anonymized and jittered data."
+categories: [fire-ems, reporting]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+A CRA-SOC built with anonymized and jittered data. Shows the practical skill of turning knowledge into a polished, professional report consistent with accreditation. Kept as a generic example.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+TODO: confirm anonymization before publishing.
+
+## Links
+
+TODO:

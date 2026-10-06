@@ -1,0 +1,40 @@
+---
+title: "Staffing Optimizer"
+description: "A generic linear-programming model that assigns available personnel to open positions across units to meet staffing requirements at the lowest cost."
+categories: [optimization, r]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+A generic optimization project: fill open positions at the lowest cost. Candidate objective: overtime pay plus a weighted cost for moving people. Other factors: travel distance as a tie-breaker.
+
+Possible two-phase approach: phase 1 reshuffles non-overtime personnel into existing gaps; phase 2 fills what remains from the overtime pool at minimal cost. Noted weakness: phase 1 can leave a more expensive overtime fill.
+
+Constraints: headcount, role (officer, engineer, firefighter), and specialty minimums per unit. Candidate pools come from eligibility rules (for example overtime caps over past windows, overtime sign-up). Inputs: a personnel table and a unit-requirements table. Selling point: estimate the overtime hours and cost that would have been saved had the model been applied historically, using synthetic data.
+
+Complex, enterprise or graduate-level; a model that ignores constraints isn't useful.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+## Links
+
+TODO:

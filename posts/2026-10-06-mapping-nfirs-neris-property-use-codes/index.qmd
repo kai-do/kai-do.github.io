@@ -1,0 +1,29 @@
+---
+title: "Lessons from mapping NFIRS and NERIS property use codes"
+description: "TODO: one-sentence description"
+date: 2026-10-06 # TODO: set the real publish date
+categories: [data-engineering, sql]
+draft: true
+---
+
+::: {.callout-note title="Outline (replace before publishing)"}
+- TODO
+- TODO
+- TODO
+:::
+
+## The question
+
+TODO:
+
+## What I did
+
+TODO:
+
+## What I found
+
+TODO:
+
+## Takeaway
+
+TODO:

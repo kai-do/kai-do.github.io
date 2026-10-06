@@ -1,0 +1,38 @@
+---
+title: "Run-Card Optimization App"
+description: "A Shiny app that finds the best placement of n apparatus across k stations from road-network travel times to demand points, with offline computation and an interactive map."
+categories: [optimization, shiny]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+Research so far: solve a p-median model (using ompr) for the best placement of n apparatus across k stations. Do all computation offline and present the results in Shiny with filters and a map.
+
+Inputs: optionally the current run card, fire demand zones, station points, and possibly address points, call data, and census data. Minimize road-network travel to each point in the demand zones, possibly weighted by call volume or census data (points could also be generated along the road network). With an existing run card, output the optimal placement; without one, output the optimal placement and the optimal run card.
+
+Possible extensions: uploading your own stations, demand zones, and addresses; a customizable objective (average travel time, p90); weighting by historical incidents; pulling data automatically from NERIS.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+## Links
+
+TODO:

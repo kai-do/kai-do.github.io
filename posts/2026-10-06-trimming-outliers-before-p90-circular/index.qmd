@@ -1,0 +1,29 @@
+---
+title: "Why trimming outliers before a 90th percentile is circular"
+description: "Why z-score trimming of skewed travel times undermines a 90th percentile, and what to use instead."
+date: 2026-10-06 # TODO: set the real publish date
+categories: [statistics, fire-ems]
+draft: true
+---
+
+::: {.callout-note title="Outline (replace before publishing)"}
+- Z-scores on skewed travel times
+- The small-N bound on |z|
+- Mechanical validity filters instead
+:::
+
+## The question
+
+TODO:
+
+## What I did
+
+TODO:
+
+## What I found
+
+TODO:
+
+## Takeaway
+
+TODO:

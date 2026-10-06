@@ -1,0 +1,40 @@
+---
+title: "Sleep Disruption Analysis"
+description: "Quantifying how often and for how long overnight dispatches interrupt crews at different stations, to inform policy on reducing night-time disruption."
+categories: [statistics, fire-ems]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+Firefighters are often interrupted while sleeping at night, which contributes to long-term physical and mental stress. Knowing which stations, units, and personnel are affected, and how, is necessary for policy decisions.
+
+Descriptive approach: sum the dispatches and the time from dispatch to clear (plus a buffer to get back to sleep) to get hours of disruption per station, then run an ANOVA with a post-hoc test to see which stations are most affected. Possible extension: a time-series analysis and a predictive model of expected disruption. Data would be anonymized for station and shift, at the day, station, and shift grain.
+
+Possible ways to reduce night-time calls that this could inform: toning out only the personnel who need to respond, changing dispatch procedures to reduce errant night calls, rotating highly loaded personnel to lower-load stations, or redistributing load between adjacent stations (redrawn boundaries or a night run card).
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+TODO: confirm anonymization before publishing.
+
+## Links
+
+TODO:

@@ -1,0 +1,14 @@
+---
+title: "Writing"
+description: "Fire/EMS, data, and methods."
+toc: false
+listing:
+  contents: posts
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  feed: true
+  fields: [date, title, description, categories, reading-time]
+---

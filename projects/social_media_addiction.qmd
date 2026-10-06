@@ -1,6 +1,0 @@
----
-title: "Social Media Addiction"
-format: html
----
-
-### Test project

@@ -1,0 +1,31 @@
+---
+title: "TODO: title"
+description: "TODO: one sentence; used for the LinkedIn/Open Graph preview"
+date: 2026-01-01
+# Writing (posts/): fire-ems, statistics, optimization, simulation, data-engineering, sql, r, til
+# Notes (notes/):   math, physics, learning, til
+categories: [til]
+image: # optional: preview image, e.g. preview.png in this folder
+draft: true
+# To embed a shinylive app, uncomment the next line and add a {shinylive-r} block (see bottom).
+# filters: [shinylive]
+---
+
+## The question
+
+## What I did
+
+## What I found
+
+## Takeaway
+
+<!--
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 500
+library(shiny)
+ui <- fluidPage(sliderInput("n", "n", 1, 100, 50), plotOutput("p"))
+server <- function(input, output) output$p <- renderPlot(hist(rnorm(input$n)))
+shinyApp(ui, server)
+```
+-->

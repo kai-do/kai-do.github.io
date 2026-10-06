@@ -1,0 +1,34 @@
+---
+title: "Unit Workload Model"
+description: "A model of each unit's workload built from call volume, call duration, and committed time, to inform where new stations or resources might go."
+categories: [fire-ems, r]
+draft: true
+---
+
+::: {.callout-note title="Idea (author notes: replace before publishing)"}
+Compute workload for every unit from call volume, call duration, commit times, and similar. Useful for informing new station and resource placement.
+:::
+
+## Problem
+
+TODO:
+
+## Approach
+
+TODO:
+
+## Tools
+
+TODO:
+
+## Result / What I learned
+
+TODO:
+
+## Data
+
+TODO: synthetic, public, or anonymized data only.
+
+## Links
+
+TODO:

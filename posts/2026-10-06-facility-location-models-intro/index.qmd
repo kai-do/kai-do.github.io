@@ -1,0 +1,29 @@
+---
+title: "A first look at facility location models for fire stations"
+description: "LSCP, MCLP, p-median, and MEXCLP explained in plain language."
+date: 2026-10-06 # TODO: set the real publish date
+categories: [optimization]
+draft: true
+---
+
+::: {.callout-note title="Outline (replace before publishing)"}
+- LSCP and MCLP
+- p-median
+- MEXCLP
+:::
+
+## The question
+
+TODO:
+
+## What I did
+
+TODO:
+
+## What I found
+
+TODO:
+
+## Takeaway
+
+TODO:
