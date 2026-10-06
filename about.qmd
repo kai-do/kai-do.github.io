@@ -3,38 +3,6 @@ title: "About"
 toc: false
 ---
 
-I'm a data analyst at Cobb County Fire & Emergency Services in Georgia, where I've worked on incident data and reporting for eight years. I'm interested in anywhere math and analytics meet public safety, and I'm still learning a lot of it. This site is where I write up what I learn and share projects.
-
-## Interests
-
-- Optimization and simulation for emergency services: unit and station deployment, coverage, run cards
-- Measuring response times with sound statistics
-- Community risk assessment and accreditation analytics
-- Data engineering for public-safety data (SQL Server, warehousing, NFIRS/NERIS)
-- Outside work: math, computer science, physics, and learning science
-
-## Skills
-
-**R & analytics.** R (8 years), Quarto & R Markdown, Shiny (incl. shinylive), tidyverse & data.table, ggplot2, plotly, leaflet, rvest
-
-**SQL & reporting.** SQL Server, T-SQL, SSRS paginated reports, Power BI, database design, data marts, performance tuning
-
-**Statistics & modeling.** Linear & logistic regression, ANOVA & non-parametric methods, Poisson models & anomaly detection, time-series forecasting (fpp3), XGBoost & random forest, integer programming (ompr + HiGHS), simulation
-
-**GIS.** sf, OSRM routing & travel-time analysis, tidycensus, geocoding
-
-**Platforms & domain.** Azure DevOps, Git & GitHub, CI/CD, Docker, Python, ImageTrend Elite (NERIS, NEMSIS 3.5), PremierOne CAD, TeleStaff
-
-## Education
-
-- **Kennesaw State University:** BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA
-- **Chattahoochee Technical College:** AAS in Cybersecurity, 2016–2018
-- Planning to pursue Georgia Tech's OMSCS after the BS
-
-## Kaido Analytics
-
-Kaido Analytics LLC is the company I founded in 2023 for reproducible statistical analyses and reports in R and Quarto. I occasionally take on analytics and reporting work through Kaido Analytics.
-
 ## Use of Artificial Intelligence
 *Last Updated: 2026-10-06*
 
