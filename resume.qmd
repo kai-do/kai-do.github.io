@@ -10,13 +10,13 @@ toc: false
 ### Fire Data Analyst
 Cobb County Fire & Emergency Services · Sep 2022–present
 
-- Primary support contact for ImageTrend RMS across roughly 800 department users
+- Primary support contact, sys admin, and developer for ImageTrend RMS serving 800+ department users
 - Primary resource on the TeleStaff database schema; led the SSRS reporting cutover for TeleStaff's migration to Google BigQuery
 - Designs and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations
-- Built an incomplete-report accountability system with chain-of-command escalation
-- Built a SQL Server database and SSRS reports tracking apparatus capabilities and assignments from a live CAD feed, ahead of a department-wide apparatus reallocation; designed the schema and architecture for a related apparatus-assignment/GIS run-card prototype
 - Designed and deployed a NERIS ImageTrend form with a versioned 52-page user guide; implemented the NEMSIS 3.5 PCR form
-- Leading a data warehouse modernization effort to unify source systems for reporting
+- Leading a data warehouse modernization effort to unify source systems for reporting including server migration, PowerBI implementation, and data warehouse development in SQL Server
+- A primary contributor and author for Community Risk Reduction and Standards of Cover risk methodology and response performance analysis
+- Ad hoc reporting and analysis using R, Excel, SQL covering basic statistics to resource deployment optimization
 
 ### Founder & Data Science Consultant
 Kaido Analytics LLC · Jan 2023–present · remote
@@ -27,13 +27,13 @@ Kaido Analytics LLC · Jan 2023–present · remote
 Cobb County Fire & Emergency Services · Dec 2019–Sep 2022
 
 - Introduced R and RStudio for analysis; managed R projects with Git and GitHub
-- Added about 40 SSRS reports
+- Added 40+ SSRS reports
 
 ### Fire Data Technician II
 Cobb County Fire & Emergency Services · May 2019–Dec 2019
 
 - T-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server
-- Created about 58 SSRS reports
+- Developed 58+ SSRS reports
 
 ### Fire Data Technician I
 Cobb County Fire & Emergency Services · Aug 2018–May 2019
@@ -46,6 +46,7 @@ Feb 2015–Aug 2018
 
 - Servers and infrastructure for small businesses
 - Built a website and web store for a CNC manufacturing start-up
+- CNC part design work
 
 ## Education
 
@@ -56,9 +57,20 @@ Feb 2015–Aug 2018
 
 Data Science: R Basics (HarvardX, 2021)
 
-## Languages
 
-English (native), Spanish (basic)
+## Languages
+### Programming
+
+- R
+- SQL
+- Java
+- Python
+- C++
+
+### Spoken
+
+- English (native)
+- Spanish (basic reading/listning comprehension)
 
 ## Also
 
