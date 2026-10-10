@@ -1,7 +1,23 @@
 [
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/posts/2026-10-06-confidence-interval-on-p90/index.html",
+      "/posts/2026-10-06-facility-location-models-intro/index.html",
+      "/posts/2026-10-06-incident-counts-to-probabilities/index.html",
+      "/posts/2026-10-06-mapping-nfirs-neris-property-use-codes/index.html",
+      "/posts/2026-10-06-run-cards-sorted-matrix/index.html",
+      "/posts/2026-10-06-three-axis-risk-score-math/index.html",
+      "/posts/2026-10-06-trimming-outliers-before-p90-circular/index.html",
+      "/notes/2026-10-06-reading-urban-or/index.html",
+      "/projects/cra-soc-accreditation-report/index.html",
+      "/projects/call-volume-seasonality-dashboard/index.html",
+      "/projects/response-time-dashboard/index.html",
+      "/projects/run-card-optimization-app/index.html",
+      "/projects/sleep-disruption-analysis/index.html",
+      "/projects/staffing-optimizer/index.html",
+      "/projects/unit-workload-model/index.html"
+    ]
   },
   {
     "listing": "/notes.html",
