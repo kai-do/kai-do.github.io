@@ -1,17 +1,23 @@
 ---
-title: "kai.do - Nakai Zemer"
+title: "Nakai Zemer"
 page-layout: article
 toc: false
+open-graph:
+  description: "Fire data analyst and founder of Kaido Analytics LLC. Math and data science for fire & EMS."
+twitter-card:
+  description: "Fire data analyst and founder of Kaido Analytics LLC. Math and data science for fire & EMS."
 listing:
-  - id: recent
-    contents: [posts, notes]
-    type: default
-    sort: "date desc"
-    max-items: 5
-    fields: [date, title, description, categories]
-    feed: false
+  # Recent writing is hidden until the first post is published. To restore it,
+  # add this listing back and the "Recent writing" section below:
+  # - id: recent
+  #   contents: [posts, notes]
+  #   type: default
+  #   sort: "date desc"
+  #   max-items: 5
+  #   fields: [date, title, description, categories]
+  #   feed: false
   - id: featured-projects
-    contents: projects
+    contents: [projects, projects/external.yml]
     type: grid
     sort: "title"
     grid-columns: 2
@@ -19,17 +25,14 @@ listing:
 ---
 
 ::: {.tagline}
-Math and analytics for fire & EMS
+Math and Data Science for Fire & EMS
 :::
 
 <!-- Alternative tagline: "Statistics, simulation, and optimization for public safety" -->
 
-Some text about Nakai
+I'm a fire data analyst at Cobb County Fire & Emergency Services in Georgia, where I work with an amazing team in the Fire Planning Division. Together we build and run the department's reporting systems and analytics, and I apply statistics, optimization, and GIS to planning questions such as where to place resources to best serve the community.
 
-## Recent writing
-
-::: {#recent}
-:::
+I also run [Kaido Analytics LLC](about.qmd), a small consultancy for statistical analysis and reproducible reporting, and I'm finishing a BS in Mathematics with a concentration in statistics at Kennesaw State University.
 
 ## Projects
 

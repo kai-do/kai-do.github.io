@@ -1,13 +1,85 @@
 /*-- scss:defaults --*/
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+// Kaido Analytics design system, light theme.
+// Source of truth: _design/tokens.json (usage rules in _design/README.md).
 
-$font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-$font-family-monospace: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+// Palette
+$ka-prussian-blue: #0c1b33;
+$ka-stormy-teal:   #0e6b6b;
+$ka-gold:          #e09a3e;
+$ka-copperwood:    #b66d0d;
+$ka-copper-deep:   #8a5208;
+$ka-frosted-mint:  #e0eec6;
+$ka-muted-teal:    #8fad88;
+$ka-neutral-50:    #f7faff;
+$ka-neutral-100:   #eff2f7;
+$ka-neutral-200:   #e1e5ea;
+$ka-neutral-300:   #c6cedb;
+$ka-neutral-400:   #9da5b1;
+$ka-neutral-500:   #737b86;
+$ka-neutral-600:   #545b66;
+$ka-neutral-700:   #3c434d;
+$ka-neutral-800:   #252c35;
+$ka-teal-50:       #e6f8f7;
+$ka-teal-100:      #c3efee;
+$ka-gold-50:       #fff0db;
+$ka-gold-100:      #ffdeba;
+$ka-navy-50:       #ecf4ff;
+$ka-navy-100:      #d5e6ff;
 
-$body-bg: #f8faf9;
-$body-color: #1d2a2a;
-$link-color: #0e6b6b;
-$primary: #0e6b6b;
-$code-color: #0b4f4f;
-$body-secondary-color: #5a6b6b;
-$border-color: #d6e0de;
+// Semantic tokens (light)
+$ka-surface:        $ka-neutral-50;
+$ka-surface-raised: #ffffff;
+$ka-surface-sunken: $ka-neutral-100;
+$ka-ink:            $ka-prussian-blue;
+$ka-ink-muted:      $ka-neutral-600;
+$ka-brand:          $ka-stormy-teal;
+$ka-on-brand:       $ka-teal-50;
+$ka-accent:         $ka-gold;
+$ka-accent-text:    $ka-copper-deep;
+$ka-on-accent:      $ka-prussian-blue;
+$ka-callout:        $ka-gold-50;
+$ka-border:         $ka-neutral-300;
+$ka-border-strong:  $ka-neutral-500;
+$ka-focus-ring:     $ka-stormy-teal;
+$ka-info-panel:     $ka-navy-50;
+
+// Type families (system stacks until the brand picks licensed faces)
+$ka-font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+$ka-font-sans:    system-ui, -apple-system, "Segoe UI", sans-serif;
+$ka-font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+// Bootstrap / Quarto mappings
+$font-family-sans-serif: $ka-font-sans;
+$font-family-monospace:  $ka-font-mono;
+$body-bg:                $ka-surface;
+$body-color:             $ka-ink;
+$body-secondary-color:   $ka-ink-muted;
+$link-color:             $ka-brand;
+$primary:                $ka-brand;
+$code-color:             $ka-brand;
+$border-color:           $ka-border;
+$navbar-bg:              $ka-stormy-teal;
+$navbar-fg:              $ka-teal-50;
+$navbar-hl:              #ffffff;
+$footer-bg:              $ka-surface;
+$footer-fg:              $ka-ink-muted;
+$callout-color-note:      $ka-brand;
+$callout-color-tip:       $ka-muted-teal;
+$callout-color-important: $ka-accent;
+$callout-color-warning:   $ka-copperwood;
+$callout-color-caution:   $ka-copperwood;
+$code-block-bg:          $ka-surface-sunken;
+$input-border-color:     $ka-border-strong;
+
+// Accent placements (light)
+$ka-tag-subject-bg:  $ka-teal-50;
+$ka-tag-tool-bg:     $ka-navy-50;
+$ka-tag-client-bg:   $ka-gold-100;
+$ka-tag-text:        $ka-prussian-blue;
+$ka-tag-client-text: $ka-copper-deep;
+$ka-tag-border:      transparent;
+$ka-tag-client-border: transparent;
+$ka-selection-bg:    $ka-gold-100;
+$ka-selection-text:  $ka-prussian-blue;
+$ka-quote-bg:        $ka-navy-50;
+$ka-table-band:      $ka-teal-50;

@@ -1,9 +1,9 @@
 ---
 title: "Projects"
-description: "Selected work, built with synthetic or public data."
+description: "Client reports and course projects using public data."
 toc: false
 listing:
-  contents: projects
+  contents: [projects, projects/external.yml]
   type: grid
   sort: "title"
   grid-columns: 2

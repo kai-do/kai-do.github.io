@@ -4,77 +4,182 @@
     "href": "resume.html",
     "title": "Resume",
     "section": "",
-    "text": "Download PDF"
+    "text": "Download PDF\nFire Data Analyst | Public Safety Data Systems, Planning & Analytics"
+  },
+  {
+    "objectID": "resume.html#summary",
+    "href": "resume.html#summary",
+    "title": "Resume",
+    "section": "Summary",
+    "text": "Summary\nSenior data analyst with 8 years developing and managing the reporting infrastructure for Cobb County Fire & Emergency Services, supporting 750+ users across ~68,000 incidents annually. Specializes in SQL, data engineering, report development, and applying math, statistics, and optimization to operational problems."
   },
   {
     "objectID": "resume.html#experience",
     "href": "resume.html#experience",
     "title": "Resume",
     "section": "Experience",
-    "text": "Experience\n\nFire Data Analyst\nCobb County Fire & Emergency Services · Sep 2022–present\n\nPrimary support contact for ImageTrend RMS across roughly 800 department users\nPrimary resource on the TeleStaff database schema; led the SSRS reporting cutover for TeleStaff’s migration to Google BigQuery\nDesigns and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations\nBuilt an incomplete-report accountability system with chain-of-command escalation\nBuilt a SQL Server database and SSRS reports tracking apparatus capabilities and assignments from a live CAD feed, ahead of a department-wide apparatus reallocation; designed the schema and architecture for a related apparatus-assignment/GIS run-card prototype\nDesigned and deployed a NERIS ImageTrend form with a versioned 52-page user guide; implemented the NEMSIS 3.5 PCR form\nLeading a data warehouse modernization effort to unify source systems for reporting\n\n\n\nFounder & Data Science Consultant\nKaido Analytics LLC · Jan 2023–present · remote\n\nReproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report maintained for a client over two consecutive years\n\n\n\nFire Data Technician III\nCobb County Fire & Emergency Services · Dec 2019–Sep 2022\n\nIntroduced R and RStudio for analysis; managed R projects with Git and GitHub\nAdded about 40 SSRS reports\n\n\n\nFire Data Technician II\nCobb County Fire & Emergency Services · May 2019–Dec 2019\n\nT-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server\nCreated about 58 SSRS reports\n\n\n\nFire Data Technician I\nCobb County Fire & Emergency Services · Aug 2018–May 2019\n\nAdministered ImageTrend Elite forms and validations\nSQL for SSRS and Excel reports; SSRS projects in Visual Studio with Azure DevOps\n\n\n\nIndependent IT Contractor\nFeb 2015–Aug 2018\n\nServers and infrastructure for small businesses\nBuilt a website and web store for a CNC manufacturing start-up"
+    "text": "Experience\n\nFire Data Analyst\nCobb County Fire & Emergency Services, Marietta, GA · Sep 2022–present\nManages the full data lifecycle for department stakeholders, from understanding fire/EMS organizational needs to building data collection forms, data pipelines, and analytics.\nTechnical Leadership and Support\n\nSenior technical resource; regularly mentors and supports fellow analysts in SQL, SSRS, and statistical analysis, reviewing queries and reports, sharing advanced techniques, and helping solve difficult data problems in the fire service domain\nServes as primary support contact for ImageTrend Elite’s 750+ users, resolving 20+ tickets per month across data integrity, user access, and analytical reporting\nDevelops training materials, including a versioned 52-page end-user guide for the NERIS form\nAuthors decision briefs; co-authored the department’s data management policy\n\nData Systems and Engineering\n\nAdministers and configures ImageTrend Elite RMS, building complex fire and EMS forms, validation rules, and workflow logic to maintain compliance with state and federal reporting standards\nServes as a subject-matter expert on the ImageTrend Elite, TeleStaff, and PremierOne CAD databases, writing SQL for reporting and analytics\nArchitects a data modernization initiative, designing a departmental data warehouse and leading the Power BI implementation\nDesigned and deployed the department’s NERIS and NEMSIS 3.5 PCR forms\nBuilds and maintains databases and reporting data marts integrating CAD, ImageTrend, TeleStaff, accreditation, and unit assignment data\nAdministers the department’s SharePoint site, permissions, and Power Automate workflows\n\nReporting and Data Quality\n\nDesigns and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations\nMonitors data quality trends and operational anomalies and oversees NERIS and EMS data exports to state and federal reporting systems\nResponds to and investigates frequent data requests from department divisions and outside agencies, ensuring accurate, complete, and confidential information exchange\n\nPlanning and Analytics\n\nLed development of a new risk scoring method for the Community Risk Assessment and Standards of Cover\nApplies optimization, statistical models, and GIS in R to planning problems like resource placement\nLeads data integration and technical setup for the department’s Deccan deployment analysis software\n\nInnovation and Professional Development\n\nResearches and prototypes emerging machine learning, optimization, and web application techniques for adoption at CCFES, driving continuous improvement in department data practices\nPresents on public safety data science and the fire data analyst role at Kennesaw State University\n\n\n\nFounder & Data Science Consultant\nKaido Analytics LLC, Georgia (remote) · Jan 2023–present\nIndependent consultancy delivering applied statistical analysis, predictive modeling, and reproducible reporting for public safety and other clients.\n\nDesign and deliver reproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report built and maintained for a client over two consecutive years\nApply regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization, and machine learning to real-world problems with complex, imperfect data, end to end, from data cleaning through client-facing reporting\n\n\n\nFire Data Technician III\nCobb County Fire & Emergency Services, Marietta, GA · Dec 2019–Sep 2022\n\nIntroduced R and RStudio for advanced analysis and managed R projects with Git and GitHub\nAdded ~40 SSRS reports (~131 total), integrating multiple data sources\n\n\n\nFire Data Technician II\nCobb County Fire & Emergency Services, Marietta, GA · May 2019–Dec 2019\n\nBuilt complex T-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server\nCreated ~58 SSRS reports (~91 total) for operational and administrative needs\n\n\n\nFire Data Technician I\nCobb County Fire & Emergency Services, Marietta, GA · Aug 2018–May 2019\n\nAdministered ImageTrend Elite forms and validations for fire/EMS reporting and user support\nDeveloped SQL for SSRS and Excel reports and managed SSRS projects in Visual Studio with Azure DevOps\n\n\n\nIndependent Information Technology Contractor\nVarious clients, Canton, GA · Feb 2015–Aug 2018\n\nSupported servers and infrastructure for small and mid-sized businesses, installing server racks and cabling, configuring networks, and providing end-user support (Personalized Technology Services)\nBuilt and maintained an HTML5/CSS3 website and web store for a CNC manufacturing start-up; designed CNC files, operated the CNC router, and assembled vacuum systems (Black Box Vacuum Solutions)"
   },
   {
     "objectID": "resume.html#education",
     "href": "resume.html#education",
     "title": "Resume",
     "section": "Education",
-    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA\nChattahoochee Technical College: AAS in Cybersecurity, 2016–2018"
+    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics Concentration), minor in Data Science and Analytics, Jan 2022–2027 (expected), GPA 3.95. Relevant coursework: Statistical Methods I & II; Applied Regression Analysis; Mathematical Modeling; Linear Algebra; Differential Equations; Real Analysis; Data Structures; Programming I & II\nChattahoochee Technical College: AAS in Cybersecurity, Aug 2014–Dec 2018"
   },
   {
-    "objectID": "resume.html#certification",
-    "href": "resume.html#certification",
+    "objectID": "resume.html#skills",
+    "href": "resume.html#skills",
     "title": "Resume",
-    "section": "Certification",
-    "text": "Certification\nData Science: R Basics (HarvardX, 2021)"
+    "section": "Skills",
+    "text": "Skills\n\nProgramming languages: R, SQL (T-SQL), Python, Java, C++, HTML/CSS\nDatabases and data engineering: Microsoft SQL Server, stored procedures, database design and normalization, data marts, data warehousing, indexing and performance tuning\nReporting and visualization: SSRS paginated reports, Power BI, Quarto and R Markdown, Shiny, ggplot2, plotly, leaflet\nStatistics and modeling: Linear and logistic regression, ANOVA and non-parametric methods, Poisson models and anomaly detection, time-series forecasting, machine learning (XGBoost, random forest, neural networks), mathematical modeling and optimization\nData analysis and wrangling: Excel, tidyverse and data.table, web scraping\nGIS and spatial: Spatial analysis in R (sf), OSRM routing and travel-time analysis, Census data (tidycensus) and geocoding\nPlatforms and tooling: Azure DevOps, Git and GitHub, CI/CD, Docker, Power Apps, Power Automate, SharePoint administration, applied LLM use and prompt engineering\nPublic safety systems: ImageTrend Elite (NERIS, NEMSIS 3.5, custom forms), PremierOne CAD, TeleStaff"
   },
   {
-    "objectID": "resume.html#languages",
-    "href": "resume.html#languages",
+    "objectID": "resume.html#certifications",
+    "href": "resume.html#certifications",
     "title": "Resume",
-    "section": "Languages",
-    "text": "Languages\nEnglish (native), Spanish (basic)"
+    "section": "Certifications",
+    "text": "Certifications\nData Science: R Basics (HarvardX, 2021)"
   },
   {
-    "objectID": "resume.html#also",
-    "href": "resume.html#also",
-    "title": "Resume",
-    "section": "Also",
-    "text": "Also\n100+ independent R and SQL projects"
+    "objectID": "projects/house-pricing-model/index.html",
+    "href": "projects/house-pricing-model/index.html",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "",
+    "text": "Final project for STAT 3130 (Kennesaw State University), July 2024. The report is the main write-up; this page summarizes it."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#question",
+    "href": "projects/house-pricing-model/index.html#question",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Question",
+    "text": "Question\nHow do linear regression models with increasing amounts of feature engineering compare with XGBoost and random forest models, run at default settings, at predicting home sale prices? The project also tests whether sale price differs by pool quality."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#the-report",
+    "href": "projects/house-pricing-model/index.html#the-report",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "The Report",
+    "text": "The Report\n\n\nDownload the report (PDF) Code on GitHub"
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#data",
+    "href": "projects/house-pricing-model/index.html#data",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Data",
+    "text": "Data\nThe data is the Ames, Iowa housing data from Kaggle’s training set: 1,460 house sales with 79 explanatory variables describing the lot, the building, its condition and the sale. Sale prices are right-skewed, with a median of $163,000 and a mean of $180,921.\nThe data is split 80/20 with a fixed seed into 1,168 training houses and 292 test houses, and every model uses the same split. Before modeling, the ID column is removed, missing lot frontage is imputed by linear regression on lot area, lot shape and lot configuration, variables with only one value are removed, and categorical variables are converted to dummy variables."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#models",
+    "href": "projects/house-pricing-model/index.html#models",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Models",
+    "text": "Models\n\nLinear regression 1: all variables (259 coefficients after dummy coding).\nLinear regression 2: the 47 of 79 predictors that were not significant at the 0.05 level are removed.\nLinear regression 3: starting from model 2, 55 training houses with standardized residuals beyond ±2 are removed as outliers, along with two collinear variables and four variables that were no longer significant.\nXGBoost and random forest (ranger), both at their default settings with no tuning."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#results",
+    "href": "projects/house-pricing-model/index.html#results",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nRandom forest, with no tuning, predicted test-set prices best (R² 0.919, RMSE $21,117). The best linear model reached only R² 0.444 on the same houses: the linear models overfit the training data and missed badly on a handful of test houses.\n\n\n\n\n\nModel\nTraining R²\nTraining RMSE\nTest R²\nTest RMSE\nTest MAE\n\n\n\n\nLinear regression 1\n0.936\n$20,724\n0.404\n$77,036\n$20,467\n\n\nLinear regression 2\n0.912\n$24,207\n0.444\n$69,639\n$21,502\n\n\nLinear regression 3\n0.944\n$17,042\n0.418\n$70,806\n$22,019\n\n\nXGBoost\n\n\n0.875\n$24,602\n$17,332\n\n\nRandom forest\n\n\n0.919\n$21,117\n$15,180\n\n\n\n\nRandom forest predicts best on every test metric, followed by XGBoost, even with no tuning.\nThe linear models overfit. They fit the training data well (R² 0.91 to 0.94) but explain much less of the variation in the test houses (R² 0.40 to 0.44). Model 1 estimates 259 coefficients from 1,168 houses.\nModel 2 is the best linear model on the test set (R² 0.444). Removing outliers in model 3 improved the training fit but not the test fit. Model 3’s training figures also exclude the 55 houses it removed, so they are not directly comparable with the other two.\nA few large errors drive the linear models’ low test R². Their test RMSE is more than three times their MAE. Their typical error (MAE of $20,000 to $22,000) is not far from the tree models’ ($15,000 to $17,000), but on a handful of houses they miss by a very large amount.\n\nLinear regression is easier to interpret and to put into production, while the tree models predict better with far less feature engineering. Which to use depends on whether accuracy or interpretability matters more."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#pool-quality",
+    "href": "projects/house-pricing-model/index.html#pool-quality",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Pool Quality",
+    "text": "Pool Quality\nPool quality was significant in the linear models, so the project tests whether sale price differs by pool quality. Only 7 of the 1,460 houses have a pool:\n\n\n\nPool quality\nHouses\nMean sale price\nSD\n\n\n\n\nExcellent\n2\n$490,000\n$360,624\n\n\nGood\n3\n$201,990\n$63,441\n\n\nFair\n2\n$215,500\n$48,790\n\n\nNo pool\n1,453\n$180,405\n$78,169\n\n\n\nA one-way ANOVA gave F(3, 1456) = 10.51, p &lt; 0.0001, but the group standard deviations differ too much for its equal-variance assumption to hold. A Kruskal-Wallis test, which does not need that assumption, found no significant difference (χ²(3) = 6.00, p = 0.112). With only seven pools, neither test can say much about pool quality."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#limitations",
+    "href": "projects/house-pricing-model/index.html#limitations",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Limitations",
+    "text": "Limitations\n\nOne train/test split. The test metrics come from 292 houses and one random split, with no cross-validation, so they would shift somewhat with a different split.\nNo tuning. XGBoost and random forest were run at default settings; tuning would likely improve them further.\nSkewed prices. Sale prices were modeled in raw dollars even though they are right-skewed, so large errors on expensive houses dominate RMSE.\nTiny pool groups. The pool-quality comparison rests on seven houses."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#tools-and-data-source",
+    "href": "projects/house-pricing-model/index.html#tools-and-data-source",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Tools and Data Source",
+    "text": "Tools and Data Source\nR and Quarto: tidyverse, tidymodels (rsample and recipes), xgboost, ranger, car and agricolae.\nData: House Prices - Advanced Regression Techniques on Kaggle, originally compiled by Dean De Cock (“Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project”, Journal of Statistics Education, 2011). The data is not included in the repository."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#links",
+    "href": "projects/house-pricing-model/index.html#links",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Links",
+    "text": "Links\n\nReport (PDF)\nCode on GitHub"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html",
+    "href": "projects/fire-department-response-times/index.html",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "",
+    "text": "Final project for STAT 3120 (Kennesaw State University), done with Gabriel Salisbury in May 2023. The slide deck is the main write-up; this page summarizes it."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#question",
+    "href": "projects/fire-department-response-times/index.html#question",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Question",
+    "text": "Question\nIs there a statistically significant difference in mean response time (dispatch to arrival) between career and volunteer fire departments? And how does population density relate to response time?"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#the-presentation",
+    "href": "projects/fire-department-response-times/index.html#the-presentation",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "The Presentation",
+    "text": "The Presentation\n\n\nDownload the slides (PDF) Code and data on GitHub"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#data-and-cleaning",
+    "href": "projects/fire-department-response-times/index.html#data-and-cleaning",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Data and Cleaning",
+    "text": "Data and Cleaning\nThe data is the public 2019 NFIRS (National Fire Incident Reporting System) incident data, rolled up to one row per department: 11,884 departments, each with at least 30 incidents. Incident-level cleaning, documented on the last slide of the deck, kept geocoded incidents and dropped mutual-aid incidents, incidents with a missing response time, and extreme response times. Departments and census tracts with very few incidents were also dropped.\nVariables used:\n\n\n\n\n\n\n\n\nVariable\nDefinition\nUsed in\n\n\n\n\nMean response time\nMean dispatch-to-arrival time by department, in minutes\nt-test, correlation\n\n\nDepartment type (2 levels)\nCareer: at least half of firefighters are career. Volunteer: otherwise\nt-test, correlation\n\n\nDepartment type (4 levels)\nCareer, Mostly career, Mostly volunteer, Volunteer\nchi-square\n\n\nPopulation density\nEstimated department population divided by estimated area (people per square mile)\ncorrelation\n\n\nResponse time category\nFast: mean response time of 7.5 minutes or less. Slow: more than 7.5\nchi-square"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#results",
+    "href": "projects/fire-department-response-times/index.html#results",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nCareer departments responded 2.23 minutes faster on average than volunteer departments (5.94 vs. 8.17 minutes, dispatch to arrival, across 11,884 departments). Response times were also faster in denser areas (r = −0.31).\n\n\n\nCareer Departments Responded Faster\n\n\n\nDepartment type\nDepartments\nMean response time\nSD\n\n\n\n\nCareer (incl. mostly career)\n3,031\n5.94 min\n1.50\n\n\nVolunteer (incl. mostly volunteer)\n8,853\n8.17 min\n2.57\n\n\n\nThe difference in means is 2.23 minutes (95% CI ±0.075 min). A Welch t-test, used because the variances were unequal, gave t = 57.93, df = 9066.2, p &lt; .0001.\n\n\nDenser Areas Had Faster Response Times\nAcross all departments the correlation between population density and mean response time is r = −0.31. Within groups it is r = −0.22 for career departments and r = −0.27 for volunteer departments (all p &lt; .0001). Volunteer departments are concentrated at low density and account for the longest times.\n\n\n\nMean response time against population density, by department type (2019).\n\n\n\n\nDepartment Type and “Fast” vs. “Slow”\nUsing the four-level department type against fast/slow, a chi-square test of independence gave χ² = 2310.4, df = 3, p &lt; .0001. Career departments were fast far more often than expected under independence, and volunteer departments were slow far more often.\n\n\n\n\n\n\n\n\nDepartment type\nFast (observed / expected)\nSlow (observed / expected)\n\n\n\n\nCareer\n1,716 / 1,029\n184 / 871\n\n\nMostly career\n900 / 612\n231 / 519\n\n\nMostly volunteer\n1,844 / 1,641\n1,186 / 1,389\n\n\nVolunteer\n1,975 / 3,153\n3,848 / 2,670\n\n\n\n\n\n\nObserved minus expected department counts by response time category and department type."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#limitations",
+    "href": "projects/fire-department-response-times/index.html#limitations",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe unit of analysis is a department’s mean response time, which hides variation between incidents within a department.\nWith about 12,000 departments, p-values are tiny almost by default. The size of the difference (2.2 minutes) and of the correlations matters more than the significance.\nThis is observational data. Career and volunteer departments differ in many ways besides staffing model (density, call volume, geography), so the comparison does not show that staffing model causes the difference.\nNFIRS is reported by the departments themselves, and reporting quality varies."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#tools",
+    "href": "projects/fire-department-response-times/index.html#tools",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Tools",
+    "text": "Tools\nR and Quarto: tidyverse, ggpubr, moments, knitr and kableExtra."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#links",
+    "href": "projects/fire-department-response-times/index.html#links",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Links",
+    "text": "Links\n\nSlides (PDF)\nCode and datasets on GitHub"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Last Updated: 2026-10-06\nTL;DR The process is the goal, so the ideas, writing, photos, and most code are mine. I use AI for editing, research, and some code help, usually after I’ve tried things myself, and I’ll say when a post leans heavily on it.\nMy thoughts on AI\nMy feelings about using AI are complicated. On one hand, AI can be a genuinely useful tool for breaking down concepts beyond textbook explanations, generating boilerplate and debugging code, automating tedious tasks, and finding resources (textbooks, code, tutorials, etc.). It can accelerate learning and shift the focus off some less rewarding tasks if used properly.\nOn the other hand, the purist approach of completely abstaining from using it is also appealing to me, just like how film photography is appealing because of its manual, tactile nature. One prompt could generate a photo that realizes my vision with a high degree of accuracy, synthetic film grain and all, but the satisfaction of the process is traded for ease and “perfection”. Prompting doesn’t compare to the joy of finding an algorithm for a knotty programming problem, figuring out an elegant math problem, getting out into the world with a camera, or crafting a thoughtfully worded paragraph through personal effort, even if those processes don’t result in “perfection”. Often, what’s gained through the process outweighs the goal, and true satisfaction comes from having developed the skills yourself to self-sufficiently realize that goal. For this site, the process is the goal. There’s plenty of mathematics, stats, computer science, and public safety domain-specific resources that are far better than what I can offer here. This site will focus on my learning process and showcase some of its results. Posting my content online just holds me to a higher standard of completion.\nSo, how will I use AI?\n\nWriting: Every post, analysis, and conclusion on this site is mine.\nPhotography: All photos on this site are mine, and no generative AI is used to create or edit them.\nEditing: I may use AI for proofreading, grammar, spellchecking, and some word reordering suggestions, depending on how “perfectionist” I am feeling. The final wording is mine.\nCode: I generally write my own code. I usually work out my own (often inelegant) solution first, then sometimes use AI to help me find a better one. I won’t post code I don’t understand, and I’ll note any code that relies heavily on AI.\nResearch: I may use AI tools to give background on a subject, locate sources, and get me oriented on a code library. Because AI can state false things confidently, including inventing sources, I check all claims against, and cite them to, their original source.\nLearning: I will try to work through problems and concepts myself first, and then only use AI to help me if I get stuck or to check my understanding.\nSite: I may use AI to help build and maintain the site itself (layout, styling, configuration). This is separate from the code in my posts.\n\nI am responsible for all content on this site."
+    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
   },
   {
-    "objectID": "about.html#interests",
-    "href": "about.html#interests",
+    "objectID": "about.html#consulting",
+    "href": "about.html#consulting",
     "title": "About",
-    "section": "Interests",
-    "text": "Interests\n\nOptimization and simulation for emergency services: unit and station deployment, coverage, run cards\nMeasuring response times with sound statistics\nCommunity risk assessment and accreditation analytics\nData engineering for public-safety data (SQL Server, warehousing, NFIRS/NERIS)\nOutside work: math, computer science, physics, and learning science"
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "About",
-    "section": "Skills",
-    "text": "Skills\nR & analytics. R (8 years), Quarto & R Markdown, Shiny (incl. shinylive), tidyverse & data.table, ggplot2, plotly, leaflet, rvest\nSQL & reporting. SQL Server, T-SQL, SSRS paginated reports, Power BI, database design, data marts, performance tuning\nStatistics & modeling. Linear & logistic regression, ANOVA & non-parametric methods, Poisson models & anomaly detection, time-series forecasting (fpp3), XGBoost & random forest, integer programming (ompr + HiGHS), simulation\nGIS. sf, OSRM routing & travel-time analysis, tidycensus, geocoding\nPlatforms & domain. Azure DevOps, Git & GitHub, CI/CD, Docker, Python, ImageTrend Elite (NERIS, NEMSIS 3.5), PremierOne CAD, TeleStaff"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics concentration), minor in Data Science and Analytics, Jan 2022–present, 3.95 GPA\nChattahoochee Technical College: AAS in Cybersecurity, 2016–2018\nPlanning to pursue Georgia Tech’s OMSCS after the BS"
-  },
-  {
-    "objectID": "about.html#kaido-analytics",
-    "href": "about.html#kaido-analytics",
-    "title": "About",
-    "section": "Kaido Analytics",
-    "text": "Kaido Analytics\nKaido Analytics LLC is the company I founded in 2023 for reproducible statistical analyses and reports in R and Quarto. I occasionally take on analytics and reporting work through Kaido Analytics."
+    "section": "",
+    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
   },
   {
     "objectID": "about.html#contact",
@@ -86,50 +191,162 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "kai.do - Nakai Zemer",
+    "title": "Nakai Zemer",
     "section": "",
-    "text": "Math and analytics for fire & EMS\nSome text about Nakai"
-  },
-  {
-    "objectID": "index.html#recent-writing",
-    "href": "index.html#recent-writing",
-    "title": "kai.do - Nakai Zemer",
-    "section": "Recent writing",
-    "text": "Recent writing\n\n\n\n\n\nPutting a confidence interval on a 90th percentile\n\n\n\nstatistics\n\nr\n\n\n\nA confidence interval for a 90th percentile using the binomial order-statistic method in base R.\n\n\n\n\n\n2026-10-06\n\n\n\n\n\n\n\nA first look at facility location models for fire stations\n\n\n\noptimization\n\n\n\nLSCP, MCLP, p-median, and MEXCLP explained in plain language.\n\n\n\n\n\n2026-10-06\n\n\n\n\n\n\n\nHow often does it happen? Turning incident counts into daily, weekly, and monthly probabilities\n\n\n\nstatistics\n\nfire-ems\n\n\n\nTurning incident counts into daily, weekly, and monthly probabilities with Poisson rates and exact intervals.\n\n\n\n\n\n2026-10-06\n\n\n\n\n\n\n\nLessons from mapping NFIRS and NERIS property use codes\n\n\n\ndata-engineering\n\nsql\n\n\n\nTODO: one-sentence description\n\n\n\n\n\n2026-10-06\n\n\n\n\n\n\n\nRun cards are just a sorted matrix (until they aren’t)\n\n\n\noptimization\n\nfire-ems\n\n\n\nTODO: one-sentence description\n\n\n\n\n\n2026-10-06\n\n\n\n\n\nNo matching items"
+    "text": "Math and Data Science for Fire & EMS\nI’m a fire data analyst at Cobb County Fire & Emergency Services in Georgia, where I work with an amazing team in the Fire Planning Division. Together we build and run the department’s reporting systems and analytics, and I apply statistics, optimization, and GIS to planning questions such as where to place resources to best serve the community.\nI also run Kaido Analytics LLC, a small consultancy for statistical analysis and reproducible reporting, and I’m finishing a BS in Mathematics with a concentration in statistics at Kennesaw State University."
   },
   {
     "objectID": "index.html#projects",
     "href": "index.html#projects",
-    "title": "kai.do - Nakai Zemer",
+    "title": "Nakai Zemer",
     "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\nCRA-SOC Accreditation Report\n\n\n\nfire-ems\n\nreporting\n\n\n\nA generic example of a community risk assessment and standards-of-cover report written to the accreditation format, using anonymized and jittered data.\n\n\n\n\n\n\n\n\n\nCall Volume and Seasonality Dashboard\n\n\n\nshiny\n\ntime-series\n\n\n\nA map and incident-type explorer with time-series and seasonality views and forecasts.\n\n\n\n\n\n\n\n\n\nResponse Time Dashboard\n\n\n\nshiny\n\nstatistics\n\n\n\nA Shiny dashboard that breaks response times into segments (turnout, drive time, on-scene) by battalion, station, and call type, and lets a user compare selected groups.\n\n\n\n\n\n\n\n\n\nRun-Card Optimization App\n\n\n\noptimization\n\nshiny\n\n\n\nA Shiny app that finds the best placement of n apparatus across k stations from road-network travel times to demand points, with offline computation and an interactive map.\n\n\n\n\n\n\n\n\n\nSleep Disruption Analysis\n\n\n\nstatistics\n\nfire-ems\n\n\n\nQuantifying how often and for how long overnight dispatches interrupt crews at different stations, to inform policy on reducing night-time disruption.\n\n\n\n\n\n\n\n\n\nStaffing Optimizer\n\n\n\noptimization\n\nr\n\n\n\nA generic linear-programming model that assigns available personnel to open positions across units to meet staffing requirements at the lowest cost.\n\n\n\n\n\n\n\n\n\nUnit Workload Model\n\n\n\nfire-ems\n\nr\n\n\n\nA model of each unit’s workload built from call volume, call duration, and committed time, to inform where new stations or resources might go.\n\n\n\n\n\nNo matching items"
+    "text": "Projects\n\n\n\n\n\n\n\nCareer vs. Volunteer Fire Department Response Times\n\n\n\nstatistics\n\nr\n\nfire-ems\n\n\n\nA statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.\n\n\n\n\n\n\n\n\n\nFire & Life Safety Inspection Benchmark Report\n\n\n\nclient\n\nbenchmarking\n\nfire-ems\n\n\n\n2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.\n\n\n\n\n\n\n\n\n\nModeling Airport Disruptions with a Markov Chain\n\n\n\nstatistics\n\nr\n\n\n\nA discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.\n\n\n\n\n\n\n\n\n\nPredicting House Prices: Linear Regression vs. Tree Models\n\n\n\nstatistics\n\nr\n\nmachine-learning\n\n\n\nComparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.\n\n\n\n\n\n\n\n\n\nPredicting Life Expectancy with Linear Regression\n\n\n\nstatistics\n\nr\n\n\n\nA multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
+    "objectID": "projects/flight-route-markov-chain/index.html",
+    "href": "projects/flight-route-markov-chain/index.html",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+    "text": "Final project for MATH 3262 Mathematical Modeling (Kennesaw State University), December 2023. The report is the main write-up; this page summarizes it."
   },
   {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Writing",
+    "objectID": "projects/flight-route-markov-chain/index.html#question",
+    "href": "projects/flight-route-markov-chain/index.html#question",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Question",
+    "text": "Question\nIf major hub airports went offline, how would passenger volume redistribute across the rest of the U.S. air network?"
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#the-report",
+    "href": "projects/flight-route-markov-chain/index.html#the-report",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "The Report",
+    "text": "The Report\n\n\nDownload the report (PDF) Code on GitHub"
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#data",
+    "href": "projects/flight-route-markov-chain/index.html#data",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Data",
+    "text": "Data\nThe data is the 2022 T-100 Domestic Segment (All Carriers) file from the U.S. Bureau of Transportation Statistics, which records passenger volumes by month, carrier and route. International routes, airports in Puerto Rico, the U.S. Virgin Islands and the U.S. Pacific territories, and airports with less than 0.01% of total passenger volume were dropped. That leaves 236 airports and 12,833 routes, joined to an airport table for locations."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#method",
+    "href": "projects/flight-route-markov-chain/index.html#method",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Method",
+    "text": "Method\nTotal 2022 passengers on each route are arranged in a matrix V, with origin airports as rows and destination airports as columns. Dividing each row by its sum gives the transition matrix P:\nP_{ij} = \\frac{V_{ij}}{\\sum_k V_{ik}}\nEvery row of P sums to 1, so P describes a discrete-time Markov chain in which a passenger at airport i moves to airport j with probability proportional to outbound traffic on that route. The stationary distribution \\vec{\\pi} is the eigenvector of P^T for eigenvalue 1, scaled to sum to 1:\nP^T \\vec{\\pi} = \\vec{\\pi}, \\qquad \\textstyle\\sum_i \\pi_i = 1\nIt gives each airport’s long-run share of arriving traffic. Multiplying it by total 2022 arriving passengers gives a predicted arriving volume for each airport.\nTo simulate a disruption, the row and column of each closed airport are removed from V, the rows are re-normalized, and the stationary distribution is recomputed. In both scenarios every remaining airport still has outbound routes, so the re-normalized matrix is a valid transition matrix with a single stationary distribution."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#does-the-model-reproduce-the-data",
+    "href": "projects/flight-route-markov-chain/index.html#does-the-model-reproduce-the-data",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Does the Model Reproduce the Data?",
+    "text": "Does the Model Reproduce the Data?\nFor the ten largest airports, predicted arriving passengers are within about 2% of the actual 2022 figures:\n\n\n\n\n\n\n\n\n\n\nAirport\nStationary probability\nPredicted arrivals\nActual arrivals\nRatio\n\n\n\n\nATL\n0.05466\n40,574,517\n40,506,545\n1.002\n\n\nDEN\n0.04315\n32,030,516\n32,456,514\n0.987\n\n\nDFW\n0.04043\n30,009,037\n30,655,140\n0.979\n\n\nORD\n0.03696\n27,439,136\n27,655,438\n0.992\n\n\nLAX\n0.03329\n24,714,826\n24,583,826\n1.005\n\n\nLAS\n0.03294\n24,451,059\n24,453,079\n1.000\n\n\nCLT\n0.02858\n21,213,521\n21,292,199\n0.996\n\n\nPHX\n0.02807\n20,833,583\n20,832,878\n1.000\n\n\nMCO\n0.02823\n20,953,062\n20,773,927\n1.009\n\n\nSEA\n0.02705\n20,079,335\n20,099,087\n0.999\n\n\n\nThis is a check that the construction is sound, not an independent test of accuracy. Arriving and departing passengers at each airport are nearly equal (Atlanta, for example, had 40.5 million arrivals and 40.4 million departures). When flows balance like this, a chain built from outbound volumes has a stationary distribution close to the share of outbound volume, so a close match to arrivals is expected."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#what-if-hubs-go-offline",
+    "href": "projects/flight-route-markov-chain/index.html#what-if-hubs-go-offline",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "What If Hubs Go Offline?",
+    "text": "What If Hubs Go Offline?\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nClosing Atlanta raises predicted arrivals at most of the largest remaining airports by about 8% to 10%. Closing Atlanta, Denver and Dallas/Fort Worth together raises them by about 19% to 28%, led by Chicago O’Hare (+6.8 million passengers) and Charlotte (+28.2%).\n\n\nAll scenario figures assume total passenger demand stays at its 2022 level and passengers are redistributed in proportion to existing route volumes.\n\nAtlanta Removed\nPredicted arriving passengers at the ten largest remaining airports:\n\n\n\nAirport\nBaseline\nAtlanta removed\nIncrease\nIncrease (%)\n\n\n\n\nDEN\n32,030,516\n34,985,546\n2,955,030\n9.2%\n\n\nDFW\n30,009,037\n32,727,413\n2,718,376\n9.1%\n\n\nORD\n27,439,136\n30,058,938\n2,619,802\n9.5%\n\n\nLAX\n24,714,826\n26,758,648\n2,043,822\n8.3%\n\n\nLAS\n24,451,059\n26,589,404\n2,138,345\n8.7%\n\n\nCLT\n21,213,521\n23,353,609\n2,140,088\n10.1%\n\n\nPHX\n20,833,583\n22,775,186\n1,941,603\n9.3%\n\n\nMCO\n20,953,062\n22,042,302\n1,089,240\n5.2%\n\n\nSEA\n20,079,335\n21,932,608\n1,853,273\n9.2%\n\n\nSFO\n15,751,166\n17,194,116\n1,442,950\n9.2%\n\n\n\nDenver gains the most in absolute terms (about 3.0 million passengers). Most airports gain roughly 8% to 10%, and Orlando gains the least at 5.2%.\n\n\nAtlanta, Denver and Dallas/Fort Worth Removed\nPredicted arriving passengers at the ten largest remaining airports:\n\n\n\nAirport\nBaseline\nThree hubs removed\nIncrease\nIncrease (%)\n\n\n\n\nORD\n27,439,136\n34,206,934\n6,767,798\n24.7%\n\n\nLAX\n24,714,826\n30,022,011\n5,307,185\n21.5%\n\n\nLAS\n24,451,059\n29,621,316\n5,170,257\n21.1%\n\n\nCLT\n21,213,521\n27,206,264\n5,992,743\n28.2%\n\n\nPHX\n20,833,583\n25,375,029\n4,541,446\n21.8%\n\n\nMCO\n20,953,062\n25,077,483\n4,124,421\n19.7%\n\n\nSEA\n20,079,335\n24,822,665\n4,743,330\n23.6%\n\n\nSFO\n15,751,166\n19,140,171\n3,389,005\n21.5%\n\n\nEWR\n15,362,811\n18,811,511\n3,448,700\n22.4%\n\n\nIAH\n15,122,605\n18,055,605\n2,933,000\n19.4%\n\n\n\nChicago O’Hare gains the most in absolute terms (about 6.8 million passengers), and Charlotte gains the most in relative terms (28.2%)."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#limitations",
+    "href": "projects/flight-route-markov-chain/index.html#limitations",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Limitations",
+    "text": "Limitations\n\nWhat-if estimates, not forecasts. Removing a hub and re-normalizing rows assumes passengers redistribute in proportion to existing route volumes, with no airport capacity limits and no new routes.\nMemoryless model. A Markov chain assumes the next airport depends only on the current one, which simplifies how real travel works.\nOne year, domestic only. The data covers domestic 2022 segments, so it leaves out international traffic and year-to-year trends.\nExternal factors. Weather, economic conditions and health crises are not modeled.\nData quality. Errors or gaps in the T-100 data would carry through to the results."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#future-work",
+    "href": "projects/flight-route-markov-chain/index.html#future-work",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Future Work",
+    "text": "Future Work\nExtending the model to international routes and external factors, and running Monte Carlo simulations that remove routes at random to study how volumes change statistically. Early Monte Carlo code is in the repository, but it is unfinished and is not part of the report."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#tools-and-data-sources",
+    "href": "projects/flight-route-markov-chain/index.html#tools-and-data-sources",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Tools and Data Sources",
+    "text": "Tools and Data Sources\nR and Quarto, using tidyverse, sf, knitr and kableExtra.\nData: U.S. Bureau of Transportation Statistics, T-100 Domestic Segment (All Carriers), 2022. Airport lookup tables derived from OpenFlights (Open Database License)."
+  },
+  {
+    "objectID": "projects/flight-route-markov-chain/index.html#links",
+    "href": "projects/flight-route-markov-chain/index.html#links",
+    "title": "Modeling Airport Disruptions with a Markov Chain",
+    "section": "Links",
+    "text": "Links\n\nReport (PDF)\nCode on GitHub"
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html",
+    "href": "projects/life-expectancy-regression/index.html",
+    "title": "Predicting Life Expectancy with Linear Regression",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+    "text": "Final project for STAT 4210 Regression Analysis (Kennesaw State University), December 2024. The report is the main write-up; this page summarizes it."
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#question",
+    "href": "projects/life-expectancy-regression/index.html#question",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Question",
+    "text": "Question\nWhich country-level factors are associated with life expectancy at birth, and how well can a multiple linear regression model predict it?"
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#the-report",
+    "href": "projects/life-expectancy-regression/index.html#the-report",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "The Report",
+    "text": "The Report\n\n\nDownload the report (PDF) Code and data on GitHub"
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#data",
+    "href": "projects/life-expectancy-regression/index.html#data",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Data",
+    "text": "Data\nThe data is World Health Organization (WHO) country-level data for 2021 from the Global Health Observatory and World Health Statistics. Life expectancy at birth is reported for 185 countries, with a mean of 71.3 years (SD 7.1). Japan is highest at 84.46 years and Lesotho lowest at 51.48.\n\n\n\nLife expectancy at birth, 2021.\n\n\nSix predictors were considered:\n\nhomicide rate\nunintentional poisoning mortality rate\nsuicide mortality rate\nroad traffic mortality rate\nuniversal health coverage (UHC) service coverage index\ndomestic general government health expenditure\n\nCountries missing any variable in a model were dropped (listwise deletion), which left 175 countries for the initial model and 179 for the refined model."
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#approach",
+    "href": "projects/life-expectancy-regression/index.html#approach",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Approach",
+    "text": "Approach\nThree multiple linear regression models were fit and compared on RMSE, adjusted R², AIC and BIC:\n\nInitial model: all six predictors (175 countries).\nRefined model: dropped government health expenditure, which was not significant at the 0.05 level (179 countries).\nFinal model: the same five predictors, fit with 10-fold cross-validation and with influential outliers removed using a Cook’s distance cutoff of 4/n (171 countries).\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nCountries\nRMSE (years)\nAdjusted R²\nAIC\nBIC\n\n\n\n\nInitial (6 predictors)\n175\n2.81\n0.838\n873.7\n899.1\n\n\nRefined (5 predictors)\n179\n2.82\n0.840\n893.2\n915.5\n\n\nFinal (cross-validated, outliers removed)\n171\n2.83\n0.838\n854.9\n876.9"
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#results",
+    "href": "projects/life-expectancy-regression/index.html#results",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nFive country-level factors explain about 84% of the variation in life expectancy across countries. Universal health coverage is the strongest predictor: each additional point on the UHC service coverage index is associated with about 0.32 more years of life expectancy.\n\n\nThe final model explains about 84% of the variation in life expectancy across countries (adjusted R² = 0.838, residual standard error 2.88 years, F = 177.1 on 5 and 165 degrees of freedom).\n\n\n\nPredictor\nEstimate (years per unit)\nStd. error\np-value\n\n\n\n\nIntercept\n55.36\n1.55\n&lt; 0.0001\n\n\nSuicide mortality rate\n−0.157\n0.042\n0.0002\n\n\nUnintentional poisoning mortality rate\n−1.699\n0.398\n&lt; 0.0001\n\n\nHomicide rate\n−0.100\n0.018\n&lt; 0.0001\n\n\nRoad traffic mortality rate\n−0.106\n0.039\n0.007\n\n\nUHC service coverage index\n0.317\n0.019\n&lt; 0.0001\n\n\n\nHolding the other predictors constant, higher mortality from suicide, unintentional poisoning, homicide and road traffic is associated with lower life expectancy, and higher UHC service coverage is associated with higher life expectancy. The coefficients are per unit of each predictor, so their sizes are not directly comparable. The UHC index is the strongest single predictor (t = 17.0, and a correlation of 0.85 with life expectancy): each additional point is associated with about 0.32 more years of life expectancy.\n\nAssumption Checks\n\n\n\nCheck\nStatistic\np-value\n\n\n\n\nShapiro-Wilk (normality of residuals)\n0.989\n0.236\n\n\nKolmogorov-Smirnov (normality of residuals)\n0.050\n0.781\n\n\nBreusch-Pagan (constant variance)\n6.03\n0.303\n\n\nNon-constant variance test\n2.89\n0.089\n\n\n\nVariance inflation factors ranged from 1.10 to 1.90, well under the usual threshold of 5, so multicollinearity is not a concern. The non-constant variance test is marginal, and the Q-Q plot shows a slight departure from normality in the lower tail.\n\n\n\nResiduals vs. fitted values and normal Q-Q plot for the final model."
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#limitations",
+    "href": "projects/life-expectancy-regression/index.html#limitations",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Limitations",
+    "text": "Limitations\n\nAssociation, not causation. This is observational, cross-sectional data, so the coefficients describe associations between countries and do not show that changing a predictor would change life expectancy.\nOne year. The 2021 snapshot says nothing about trends over time. Time-series data would be needed to study change.\nNarrow set of predictors. Education, income inequality and environmental conditions were not considered.\nMissing data. Dropping countries with missing values may bias results if the countries with gaps differ systematically from the rest.\nComparing models. The three models were fit to different numbers of countries, so their AIC and BIC values are not directly comparable. On RMSE and adjusted R² the three models are nearly indistinguishable."
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#tools-and-data-source",
+    "href": "projects/life-expectancy-regression/index.html#tools-and-data-source",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Tools and Data Source",
+    "text": "Tools and Data Source\nR and Quarto: tidyverse (including ggplot2), caret for cross-validation, car and lmtest for diagnostics, broom, GGally, patchwork, kableExtra, and the maps package for the world map.\nData: World Health Organization, Global Health Observatory and World Health Statistics, used under the CC BY-NC-SA 3.0 IGO licence. This project is not endorsed by or affiliated with WHO."
+  },
+  {
+    "objectID": "projects/life-expectancy-regression/index.html#links",
+    "href": "projects/life-expectancy-regression/index.html#links",
+    "title": "Predicting Life Expectancy with Linear Regression",
+    "section": "Links",
+    "text": "Links\n\nFinal report (PDF)\nCode and data on GitHub"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "about.html#use-of-artificial-intelligence",
-    "href": "about.html#use-of-artificial-intelligence",
-    "title": "About",
-    "section": "",
-    "text": "Last Updated: 2026-10-06\nTL;DR The process is the goal, so the ideas, writing, photos, and most code are mine. I use AI for editing, research, and some code help, usually after I’ve tried things myself, and I’ll say when a post leans heavily on it.\nMy thoughts on AI\nMy feelings about using AI are complicated. On one hand, AI can be a genuinely useful tool for breaking down concepts beyond textbook explanations, generating boilerplate and debugging code, automating tedious tasks, and finding resources (textbooks, code, tutorials, etc.). It can accelerate learning and shift the focus off some less rewarding tasks if used properly.\nOn the other hand, the purist approach of completely abstaining from using it is also appealing to me, just like how film photography is appealing because of its manual, tactile nature. One prompt could generate a photo that realizes my vision with a high degree of accuracy, synthetic film grain and all, but the satisfaction of the process is traded for ease and “perfection”. Prompting doesn’t compare to the joy of finding an algorithm for a knotty programming problem, figuring out an elegant math problem, getting out into the world with a camera, or crafting a thoughtfully worded paragraph through personal effort, even if those processes don’t result in “perfection”. Often, what’s gained through the process outweighs the goal, and true satisfaction comes from having developed the skills yourself to self-sufficiently realize that goal. For this site, the process is the goal. There’s plenty of mathematics, stats, computer science, and public safety domain-specific resources that are far better than what I can offer here. This site will focus on my learning process and showcase some of its results. Posting my content online just holds me to a higher standard of completion.\nSo, how will I use AI?\n\nWriting: Every post, analysis, and conclusion on this site is mine.\nPhotography: All photos on this site are mine, and no generative AI is used to create or edit them.\nEditing: I may use AI for proofreading, grammar, spellchecking, and some word reordering suggestions, depending on how “perfectionist” I am feeling. The final wording is mine.\nCode: I generally write my own code. I usually work out my own (often inelegant) solution first, then sometimes use AI to help me find a better one. I won’t post code I don’t understand, and I’ll note any code that relies heavily on AI.\nResearch: I may use AI tools to give background on a subject, locate sources, and get me oriented on a code library. Because AI can state false things confidently, including inventing sources, I check all claims against, and cite them to, their original source.\nLearning: I will try to work through problems and concepts myself first, and then only use AI to help me if I get stuck or to check my understanding.\nSite: I may use AI to help build and maintain the site itself (layout, styling, configuration). This is separate from the code in my posts.\n\nI am responsible for all content on this site."
+    "text": "Career vs. Volunteer Fire Department Response Times\n\n\n\nstatistics\n\nr\n\nfire-ems\n\n\n\nA statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.\n\n\n\n\n\n\n\n\n\nFire & Life Safety Inspection Benchmark Report\n\n\n\nclient\n\nbenchmarking\n\nfire-ems\n\n\n\n2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.\n\n\n\n\n\n\n\n\n\nModeling Airport Disruptions with a Markov Chain\n\n\n\nstatistics\n\nr\n\n\n\nA discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.\n\n\n\n\n\n\n\n\n\nPredicting House Prices: Linear Regression vs. Tree Models\n\n\n\nstatistics\n\nr\n\nmachine-learning\n\n\n\nComparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.\n\n\n\n\n\n\n\n\n\nPredicting Life Expectancy with Linear Regression\n\n\n\nstatistics\n\nr\n\n\n\nA multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.\n\n\n\n\n\nNo matching items"
   }
 ]

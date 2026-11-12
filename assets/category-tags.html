@@ -1,0 +1,8 @@
+<script>
+// Tag each category chip with its name (data-cat="client") so styles.scss can colour tags by kind.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".listing-category, .quarto-category").forEach(function (el) {
+    el.setAttribute("data-cat", el.textContent.trim().toLowerCase());
+  });
+});
+</script>

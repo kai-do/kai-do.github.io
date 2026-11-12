@@ -2,6 +2,7 @@
 title: "Notes"
 description: "Math, physics, and learning."
 toc: false
+draft: true  # hidden until the first post is published
 listing:
   contents: notes
   type: default

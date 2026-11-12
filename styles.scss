@@ -1,45 +1,305 @@
+/*-- scss:defaults --*/
+// Kaido Analytics space and shape tokens (theme-independent).
+// Colors and type families live in assets/_light.scss and assets/_dark.scss.
+$ka-space-1: 4px;
+$ka-space-2: 8px;
+$ka-space-3: 12px;
+$ka-space-4: 16px;
+$ka-space-6: 24px;
+$ka-space-8: 32px;
+$ka-space-12: 48px;
+$ka-space-16: 64px;
+
+$ka-radius-sm: 2px;
+$ka-radius-md: 4px;
+$ka-radius-lg: 8px;
+
+$border-radius:    $ka-radius-md;
+$border-radius-sm: $ka-radius-sm;
+$border-radius-lg: $ka-radius-lg;
+$enable-shadows: false;
+$font-size-base: 1rem;     // body: 16px
+$line-height-base: 1.5;    // body: 24px
+
 /*-- scss:rules --*/
 
-body { line-height: 1.6; }
+// ---------- Type ----------
+@mixin ka-label {
+  font-family: $ka-font-sans;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+@mixin ka-body-sm {
+  font-family: $ka-font-sans;
+  font-size: 14px;
+  line-height: 20px;
+}
+@mixin ka-data {
+  font-family: $ka-font-mono;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+body { font-size: 16px; line-height: 24px; }
 
 #quarto-content main.content,
 .page-columns .content { max-width: 70ch; }
 
-h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
-h2 { margin-top: 2rem; border-bottom: 1px solid var(--bs-border-color); padding-bottom: .25rem; }
-
-a { text-decoration-thickness: 1px; text-underline-offset: 2px; }
-
-.navbar-brand .navbar-title { font-weight: 600; letter-spacing: -0.01em; }
-
-/* Mono for small details */
-.quarto-title-meta, .quarto-title-meta-heading, .quarto-title-meta-contents,
-.listing-date, .listing-categories, .listing-category, .quarto-category,
-.listing-reading-time, figcaption, .figure-caption, .quarto-figure figcaption,
-.nav-footer, .card-subtitle {
-  font-family: var(--bs-font-monospace);
-  font-size: .8rem;
+// Page-opening headings: display family
+.quarto-title h1.title,
+main.content > h1 {
+  font-family: $ka-font-display;
+  font-weight: 400;
+  font-size: clamp(28px, 6vw, 40px);  // heading-1 on phones, display-lg on desktop
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: $ka-ink;
 }
-.listing-date { color: var(--bs-secondary-color); }
-.quarto-category { border-radius: 2px; background: transparent; border: 1px solid var(--bs-border-color); color: var(--bs-secondary-color); }
+
+// heading-1 (display family) for section heads inside pages
+h2 {
+  font-family: $ka-font-display;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0;
+  margin-top: $ka-space-8;
+  padding-bottom: $ka-space-1;
+  border-bottom: 1px solid $ka-border;
+}
+
+// heading-2 (sans) for sub-heads and card titles
+h3, h4, .card-title, .listing-title {
+  font-family: $ka-font-sans;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+h4 { font-size: 16px; line-height: 24px; }
+
+.tagline { font-size: 20px; line-height: 28px; color: $ka-ink-muted; margin-top: -$ka-space-1; }
+
+a { color: $ka-brand; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+// Captions and secondary text
+figcaption, .figure-caption, .quarto-figure figcaption, .card-subtitle,
+.quarto-title-meta-contents, .listing-description, .listing-reading-time {
+  @include ka-body-sm;
+  color: $ka-ink-muted;
+}
+
+// Labels: meta headings and tags
+.quarto-title-meta-heading { @include ka-label; text-transform: uppercase; color: $ka-ink-muted; }
+// Tags, tinted by kind (data-cat is set by assets/category-tags.html):
+// subjects teal-50, tools navy-50, client work gold-100 (the one gold mark on a listing).
+// `body :is(...)` outranks Quarto's own grid and title-block tag rules.
+$ka-tag: "body :is(.quarto-grid-item .listing-categories .listing-category, .quarto-title .quarto-categories .quarto-category, .listing-category, .quarto-category)";
+#{$ka-tag} {
+  @include ka-label;
+  font-size: 11px;      // one step below the 12px label style
+  line-height: 14px;
+  text-transform: uppercase;
+  border-radius: $ka-radius-sm;
+  background: $ka-tag-subject-bg;
+  border: 1px solid $ka-tag-border;
+  color: $ka-tag-text;
+  padding: 1px $ka-space-2;
+  opacity: 1;
+}
+#{$ka-tag}:is([data-cat="r"], [data-cat="sql"], [data-cat="shiny"]) {
+  background: $ka-tag-tool-bg;
+}
+#{$ka-tag}[data-cat="client"] {
+  background: $ka-tag-client-bg;
+  border-color: $ka-tag-client-border;
+  color: $ka-tag-client-text;
+}
+
+::selection { background: $ka-selection-bg; color: $ka-selection-text; }
+
+blockquote, .blockquote {
+  background: $ka-quote-bg;
+  border-left: 3px solid $ka-brand;
+  border-radius: 0 $ka-radius-md $ka-radius-md 0;
+  padding: $ka-space-3 $ka-space-4;
+  color: $ka-ink;
+}
+blockquote > :last-child { margin-bottom: 0; }
+
+// Figures and dates: data (mono)
+.listing-date, .quarto-title-meta .date { @include ka-data; color: $ka-ink-muted; }
 
 .quarto-title-block .quarto-title-banner { display: none; }
 
-/* Code and math */
-pre.sourceCode, div.sourceCode { border: 1px solid var(--bs-border-color); border-radius: 3px; }
-code { font-size: .85em; }
-.katex { font-size: 1em; }
+// ---------- Chrome ----------
+// Header: stormy-teal fill with teal-50 text in both themes
+.navbar {
+  background-color: $ka-stormy-teal;
+  border-bottom: none;
+  box-shadow: none;
+}
+.navbar-brand .navbar-title { font-weight: 600; color: $ka-teal-50; }
+// Kaido mark in the header (kaido-mark-on-teal.svg); never recolor, stretch or rotate it.
+// On phones: smaller mark and no "kai.do" prefix, so the name fits beside the menu and icons.
+@media (max-width: 575.98px) {
+  .navbar .navbar-logo { height: 44px !important; max-height: 44px !important; margin-block: 0 !important; }
+  .navbar .brand-domain { display: none; }
+}
+.navbar .navbar-logo { height: 72px; max-height: 72px; margin-block: -$ka-space-3; width: auto; padding-right: 0; margin-right: $ka-space-1; }
 
-/* Listing items */
-.quarto-listing-default .list.quarto-listing-default .listing-item { padding: .75rem 0; }
-.quarto-grid-item.card { border-radius: 3px; box-shadow: none; }
+// 404 page: centered, set in the header's monospace (the kai.do face)
+// Full-width layout (page-layout: full) and no 70ch cap, so the block centers in the window
+main.content:has(.ka-404) { max-width: none; margin-inline: auto; }
+// Sized against the viewport height so the whole page fits on one screen
+// (phones and typical laptop windows) without scrolling.
+.ka-404 {
+  font-family: $ka-font-mono;
+  text-align: center;
+  padding-block: clamp(16px, 4vh, 48px) $ka-space-6;
+  p { margin: 0; }
+}
+.ka-404-msg {
+  display: block;
+  font-size: clamp(20px, 3.6vw, 36px);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $ka-accent-text;
+}
+img.ka-404-logo {
+  display: block;
+  height: clamp(120px, 28vh, 300px);
+  max-width: 80%;
+  width: auto;
+  margin: clamp(12px, 3vh, 32px) auto;
+}
+.ka-404-coords {
+  display: inline-block;
+  padding: $ka-space-3 $ka-space-6;
+  border-top: 1px solid $ka-border;
+  border-bottom: 1px solid $ka-border;
+  color: $ka-ink-muted;
+  font-size: 14px;
+  line-height: 22px;
+}
+.ka-404-object { display: block; font-size: 17px; font-weight: 600; color: $ka-ink; letter-spacing: 0.04em; }
+.ka-404-coord + .ka-404-coord::before { content: "·"; margin-right: 0.6em; color: $ka-border-strong; }  // the source space supplies the left gap
+.ka-404-date { display: block; }
+.ka-404-actions { margin-top: clamp(16px, 3vh, 32px); display: flex; gap: $ka-space-2; justify-content: center; flex-wrap: wrap; }
+.ka-404-actions p { display: contents; }
 
-.tagline { font-size: 1.25rem; color: var(--bs-secondary-color); margin-top: -.25rem; }
+// Kaido Analytics lockup on the About page
+img.kaido-lockup { width: 240px; max-width: 70%; height: auto; display: block; margin: $ka-space-4 0 $ka-space-2; }
+.navbar .nav-link, .navbar .bi, .navbar .quarto-color-scheme-toggle,
+.navbar .aa-DetachedSearchButtonIcon { color: $ka-teal-50; }
+.navbar .nav-link:hover, .navbar .nav-link.active { color: #ffffff; }
+.navbar .nav-link.active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.navbar a:focus-visible, .navbar button:focus-visible, .navbar .nav-link:focus-visible {
+  outline-color: $ka-gold;
+}
 
 .brand-domain {
-  font-family: var(--bs-font-monospace);
+  font-family: $ka-font-mono;
   font-weight: 500;
-  color: inherit;
-  opacity: .7;
+  color: rgba($ka-teal-50, .75);
   margin-right: .4em;
+}
+
+.nav-footer {
+  @include ka-body-sm;
+  border-top: 1px solid $ka-border;
+  color: $ka-ink-muted;
+}
+
+// ---------- Code and math ----------
+pre.sourceCode, div.sourceCode {
+  background-color: $ka-surface-sunken;
+  border: 1px solid $ka-border;
+  border-radius: $ka-radius-md;
+}
+pre, code, kbd, samp { font-family: $ka-font-mono; }
+pre code, div.sourceCode code { font-size: 14px; line-height: 20px; }
+:not(pre) > code {
+  font-size: .875em;
+  background: $ka-surface-sunken;
+  border-radius: $ka-radius-sm;
+  padding: 0 $ka-space-1;
+}
+.katex { font-size: 1em; }
+
+// ---------- Surfaces ----------
+// Separate surfaces with a hairline or a surface step, never a shadow.
+.card, .quarto-grid-item.card {
+  background: $ka-surface-raised;
+  border: 1px solid $ka-border;
+  border-radius: $ka-radius-md;
+  box-shadow: none;
+}
+.card-body { padding: $ka-space-4; }
+
+.quarto-listing-default .list.quarto-listing-default .listing-item { padding: $ka-space-3 0; }
+
+// Callouts: panels (radius-lg), no shadows
+.callout {
+  border-radius: $ka-radius-lg;
+  box-shadow: none;
+  border-top: 1px solid $ka-border;
+  border-right: 1px solid $ka-border;
+  border-bottom: 1px solid $ka-border;
+}
+.callout.callout-note { background: $ka-info-panel; }
+.callout.callout-note .callout-header { background: transparent; }
+
+// Key finding: callout box with its label in accent-text
+.callout.callout-important { background: $ka-callout; }
+.callout.callout-important .callout-header { background: transparent; }
+.callout.callout-important .callout-title-container { color: $ka-accent-text; }
+
+// Tables: sunken header, strong rule under it, mono figures
+.table, table {
+  @include ka-body-sm;
+  color: $ka-ink;
+}
+.table > thead > tr > th, table thead th {
+  background: $ka-surface-sunken;
+  border-bottom: 1px solid $ka-border-strong;
+}
+td.number, th.number, .table td[style*="right"] { font-family: $ka-font-mono; }
+.table > tbody > tr:nth-child(even) > *, table tbody tr:nth-child(even) td { --bs-table-bg: #{$ka-table-band}; background-color: $ka-table-band; }
+
+// Embedded PDFs: most phone browsers show these blank or as a single page,
+// so hide them on narrow screens. Every embed has a download button beside it.
+// Wide tables scroll inside themselves instead of widening the page.
+@media (max-width: 767.98px) {
+  iframe[src$=".pdf"] { display: none; }
+  main table { display: block; max-width: 100%; overflow-x: auto; }
+}
+
+// ---------- Controls ----------
+.btn { border-radius: $ka-radius-md; box-shadow: none; }
+.btn-primary { color: $ka-on-brand; background: $ka-brand; border-color: $ka-brand; }
+.btn-outline-primary { color: $ka-brand; border-color: $ka-brand; }
+.btn-primary:hover, .btn-outline-primary:hover {
+  color: $ka-on-brand;
+  background: $ka-brand;
+  border-color: $ka-brand;
+}
+
+.form-control, .aa-Form, #quarto-search input {
+  border-color: $ka-border-strong;
+  border-radius: $ka-radius-md;
+  background: $ka-surface-raised;
+  color: $ka-ink;
+}
+
+// Focus: solid 2px ring
+a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible,
+.form-control:focus, .nav-link:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid $ka-focus-ring;
+  outline-offset: 2px;
+  box-shadow: none;
 }

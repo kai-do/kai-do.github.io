@@ -1,0 +1,128 @@
+---
+title: "Modeling Airport Disruptions with a Markov Chain"
+description: "A discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline."
+author: Nakai Zemer
+date: 2023-12-04
+categories: [statistics, r]
+resources:
+  - Flight-Route-Markov-Chain-Report.pdf
+---
+
+Final project for MATH 3262 Mathematical Modeling (Kennesaw State University), December 2023. The report is the main write-up; this page summarizes it.
+
+## Question
+
+If major hub airports went offline, how would passenger volume redistribute across the rest of the U.S. air network?
+
+## The Report
+
+<iframe src="Flight-Route-Markov-Chain-Report.pdf" title="Final report" width="100%" height="520" style="border: 1px solid var(--bs-border-color);"></iframe>
+
+[Download the report (PDF)](Flight-Route-Markov-Chain-Report.pdf){.btn .btn-outline-primary .btn-sm}
+[Code on GitHub](https://github.com/kai-do/flight-route-markov-chain){.btn .btn-outline-primary .btn-sm}
+
+## Data
+
+The data is the 2022 T-100 Domestic Segment (All Carriers) file from the U.S. Bureau of Transportation Statistics, which records passenger volumes by month, carrier and route. International routes, airports in Puerto Rico, the U.S. Virgin Islands and the U.S. Pacific territories, and airports with less than 0.01% of total passenger volume were dropped. That leaves **236 airports and 12,833 routes**, joined to an airport table for locations.
+
+## Method
+
+Total 2022 passengers on each route are arranged in a matrix $V$, with origin airports as rows and destination airports as columns. Dividing each row by its sum gives the transition matrix $P$:
+
+$$P_{ij} = \frac{V_{ij}}{\sum_k V_{ik}}$$
+
+Every row of $P$ sums to 1, so $P$ describes a discrete-time Markov chain in which a passenger at airport $i$ moves to airport $j$ with probability proportional to outbound traffic on that route. The stationary distribution $\vec{\pi}$ is the eigenvector of $P^T$ for eigenvalue 1, scaled to sum to 1:
+
+$$P^T \vec{\pi} = \vec{\pi}, \qquad \textstyle\sum_i \pi_i = 1$$
+
+It gives each airport's long-run share of arriving traffic. Multiplying it by total 2022 arriving passengers gives a predicted arriving volume for each airport.
+
+To simulate a disruption, the row and column of each closed airport are removed from $V$, the rows are re-normalized, and the stationary distribution is recomputed. In both scenarios every remaining airport still has outbound routes, so the re-normalized matrix is a valid transition matrix with a single stationary distribution.
+
+## Does the Model Reproduce the Data?
+
+For the ten largest airports, predicted arriving passengers are within about 2% of the actual 2022 figures:
+
+| Airport | Stationary probability | Predicted arrivals | Actual arrivals | Ratio |
+|---|---|---|---|---|
+| ATL | 0.05466 | 40,574,517 | 40,506,545 | 1.002 |
+| DEN | 0.04315 | 32,030,516 | 32,456,514 | 0.987 |
+| DFW | 0.04043 | 30,009,037 | 30,655,140 | 0.979 |
+| ORD | 0.03696 | 27,439,136 | 27,655,438 | 0.992 |
+| LAX | 0.03329 | 24,714,826 | 24,583,826 | 1.005 |
+| LAS | 0.03294 | 24,451,059 | 24,453,079 | 1.000 |
+| CLT | 0.02858 | 21,213,521 | 21,292,199 | 0.996 |
+| PHX | 0.02807 | 20,833,583 | 20,832,878 | 1.000 |
+| MCO | 0.02823 | 20,953,062 | 20,773,927 | 1.009 |
+| SEA | 0.02705 | 20,079,335 | 20,099,087 | 0.999 |
+
+This is a check that the construction is sound, not an independent test of accuracy. Arriving and departing passengers at each airport are nearly equal (Atlanta, for example, had 40.5 million arrivals and 40.4 million departures). When flows balance like this, a chain built from outbound volumes has a stationary distribution close to the share of outbound volume, so a close match to arrivals is expected.
+
+## What If Hubs Go Offline?
+
+::: {.callout-important title="Key Finding"}
+Closing Atlanta raises predicted arrivals at most of the largest remaining airports by about 8% to 10%. Closing Atlanta, Denver and Dallas/Fort Worth together raises them by about 19% to 28%, led by Chicago O'Hare (+6.8 million passengers) and Charlotte (+28.2%).
+:::
+
+All scenario figures assume total passenger demand stays at its 2022 level and passengers are redistributed in proportion to existing route volumes.
+
+### Atlanta Removed
+
+Predicted arriving passengers at the ten largest remaining airports:
+
+| Airport | Baseline | Atlanta removed | Increase | Increase (%) |
+|---|---|---|---|---|
+| DEN | 32,030,516 | 34,985,546 | 2,955,030 | 9.2% |
+| DFW | 30,009,037 | 32,727,413 | 2,718,376 | 9.1% |
+| ORD | 27,439,136 | 30,058,938 | 2,619,802 | 9.5% |
+| LAX | 24,714,826 | 26,758,648 | 2,043,822 | 8.3% |
+| LAS | 24,451,059 | 26,589,404 | 2,138,345 | 8.7% |
+| CLT | 21,213,521 | 23,353,609 | 2,140,088 | 10.1% |
+| PHX | 20,833,583 | 22,775,186 | 1,941,603 | 9.3% |
+| MCO | 20,953,062 | 22,042,302 | 1,089,240 | 5.2% |
+| SEA | 20,079,335 | 21,932,608 | 1,853,273 | 9.2% |
+| SFO | 15,751,166 | 17,194,116 | 1,442,950 | 9.2% |
+
+Denver gains the most in absolute terms (about 3.0 million passengers). Most airports gain roughly 8% to 10%, and Orlando gains the least at 5.2%.
+
+### Atlanta, Denver and Dallas/Fort Worth Removed
+
+Predicted arriving passengers at the ten largest remaining airports:
+
+| Airport | Baseline | Three hubs removed | Increase | Increase (%) |
+|---|---|---|---|---|
+| ORD | 27,439,136 | 34,206,934 | 6,767,798 | 24.7% |
+| LAX | 24,714,826 | 30,022,011 | 5,307,185 | 21.5% |
+| LAS | 24,451,059 | 29,621,316 | 5,170,257 | 21.1% |
+| CLT | 21,213,521 | 27,206,264 | 5,992,743 | 28.2% |
+| PHX | 20,833,583 | 25,375,029 | 4,541,446 | 21.8% |
+| MCO | 20,953,062 | 25,077,483 | 4,124,421 | 19.7% |
+| SEA | 20,079,335 | 24,822,665 | 4,743,330 | 23.6% |
+| SFO | 15,751,166 | 19,140,171 | 3,389,005 | 21.5% |
+| EWR | 15,362,811 | 18,811,511 | 3,448,700 | 22.4% |
+| IAH | 15,122,605 | 18,055,605 | 2,933,000 | 19.4% |
+
+Chicago O'Hare gains the most in absolute terms (about 6.8 million passengers), and Charlotte gains the most in relative terms (28.2%).
+
+## Limitations
+
+- **What-if estimates, not forecasts.** Removing a hub and re-normalizing rows assumes passengers redistribute in proportion to existing route volumes, with no airport capacity limits and no new routes.
+- **Memoryless model.** A Markov chain assumes the next airport depends only on the current one, which simplifies how real travel works.
+- **One year, domestic only.** The data covers domestic 2022 segments, so it leaves out international traffic and year-to-year trends.
+- **External factors.** Weather, economic conditions and health crises are not modeled.
+- **Data quality.** Errors or gaps in the T-100 data would carry through to the results.
+
+## Future Work
+
+Extending the model to international routes and external factors, and running Monte Carlo simulations that remove routes at random to study how volumes change statistically. Early Monte Carlo code is in the repository, but it is unfinished and is not part of the report.
+
+## Tools and Data Sources
+
+R and Quarto, using tidyverse, sf, knitr and kableExtra.
+
+Data: [U.S. Bureau of Transportation Statistics, T-100 Domestic Segment (All Carriers)](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GEE&QO_fu146_anzr=Nv4+Pn44vr45), 2022. Airport lookup tables derived from [OpenFlights](https://openflights.org/data.php) (Open Database License).
+
+## Links
+
+- [Report (PDF)](Flight-Route-Markov-Chain-Report.pdf)
+- [Code on GitHub](https://github.com/kai-do/flight-route-markov-chain)

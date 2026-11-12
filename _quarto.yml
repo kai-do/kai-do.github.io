@@ -1,9 +1,11 @@
 project:
   type: website
   output-dir: docs
+  post-render: _scripts/fix-404-paths.py
   resources:
     - CNAME
     - .nojekyll
+    - assets/Logos/app-icon-180.png
 
 execute:
   freeze: auto
@@ -11,19 +13,26 @@ execute:
 website:
   title: "Nakai Zemer"
   site-url: https://kai.do
-  favicon: assets/favicon.svg
+  description: "Math and data science for fire & EMS."
+  favicon: assets/Logos/favicon.svg
   draft-mode: gone
   open-graph: true
   twitter-card: true
-  # TODO: add assets/share-card.png (1200x630) as the site-wide default share image
-  # image: assets/share-card.png
+  # Site-wide default link-preview image (1200x630). Source: _design/share-card.html
+  image: /assets/share-card.png
+  image-alt: "Nakai Zemer: Math and Data Science for Fire & EMS. kai.do"
   navbar:
+    logo: assets/Logos/kaido-mark-on-teal.svg
+    logo-alt: "Kaido Analytics mark"
     title: '<span class="brand-domain">kai.do</span> Nakai Zemer'
     right:
-      - href: posts.qmd
-        text: Writing
-      - href: notes.qmd
-        text: Notes
+      # Writing and Notes are hidden until the first post is published.
+      # To restore: uncomment these two items and the RSS links below, and remove
+      # `draft: true` from posts.qmd and notes.qmd.
+      # - href: posts.qmd
+      #   text: Writing
+      # - href: notes.qmd
+      #   text: Notes
       - href: projects.qmd
         text: Projects
       - href: resume.qmd
@@ -36,14 +45,14 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/nakai-zemer
         aria-label: LinkedIn
-      - icon: rss
-        href: posts.xml
-        aria-label: RSS
+      # - icon: rss
+      #   href: posts.xml
+      #   aria-label: RSS
   page-footer:
-    left: "© {{< now year >}} Kaido Analytics LLC"
-    right:
-      - text: RSS
-        href: posts.xml
+    left: "© {{< now year >}} Nakai Zemer · Kaido Analytics LLC"
+    # right:
+    #   - text: RSS
+    #     href: posts.xml
 
 format:
   html:
@@ -56,4 +65,5 @@ format:
     html-math-method: katex
     date-format: iso
     toc: false
-    include-in-header: assets/goatcounter.html
+    include-in-header: [assets/goatcounter.html, assets/head-icons.html]
+    include-after-body: assets/category-tags.html

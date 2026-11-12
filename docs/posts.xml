@@ -9,7 +9,12 @@
 <link>https://kai.do/posts.html</link>
 <atom:link href="https://kai.do/posts.xml" rel="self" type="application/rss+xml"/>
 <description>Fire/EMS, data, and methods.</description>
+<image>
+<url>https://kai.do/assets/share-card.png</url>
+<title>Nakai Zemer</title>
+<link>https://kai.do/posts.html</link>
+</image>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Tue, 06 Oct 2026 14:05:49 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Nov 2026 20:40:25 GMT</lastBuildDate>
 </channel>
 </rss>

@@ -1,0 +1,87 @@
+---
+title: "Predicting House Prices: Linear Regression vs. Tree Models"
+description: "Comparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa."
+author: Nakai Zemer
+date: 2024-07-23
+categories: [statistics, r, machine-learning]
+resources:
+  - House-Price-Models-Report.pdf
+---
+
+Final project for STAT 3130 (Kennesaw State University), July 2024. The report is the main write-up; this page summarizes it.
+
+## Question
+
+How do linear regression models with increasing amounts of feature engineering compare with XGBoost and random forest models, run at default settings, at predicting home sale prices? The project also tests whether sale price differs by pool quality.
+
+## The Report
+
+<iframe src="House-Price-Models-Report.pdf" title="Final report" width="100%" height="520" style="border: 1px solid var(--bs-border-color);"></iframe>
+
+[Download the report (PDF)](House-Price-Models-Report.pdf){.btn .btn-outline-primary .btn-sm}
+[Code on GitHub](https://github.com/kai-do/house-pricing-model){.btn .btn-outline-primary .btn-sm}
+
+## Data
+
+The data is the Ames, Iowa housing data from Kaggle's training set: 1,460 house sales with 79 explanatory variables describing the lot, the building, its condition and the sale. Sale prices are right-skewed, with a median of \$163,000 and a mean of \$180,921.
+
+The data is split 80/20 with a fixed seed into 1,168 training houses and 292 test houses, and every model uses the same split. Before modeling, the ID column is removed, missing lot frontage is imputed by linear regression on lot area, lot shape and lot configuration, variables with only one value are removed, and categorical variables are converted to dummy variables.
+
+## Models
+
+1. **Linear regression 1:** all variables (259 coefficients after dummy coding).
+2. **Linear regression 2:** the 47 of 79 predictors that were not significant at the 0.05 level are removed.
+3. **Linear regression 3:** starting from model 2, 55 training houses with standardized residuals beyond ±2 are removed as outliers, along with two collinear variables and four variables that were no longer significant.
+4. **XGBoost** and **random forest** (ranger), both at their default settings with no tuning.
+
+## Results
+
+::: {.callout-important title="Key Finding"}
+Random forest, with no tuning, predicted test-set prices best (R² 0.919, RMSE \$21,117). The best linear model reached only R² 0.444 on the same houses: the linear models overfit the training data and missed badly on a handful of test houses.
+:::
+
+| Model | Training R² | Training RMSE | Test R² | Test RMSE | Test MAE |
+|---|---|---|---|---|---|
+| Linear regression 1 | 0.936 | \$20,724 | 0.404 | \$77,036 | \$20,467 |
+| Linear regression 2 | 0.912 | \$24,207 | 0.444 | \$69,639 | \$21,502 |
+| Linear regression 3 | 0.944 | \$17,042 | 0.418 | \$70,806 | \$22,019 |
+| XGBoost | | | 0.875 | \$24,602 | \$17,332 |
+| Random forest | | | **0.919** | **\$21,117** | **\$15,180** |
+
+- **Random forest predicts best** on every test metric, followed by XGBoost, even with no tuning.
+- **The linear models overfit.** They fit the training data well (R² 0.91 to 0.94) but explain much less of the variation in the test houses (R² 0.40 to 0.44). Model 1 estimates 259 coefficients from 1,168 houses.
+- **Model 2 is the best linear model on the test set** (R² 0.444). Removing outliers in model 3 improved the training fit but not the test fit. Model 3's training figures also exclude the 55 houses it removed, so they are not directly comparable with the other two.
+- **A few large errors drive the linear models' low test R².** Their test RMSE is more than three times their MAE. Their typical error (MAE of \$20,000 to \$22,000) is not far from the tree models' (\$15,000 to \$17,000), but on a handful of houses they miss by a very large amount.
+
+Linear regression is easier to interpret and to put into production, while the tree models predict better with far less feature engineering. Which to use depends on whether accuracy or interpretability matters more.
+
+## Pool Quality
+
+Pool quality was significant in the linear models, so the project tests whether sale price differs by pool quality. Only 7 of the 1,460 houses have a pool:
+
+| Pool quality | Houses | Mean sale price | SD |
+|---|---|---|---|
+| Excellent | 2 | \$490,000 | \$360,624 |
+| Good | 3 | \$201,990 | \$63,441 |
+| Fair | 2 | \$215,500 | \$48,790 |
+| No pool | 1,453 | \$180,405 | \$78,169 |
+
+A one-way ANOVA gave F(3, 1456) = 10.51, p < 0.0001, but the group standard deviations differ too much for its equal-variance assumption to hold. A Kruskal-Wallis test, which does not need that assumption, found no significant difference (χ²(3) = 6.00, p = 0.112). With only seven pools, neither test can say much about pool quality.
+
+## Limitations
+
+- **One train/test split.** The test metrics come from 292 houses and one random split, with no cross-validation, so they would shift somewhat with a different split.
+- **No tuning.** XGBoost and random forest were run at default settings; tuning would likely improve them further.
+- **Skewed prices.** Sale prices were modeled in raw dollars even though they are right-skewed, so large errors on expensive houses dominate RMSE.
+- **Tiny pool groups.** The pool-quality comparison rests on seven houses.
+
+## Tools and Data Source
+
+R and Quarto: tidyverse, tidymodels (rsample and recipes), xgboost, ranger, car and agricolae.
+
+Data: [House Prices - Advanced Regression Techniques](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques) on Kaggle, originally compiled by Dean De Cock ("Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project", *Journal of Statistics Education*, 2011). The data is not included in the repository.
+
+## Links
+
+- [Report (PDF)](House-Price-Models-Report.pdf)
+- [Code on GitHub](https://github.com/kai-do/house-pricing-model)

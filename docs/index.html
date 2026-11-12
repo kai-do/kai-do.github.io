@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>kai.do - Nakai Zemer – Nakai Zemer</title>
+<title>Nakai Zemer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml">
+<link href="./assets/Logos/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -40,14 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-84a3f032e23874c025445ee6374c053c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-1d9f6778da00c29c47ecf7dbbb151a66.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-84a3f032e23874c025445ee6374c053c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3616d33957555e430c49afb9c628cf0d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-e3490fceba11d25bfcb1ac536b8fa153.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-3616d33957555e430c49afb9c628cf0d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-62dc2601ace1000848389de7fe09a9c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8fb2c66072a506b3ac125f26fbb61971.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-62dc2601ace1000848389de7fe09a9c0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5be390e9fa11a233b7f070998849c5a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-81e5887b64150a4bf3cc2c75345657e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5be390e9fa11a233b7f070998849c5a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,34 +78,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-recent .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-recent'] = new List('listing-recent', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-featured-projects .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -115,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -132,9 +104,8 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
-<!-- TODO: GoatCounter site code. Replace CODE below and uncomment to enable privacy-friendly analytics.
-<script data-goatcounter="https://CODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
--->
+<script data-goatcounter="https://kaido.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/Logos/app-icon-180.png">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -180,12 +151,20 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="kai.do - Nakai Zemer – Nakai Zemer">
-<meta property="og:description" content="">
+<meta property="og:title" content="Nakai Zemer">
+<meta property="og:description" content="Fire data analyst and founder of Kaido Analytics LLC. Math and data science for fire &amp; EMS.">
+<meta property="og:image" content="https://kai.do/assets/share-card.png">
 <meta property="og:site_name" content="Nakai Zemer">
-<meta name="twitter:title" content="kai.do - Nakai Zemer – Nakai Zemer">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:image:alt" content="Nakai Zemer: Math and Data Science for Fire &amp; EMS. kai.do">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="Nakai Zemer">
+<meta name="twitter:description" content="Fire data analyst and founder of Kaido Analytics LLC. Math and data science for fire &amp; EMS.">
+<meta name="twitter:image" content="https://kai.do/assets/share-card.png">
+<meta name="twitter:image:alt" content="Nakai Zemer: Math and Data Science for Fire &amp; EMS. kai.do">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -357,6 +336,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/Logos/kaido-mark-on-teal.svg" alt="Kaido Analytics mark" class="navbar-logo light-content">
+    <img src="./assets/Logos/kaido-mark-on-teal.svg" alt="Kaido Analytics mark" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title"><span class="brand-domain">kai.do</span> Nakai Zemer</span>
     </a>
@@ -367,14 +350,6 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
-<span class="menu-text">Writing</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./notes.html"> 
-<span class="menu-text">Notes</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Projects</span></a>
@@ -397,11 +372,6 @@ window.Quarto = {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="./posts.xml"> <i class="bi bi-rss" role="img" aria-label="RSS">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -421,7 +391,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">kai.do - Nakai Zemer</h1>
+<h1 class="title">Nakai Zemer</h1>
 </div>
 
 
@@ -439,276 +409,117 @@ window.Quarto = {
 
 
 <div class="tagline">
-<p>Math and analytics for fire &amp; EMS</p>
+<p>Math and Data Science for Fire &amp; EMS</p>
 </div>
 <!-- Alternative tagline: "Statistics, simulation, and optimization for public safety" -->
-<p>Some text about Nakai</p>
-<section id="recent-writing" class="level2">
-<h2 class="anchored" data-anchor-id="recent-writing">Recent writing</h2>
-<div id="listing-recent" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c3RhdGlzdGljcyUyQ3I=" data-listing-date-sort="1791259200000" data-listing-file-modified-sort="1791295456962" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-10-06-confidence-interval-on-p90/index.html" class="no-external">Putting a confidence interval on a 90th percentile</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-10-06-confidence-interval-on-p90/index.html" class="no-external">
-<p>A confidence interval for a 90th percentile using the binomial order-statistic method in base R.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-10-06-confidence-interval-on-p90/index.html" class="no-external">
-<div class="listing-date">
-2026-10-06
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="b3B0aW1pemF0aW9u" data-listing-date-sort="1791259200000" data-listing-file-modified-sort="1791295457510" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-10-06-facility-location-models-intro/index.html" class="no-external">A first look at facility location models for fire stations</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-10-06-facility-location-models-intro/index.html" class="no-external">
-<p>LSCP, MCLP, p-median, and MEXCLP explained in plain language.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-10-06-facility-location-models-intro/index.html" class="no-external">
-<div class="listing-date">
-2026-10-06
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="c3RhdGlzdGljcyUyQ2ZpcmUtZW1z" data-listing-date-sort="1791259200000" data-listing-file-modified-sort="1791295457107" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-10-06-incident-counts-to-probabilities/index.html" class="no-external">How often does it happen? Turning incident counts into daily, weekly, and monthly probabilities</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-10-06-incident-counts-to-probabilities/index.html" class="no-external">
-<p>Turning incident counts into daily, weekly, and monthly probabilities with Poisson rates and exact intervals.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-10-06-incident-counts-to-probabilities/index.html" class="no-external">
-<div class="listing-date">
-2026-10-06
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="ZGF0YS1lbmdpbmVlcmluZyUyQ3NxbA==" data-listing-date-sort="1791259200000" data-listing-file-modified-sort="1791295457632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-10-06-mapping-nfirs-neris-property-use-codes/index.html" class="no-external">Lessons from mapping NFIRS and NERIS property use codes</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS1lbmdpbmVlcmluZw=='); return false;">data-engineering</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3Fs'); return false;">sql</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-10-06-mapping-nfirs-neris-property-use-codes/index.html" class="no-external">
-<p>TODO: one-sentence description</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-10-06-mapping-nfirs-neris-property-use-codes/index.html" class="no-external">
-<div class="listing-date">
-2026-10-06
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="b3B0aW1pemF0aW9uJTJDZmlyZS1lbXM=" data-listing-date-sort="1791259200000" data-listing-file-modified-sort="1791295457366" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-10-06-run-cards-sorted-matrix/index.html" class="no-external">Run cards are just a sorted matrix (until they aren’t)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-10-06-run-cards-sorted-matrix/index.html" class="no-external">
-<p>TODO: one-sentence description</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-10-06-run-cards-sorted-matrix/index.html" class="no-external">
-<div class="listing-date">
-2026-10-06
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
+<p>I’m a fire data analyst at Cobb County Fire &amp; Emergency Services in Georgia, where I work with an amazing team in the Fire Planning Division. Together we build and run the department’s reporting systems and analytics, and I apply statistics, optimization, and GIS to planning questions such as where to place resources to best serve the community.</p>
+<p>I also run <a href="./about.html">Kaido Analytics LLC</a>, a small consultancy for statistical analysis and reproducible reporting, and I’m finishing a BS in Mathematics with a concentration in statistics at Kennesaw State University.</p>
 <section id="projects" class="level2">
 <h2 class="anchored" data-anchor-id="projects">Projects</h2>
 <div id="listing-featured-projects" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="ZmlyZS1lbXMlMkNyZXBvcnRpbmc=" data-listing-file-modified-sort="1791295447873" data-listing-reading-time-sort="1" data-listing-word-count-sort="54">
-<a href="./projects/cra-soc-accreditation-report/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="c3RhdGlzdGljcyUyQ3IlMkNmaXJlLWVtcw==" data-listing-date-sort="1682913600000" data-listing-file-modified-sort="1794513376800" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="621">
+<a href="./projects/fire-department-response-times/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-CRA-SOC Accreditation Report
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmVwb3J0aW5n'); return false;">reporting</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A generic example of a community risk assessment and standards-of-cover report written to the accreditation format, using anonymized and jittered data.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="c2hpbnklMkN0aW1lLXNlcmllcw==" data-listing-file-modified-sort="1791295447599" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
-<a href="./projects/call-volume-seasonality-dashboard/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Call Volume and Seasonality Dashboard
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hpbnk='); return false;">shiny</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dGltZS1zZXJpZXM='); return false;">time-series</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A map and incident-type explorer with time-series and seasonality views and forecasts.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="c2hpbnklMkNzdGF0aXN0aWNz" data-listing-file-modified-sort="1791295447323" data-listing-reading-time-sort="1" data-listing-word-count-sort="65">
-<a href="./projects/response-time-dashboard/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Response Time Dashboard
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hpbnk='); return false;">shiny</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A Shiny dashboard that breaks response times into segments (turnout, drive time, on-scene) by battalion, station, and call type, and lets a user compare selected groups.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="b3B0aW1pemF0aW9uJTJDc2hpbnk=" data-listing-file-modified-sort="1791295447729" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
-<a href="./projects/run-card-optimization-app/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Run-Card Optimization App
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hpbnk='); return false;">shiny</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A Shiny app that finds the best placement of n apparatus across k stations from road-network travel times to demand points, with offline computation and an interactive map.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="c3RhdGlzdGljcyUyQ2ZpcmUtZW1z" data-listing-file-modified-sort="1791295447179" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
-<a href="./projects/sleep-disruption-analysis/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sleep Disruption Analysis
+Career vs.&nbsp;Volunteer Fire Department Response Times
 </h5>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
+
 <div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
 
 </div>
 <div class="card-text listing-description delink">
-<p>Quantifying how often and for how long overnight dispatches interrupt crews at different stations, to inform policy on reducing night-time disruption.</p>
+<p>A statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.</p>
 </div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="b3B0aW1pemF0aW9uJTJDcg==" data-listing-file-modified-sort="1791295448025" data-listing-reading-time-sort="1" data-listing-word-count-sort="149">
-<a href="./projects/staffing-optimizer/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-categories="Y2xpZW50JTJDYmVuY2htYXJraW5nJTJDZmlyZS1lbXM=">
+<a href="https://www.buildingreports.com/m/2026-benchmark-report/" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Staffing Optimizer
+Fire &amp; Life Safety Inspection Benchmark Report
 </h5>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('b3B0aW1pemF0aW9u'); return false;">optimization</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Y2xpZW50'); return false;">client</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YmVuY2htYXJraW5n'); return false;">benchmarking</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="c3RhdGlzdGljcyUyQ3I=" data-listing-date-sort="1701666000000" data-listing-file-modified-sort="1794513376817" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1034">
+<a href="./projects/flight-route-markov-chain/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Modeling Airport Disruptions with a Markov Chain
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
 
 </div>
 <div class="card-text listing-description delink">
-<p>A generic linear-programming model that assigns available personnel to open positions across units to meet staffing requirements at the lowest cost.</p>
+<p>A discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.</p>
 </div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="ZmlyZS1lbXMlMkNy" data-listing-file-modified-sort="1791295447462" data-listing-reading-time-sort="1" data-listing-word-count-sort="44">
-<a href="./projects/unit-workload-model/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="c3RhdGlzdGljcyUyQ3IlMkNtYWNoaW5lLWxlYXJuaW5n" data-listing-date-sort="1721707200000" data-listing-file-modified-sort="1794513376837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="831">
+<a href="./projects/house-pricing-model/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Unit Workload Model
+Predicting House Prices: Linear Regression vs.&nbsp;Tree Models
 </h5>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('ZmlyZS1lbXM='); return false;">fire-ems</div>
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZS1sZWFybmluZw=='); return false;">machine-learning</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Comparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="c3RhdGlzdGljcyUyQ3I=" data-listing-date-sort="1733374800000" data-listing-file-modified-sort="1794513376855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="789">
+<a href="./projects/life-expectancy-regression/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Predicting Life Expectancy with Linear Regression
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RhdGlzdGljcw=='); return false;">statistics</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
 
 </div>
 <div class="card-text listing-description delink">
-<p>A model of each unit’s workload built from call volume, call duration, and committed time, to inform where new stations or resources might go.</p>
+<p>A multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.</p>
 </div>
 </div>
 </div></a>
@@ -722,6 +533,14 @@ Unit Workload Model
 </section>
 
 </main> <!-- /main -->
+<script>
+// Tag each category chip with its name (data-cat="client") so styles.scss can colour tags by kind.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".listing-category, .quarto-category").forEach(function (el) {
+    el.setAttribute("data-cat", el.textContent.trim().toLowerCase());
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1139,19 +958,13 @@ Unit Workload Model
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2026 Kaido Analytics LLC</p>
+<p>© 2026 Nakai Zemer · Kaido Analytics LLC</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="./posts.xml">
-<p>RSS</p>
-</a>
-  </li>  
-</ul>
+      &nbsp;
     </div>
   </div>
 </footer>

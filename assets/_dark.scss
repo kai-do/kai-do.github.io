@@ -1,13 +1,85 @@
 /*-- scss:defaults --*/
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+// Kaido Analytics design system, dark theme.
+// Source of truth: _design/tokens.json (usage rules in _design/README.md).
 
-$font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-$font-family-monospace: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+// Palette
+$ka-prussian-blue: #0c1b33;
+$ka-stormy-teal:   #0e6b6b;
+$ka-gold:          #e09a3e;
+$ka-copperwood:    #b66d0d;
+$ka-copper-deep:   #8a5208;
+$ka-frosted-mint:  #e0eec6;
+$ka-muted-teal:    #8fad88;
+$ka-neutral-50:    #f7faff;
+$ka-neutral-100:   #eff2f7;
+$ka-neutral-200:   #e1e5ea;
+$ka-neutral-300:   #c6cedb;
+$ka-neutral-400:   #9da5b1;
+$ka-neutral-500:   #737b86;
+$ka-neutral-600:   #545b66;
+$ka-neutral-700:   #3c434d;
+$ka-neutral-800:   #252c35;
+$ka-teal-50:       #e6f8f7;
+$ka-teal-100:      #c3efee;
+$ka-gold-50:       #fff0db;
+$ka-gold-100:      #ffdeba;
+$ka-navy-50:       #ecf4ff;
+$ka-navy-100:      #d5e6ff;
 
-$body-bg: #101a1a;
-$body-color: #d5e0de;
-$link-color: #5fb8b2;
-$primary: #5fb8b2;
-$code-color: #8fd3cd;
-$body-secondary-color: #93a5a3;
-$border-color: #263635;
+// Semantic tokens (dark)
+$ka-surface:        $ka-prussian-blue;
+$ka-surface-raised: #16294a;
+$ka-surface-sunken: #081326;
+$ka-ink:            $ka-neutral-100;
+$ka-ink-muted:      $ka-neutral-300;
+$ka-brand:          $ka-muted-teal;
+$ka-on-brand:       $ka-prussian-blue;
+$ka-accent:         $ka-gold;
+$ka-accent-text:    $ka-gold;
+$ka-on-accent:      $ka-prussian-blue;
+$ka-callout:        #3a2c16;
+$ka-border:         #3b5273;
+$ka-border-strong:  $ka-neutral-400;
+$ka-focus-ring:     $ka-gold;
+$ka-info-panel:     $ka-surface-raised;
+
+// Type families (system stacks until the brand picks licensed faces)
+$ka-font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+$ka-font-sans:    system-ui, -apple-system, "Segoe UI", sans-serif;
+$ka-font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+// Bootstrap / Quarto mappings
+$font-family-sans-serif: $ka-font-sans;
+$font-family-monospace:  $ka-font-mono;
+$body-bg:                $ka-surface;
+$body-color:             $ka-ink;
+$body-secondary-color:   $ka-ink-muted;
+$link-color:             $ka-brand;
+$primary:                $ka-brand;
+$code-color:             $ka-brand;
+$border-color:           $ka-border;
+$navbar-bg:              $ka-stormy-teal;
+$navbar-fg:              $ka-teal-50;
+$navbar-hl:              #ffffff;
+$footer-bg:              $ka-surface;
+$footer-fg:              $ka-ink-muted;
+$callout-color-note:      $ka-brand;
+$callout-color-tip:       $ka-muted-teal;
+$callout-color-important: $ka-accent;
+$callout-color-warning:   $ka-copperwood;
+$callout-color-caution:   $ka-copperwood;
+$code-block-bg:          $ka-surface-sunken;
+$input-border-color:     $ka-border-strong;
+
+// Accent placements (dark), per _design/tokens.json v2 (tag-*, selection, table-stripe, callout-note-bg).
+$ka-tag-subject-bg:  $ka-surface-raised;
+$ka-tag-tool-bg:     $ka-surface-raised;
+$ka-tag-client-bg:   $ka-gold;
+$ka-tag-text:        $ka-ink;
+$ka-tag-client-text: $ka-prussian-blue;
+$ka-tag-border:      $ka-border;  // tag fill equals the card fill in dark, so a hairline keeps tags visible
+$ka-tag-client-border: transparent;
+$ka-selection-bg:    $ka-gold;
+$ka-selection-text:  $ka-prussian-blue;
+$ka-quote-bg:        $ka-surface-raised;
+$ka-table-band:      $ka-surface-raised;

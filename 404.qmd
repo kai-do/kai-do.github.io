@@ -1,0 +1,29 @@
+---
+pagetitle: "Error 404: Gravitational Anomaly Detected"
+toc: false
+page-layout: full
+search: false
+sitemap: false
+image: /assets/share-card.png  # link preview; social sites cannot show the SVG lockup
+---
+
+::: {.ka-404}
+
+[Gravitational Anomaly Detected]{.ka-404-msg}
+
+![](/assets/Logos/kaido-mark-on-light.svg){.light-content .ka-404-logo fig-alt="Kaido Analytics mark: a star spiralling into a black hole"}
+![](/assets/Logos/kaido-mark-on-dark.svg){.dark-content .ka-404-logo fig-alt="Kaido Analytics mark: a star spiralling into a black hole"}
+
+::: {.ka-404-coords}
+[Swift J1644+57]{.ka-404-object}
+[RA 16ʰ44ᵐ]{.ka-404-coord} [Dec +57°]{.ka-404-coord}
+[Detected 2011-03-28]{.ka-404-date}
+:::
+
+::: {.ka-404-actions}
+[Home](/){.btn .btn-primary .btn-sm}
+[Projects](/projects.html){.btn .btn-outline-primary .btn-sm}
+[Resume](/resume.html){.btn .btn-outline-primary .btn-sm}
+:::
+
+:::
