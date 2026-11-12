@@ -1,0 +1,23 @@
+---
+title: "Stop Overrelying on AI. Save Your Mind"
+description: "My personal experience with AI and an experiment with quitting"
+date: 2026-10-10
+categories: [artificial-intelligence]
+draft: true
+---
+
+The research is young on how AI impacts our brains and society. This essay focuses on my own opinion and personal experience using AI. 
+
+## The Early Years
+My first experience with generative AI was in 2021. Finding some code for building neural networks from scratch online, I worked feverishly all night to adapt it into half-baked, bug-ridden R code while my future brother-in-law Giovanni worked on his own diffusion-based image-generating project. We played around with GPT-2 in Google Collab and early image-generating models while discussing their future and laughing at their nonsensical, sometimes grotesque results. At that time, I didn't fully appreciate how far the technology would come in the next 5 years. Likely, no one did.
+
+In 2022, I got access to ChatGPT beta. The concept of using an LLM like GPT-3.5 to complete sentences in a back-and-forth chat-like interface was new at the time, and I was hooked. Shortly after it was released to the public, I subscribed to Plus. As it improved in its capabilities, I started using it daily for coding, research, and as a slot machine to answer any impulsive question that came to mind.
+
+I would spend hours jailbreaking it, pushing its limits, and sometimes descending into perfectionistic spirals trying to find the "perfect" solution to a problem; the "perfect" system for learning, productivity, or even AI-usage itself; or the "perfect" product with the best reviews, features, and price. 
+
+## Nine Truths and a Lie
+In February 2026, becoming weary of ChatGPT's impact on my own cognition, its capacity to feed me hallucinations, and put-off by its sycophantism and chummy communication style, I searched for a new platform seemingly grounded in truth and settled on Perplexity. Finding its "citation-first" method more of a pretense and a major hinderance for coding, I started using GitHub Copilot integrated into VS Code. Finding using two platforms inconvenient, I centralized to Claude in June 2026.
+
+Claude was great at code, and the infrastructure was impressive. Very quickly, I was able to integrate it into my note taking system in Obsidian, VS Code and Positron IDEs. It felt like I was able to vibe code almost anything I wanted. Very quickly, I had working demos for 
+
+## Selling The Process for The Goal
