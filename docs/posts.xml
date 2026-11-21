@@ -29,23 +29,20 @@
 
 
 
+<p>On 20 November 2026, someone posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous open problems in mathematics. I’m checking it myself, from scratch, on my own hardware. This page follows that check live: it updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:32 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:36 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 9,893 of 175,187 modules (5.65%) after 1h25m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 10,508 of 175,187 modules (6.00%) after 1h30m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
-<p>On 20 November 2026, Levent Alpöge posted a <a href="https://alpo.ge/remark.pdf">short remark</a> and a 1.4 GB <a href="https://alpo.ge/lean.tar.gz.part01">Lean 4 project</a> claiming a machine-checked proof of the Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns “is this proof right?” into a question anyone with a computer can answer, if they are careful about what exactly they check.</p>
-<p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding, and to feel a small part of history being made.</p>
-<p>I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago, in a <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">Numberphile interview</a>, I remember Terence Tao saying he didn’t expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI, that Lean’s checkers accept. The only thing anyone can say with certainty is that nothing is off the table.</p>
-<p>This page is my run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
 <section id="what-is-the-riemann-hypothesis" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-the-riemann-hypothesis">What Is the Riemann Hypothesis?</h2>
 <p>Prime numbers (2, 3, 5, 7, 11, 13, …) are the building blocks of whole numbers: every whole number is a product of primes in exactly one way. They get rarer as numbers grow, but they never follow a simple pattern. Look at any stretch of numbers and the primes seem scattered almost at random.</p>
@@ -58,49 +55,37 @@
 </ul>
 <p>(It wouldn’t break internet encryption, a common worry. That depends on how hard it is to factor large numbers, which this doesn’t change.)</p>
 </section>
+<section id="what-happened" class="level2">
+<h2 class="anchored" data-anchor-id="what-happened">What Happened</h2>
+<p>On 20 November 2026, Levent Alpöge posted a <a href="https://alpo.ge/remark.pdf">short remark</a> and a 1.4 GB project written in <a href="https://lean-lang.org">Lean</a>, claiming a proof of the Riemann Hypothesis, along with the same statement for every Dirichlet L-function (a whole family of close relatives of ζ). The proof was written with AI, and it is enormous: 175,187 files and about 17 million lines.</p>
+<p>No person can read a proof that size. Lean is what makes it checkable anyway. Lean is a proof assistant: a program whose small core, the <em>kernel</em>, accepts a proof only if every single step follows from the rules of logic. That turns “is this proof right?” into a question anyone with a powerful enough computer can answer, as long as they’re careful about exactly what they check.</p>
+<p>Within hours, people in the Lean community had built it and run it through several independent checkers (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>, which this page is modelled on.</p>
+</section>
+<section id="why-im-checking-it-myself" class="level2">
+<h2 class="anchored" data-anchor-id="why-im-checking-it-myself">Why I’m Checking It Myself</h2>
+<p>I wanted to do it end to end, for my own understanding, and to feel a small part of history being made.</p>
+<p>I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago, in a <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">Numberphile interview</a>, I remember Terence Tao saying he didn’t expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI, that Lean’s checkers accept. The only thing anyone can say with certainty is that nothing is off the table.</p>
+</section>
 <section id="what-a-check-can-and-cant-tell-you" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</h2>
-<p>A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
+<p>If every check passes, it means Lean’s kernel, and several independent checkers, accepted a proof of five exact formal statements, using nothing beyond Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
 <ul>
-<li>that anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;</li>
-<li>that the formal statements mean what we think. That is why they are printed below, and why the main one is Mathlib’s own definition, written long before this project existed;</li>
-<li>that every checker can’t share one bug. Using checkers written independently, in different languages, some with formal proofs of their own soundness, makes that very unlikely.</li>
+<li><strong>that anyone understands the proof.</strong> Understanding it is the work of mathematicians, and it will take years;</li>
+<li><strong>that the formal statements mean what we think.</strong> That is why they are spelled out in the next section;</li>
+<li><strong>that the checkers can’t all share one bug.</strong> They were written independently, in different languages, and some come with formal proofs of their own correctness, which makes a shared bug very unlikely.</li>
 </ul>
 </section>
 <section id="the-five-statements" class="level2">
 <h2 class="anchored" data-anchor-id="the-five-statements">The Five Statements</h2>
 <p>A proof is only as good as the statement it proves, so the check starts by pinning down exactly what has to be proved. It does that with two separate files.</p>
 <ul>
-<li><strong>The challenge</strong> is a short file that only <em>states</em> the five theorems below. It doesn’t prove anything. Lean won’t accept a theorem without a proof attached, so each one ends in <code>sorry</code>, Lean’s placeholder for a proof left blank.</li>
-<li><strong>The solution</strong> is the project’s own <code>Main.lean</code>. It states theorems with the same five names and supplies the real proofs, drawn from its 175,187 files.</li>
+<li><strong>The challenge</strong> is a short file that only <em>states</em> the five theorems. It doesn’t prove anything. Lean won’t accept a theorem without a proof attached, so each one ends in <code>sorry</code>, Lean’s placeholder for a proof left blank.</li>
+<li><strong>The solution</strong> is the project’s own <code>Main.lean</code>. It states theorems with the same five names and supplies the real proofs.</li>
 </ul>
-<p>The checker, <a href="https://github.com/leanprover/comparator">Comparator</a>, then asks three questions. Does each statement in the solution mean exactly the same thing as in the challenge, down to the definition of every symbol? Are the proofs complete, with no <code>sorry</code> and nothing assumed beyond Lean’s three standard axioms? Does Lean’s kernel accept every step?</p>
-<p><strong>Why a separate file?</strong> Building the project runs code the project contains, and that code can change what words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that <em>looks</em> like Fermat’s Last Theorem becomes trivially “provable”. In the forum thread about this proof, someone showed that one line of <code>notation</code> can make <code>RiemannHypothesis</code> mean <code>True</code>. Reading the project’s own copy of the statements would not catch that. The challenge imports nothing but Mathlib, whose definition of the Riemann Hypothesis was written long before this project existed, and it is built before any project code runs. Comparator then confirms that the project proves that exact meaning.</p>
+<p>A checker then compares the two: the statements must mean exactly the same thing, and the proofs must be complete and accepted by the kernel.</p>
+<p><strong>Why a separate file?</strong> Building the project runs code the project contains, and that code can change what words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that <em>looks</em> like Fermat’s Last Theorem becomes trivially “provable”. In the forum thread about this proof, someone showed that one line of <code>notation</code> can make <code>RiemannHypothesis</code> mean <code>True</code>. Reading the project’s own copy of the statements would not catch that. The challenge imports nothing but Mathlib, Lean’s shared math library, whose definition of the Riemann Hypothesis was written long before this project existed. It is built before any project code runs, so nothing in the project can tamper with it.</p>
 <p><strong>An analogy.</strong> Think of an exam. The challenge is the official question paper, printed by the examiner before the exam with every answer box empty; that’s what <code>sorry</code> is. The solution is a student’s answer booklet, with the questions copied out at the top. A careful examiner doesn’t trust the student’s copy of the questions. They check it word for word against the official paper, and only then mark the answers. A student who quietly rewrote a hard question into an easy one is caught at the first step.</p>
-<p><strong>Where this comes from.</strong> The setup isn’t mine. It is the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a> model of a trusted challenge and an untrusted solution. The community applied it to this project in <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>, and Kevin Buzzard’s <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/">post</a> explains why each question matters. I wrote my challenge file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and when I build their file with my Mathlib, it exports to exactly the same bytes they published.</p>
-<p>Here is the challenge:</p>
-<pre class="lean"><code>import Mathlib
-
-def RiemannZetaZerosOnLine : Prop :=
-  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
-
-def DirichletLNonvanishingRightOfHalf : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
-    1 / 2 &lt; s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
-
-def DirichletLZerosOnLine : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
-    0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
-
-def PrimitiveDirichletLZerosOnLine : Prop :=
-  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
-    ∀ s : ℂ, 0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
-
-theorem riemannHypothesis : RiemannHypothesis := by sorry
-theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry
-theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry
-theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
-theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry</code></pre>
+<p>The five statements, in words:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -135,21 +120,50 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The challenge file in Lean
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre class="lean"><code>import Mathlib
+
+def RiemannZetaZerosOnLine : Prop :=
+  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
+
+def DirichletLNonvanishingRightOfHalf : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    1 / 2 &lt; s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
+
+def DirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+def PrimitiveDirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
+    ∀ s : ℂ, 0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+theorem riemannHypothesis : RiemannHypothesis := by sorry
+theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry
+theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry
+theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
+theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry</code></pre>
+</div>
+</div>
+</div>
 <p>I’m not a number theorist, so I don’t rely on my own reading of the last four. They have to match the project’s definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people who are.</p>
+<p><strong>Where this comes from.</strong> The setup isn’t mine. It is the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a> model of a trusted challenge and an untrusted solution. The community applied it to this project in <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>, and Kevin Buzzard’s <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/">post</a> explains why each part matters. I wrote my challenge file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and when I build their file with my Mathlib, it comes out byte for byte the same as theirs.</p>
 </section>
-<section id="how-the-check-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-check-works">How the Check Works</h2>
-<p>I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.</p>
-<ol type="1">
-<li><strong>A fresh virtual machine</strong> with its own kernel. Every tool is pinned to an exact commit and verified, and the project is downloaded and checked inside the VM.</li>
-<li><strong>No network</strong> once the downloads are done. Mathlib, the math library the project builds on, is then compiled from source and compared file by file with Mathlib’s official build cache.</li>
-<li><strong>The statements first.</strong> The challenge file is built and exported before any project code runs.</li>
-<li><strong>A sandbox for the project.</strong> The build runs under <a href="https://landlock.io">Landlock</a> via <a href="https://github.com/Zouuup/landrun">landrun</a>: it can read its sources and the toolchain and write only its own build folder. I tested that writes elsewhere, reading SSH keys and network connections all fail before starting.</li>
-<li><strong>Export, then judge.</strong> The compiled proof is exported to a single file. The judges read only that file, so no project code runs while checking. <a href="https://lean-lang.org/doc/reference/latest/"><code>lake comparator</code></a> checks that the statements match and that only <code>propext</code>, <code>Quot.sound</code> and <code>Classical.choice</code> are used, then replays the whole proof through Lean’s kernel. Then it goes through every independent checker that fits in the VM’s memory.</li>
-</ol>
-</section>
-<section id="steps-and-status" class="level2">
-<h2 class="anchored" data-anchor-id="steps-and-status">Steps and Status</h2>
+<section id="live-results" class="level2">
+<h2 class="anchored" data-anchor-id="live-results">Live Results</h2>
+<section id="steps-and-status" class="level3">
+<h3 class="anchored" data-anchor-id="steps-and-status">Steps and Status</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -236,7 +250,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>9,893 / 175,187 modules (5.65%), 1h25m elapsed, ~6,975/h, rough ETA 23.7 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>10,508 / 175,187 modules (6.00%), 1h30m elapsed, ~6,998/h, rough ETA 23.5 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
@@ -262,8 +276,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </tbody>
 </table>
 </section>
-<section id="checkers" class="level2">
-<h2 class="anchored" data-anchor-id="checkers">Checkers</h2>
+<section id="checkers" class="level3">
+<h3 class="anchored" data-anchor-id="checkers">Checkers</h3>
 <p>Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by any one of them would override every acceptance.</p>
 <table class="caption-top table">
 <colgroup>
@@ -371,9 +385,9 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </tbody>
 </table>
 </section>
-<section id="hashes-you-can-compare" class="level2">
-<h2 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes You Can Compare</h2>
-<p>A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed <code>lake build</code> here, unsandboxed elsewhere).</p>
+<section id="hashes-you-can-compare" class="level3">
+<h3 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes You Can Compare</h3>
+<p>A hash is a fingerprint of a file: change one byte and it changes completely. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed here, unsandboxed elsewhere).</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -429,8 +443,30 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </tbody>
 </table>
 </section>
-<section id="findings-along-the-way" class="level2">
-<h2 class="anchored" data-anchor-id="findings-along-the-way">Findings along the Way</h2>
+</section>
+<section id="what-happens-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-next">What Happens Next</h2>
+<p>The project build takes roughly a day on this machine. After it come the export, then the checkers; the slowest, Lean’s own kernel replaying the full 61 GB proof on a single thread, may take another day or more. This page updates as each one reports. When the last result is in, I’ll write up what I found here, whatever it is.</p>
+</section>
+<section id="how-i-used-ai" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-used-ai">How I Used AI</h2>
+<p>It felt right to check an AI-written proof with an AI’s help, and also strange. Claude (Anthropic’s AI) set up and ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed the work. That is exactly why the check is built so that no single party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let anyone confirm that the same bytes were checked. It doesn’t settle my mixed feelings about AI, but it does show one thing it can’t take away: a proof that anyone can check for themselves.</p>
+</section>
+<section id="technical-notes" class="level2">
+<h2 class="anchored" data-anchor-id="technical-notes">Technical Notes</h2>
+<section id="how-the-check-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-check-works">How the Check Works</h3>
+<p>I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.</p>
+<ol type="1">
+<li><strong>A fresh virtual machine</strong> with its own kernel. Every tool is pinned to an exact commit and verified, and the project is downloaded and checked inside the VM.</li>
+<li><strong>No network</strong> once the downloads are done. Mathlib is then compiled from source and compared file by file with Mathlib’s official build cache.</li>
+<li><strong>The statements first.</strong> The challenge file is built and exported before any project code runs.</li>
+<li><strong>A sandbox for the project.</strong> The build runs under <a href="https://landlock.io">Landlock</a> via <a href="https://github.com/Zouuup/landrun">landrun</a>: it can read its sources and the toolchain and write only its own build folder. Before starting, I tested that writes elsewhere, reading SSH keys and network connections all fail.</li>
+<li><strong>Export, then judge.</strong> The compiled proof is exported to a single file, and the judges read only that file, so no project code runs while checking. <code>lake comparator</code> checks that the statements match the challenge and that only <code>propext</code>, <code>Quot.sound</code> and <code>Classical.choice</code> are used, then replays the whole proof through Lean’s kernel. Then the proof goes through every independent checker that fits in the VM’s memory.</li>
+</ol>
+</section>
+<section id="findings-along-the-way" class="level3">
+<h3 class="anchored" data-anchor-id="findings-along-the-way">Findings along the Way</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -471,8 +507,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </div>
 </div>
 </section>
-<section id="provenance" class="level2">
-<h2 class="anchored" data-anchor-id="provenance">Provenance</h2>
+<section id="provenance" class="level3">
+<h3 class="anchored" data-anchor-id="provenance">Provenance</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -533,8 +569,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </table>
 <p>The scripts for every step are in <a href="https://github.com/kai-do/riemann-hypothesis-lean-check">kai-do/riemann-hypothesis-lean-check</a>.</p>
 </section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
 <ul>
 <li><strong>The original write-up:</strong> Levent Alpöge, <a href="https://alpo.ge/remark.pdf"><em>remark.pdf</em></a> (4 pages, 20 November 2026).</li>
 <li><strong>The Lean project:</strong> <a href="https://alpo.ge/lean.tar.gz.part01"><code>lean.tar.gz.part01</code></a> … <code>part14</code>, joined sha256 <code>9631b4f0…c7fc</code>.</li>
@@ -545,12 +581,9 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <li><strong>Terence Tao on AI and mathematics:</strong> Numberphile, <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw"><em>No More Heroes - Terence Tao Talks to Numberphile About AI</em></a>.</li>
 <li><strong>Background on what checking a Lean proof involves:</strong> Kevin Buzzard, <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/"><em>And the proof is checked in Lean</em></a>, and the Lean reference on <a href="https://lean-lang.org/doc/reference/latest/External-Kernels/">external kernels</a>.</li>
 </ul>
+
+
 </section>
-<section id="how-i-used-ai" class="level2">
-<h2 class="anchored" data-anchor-id="how-i-used-ai">How I Used AI</h2>
-<p>Claude (Anthropic’s AI) set up and ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let anyone confirm the same bytes were checked.</p>
-
-
 </section>
 
  ]]></description>

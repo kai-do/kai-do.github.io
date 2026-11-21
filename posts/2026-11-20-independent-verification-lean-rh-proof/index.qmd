@@ -13,26 +13,11 @@ draft: false
 toc: true
 ---
 
+On 20 November 2026, someone posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous
+open problems in mathematics. I'm checking it myself, from scratch, on my own hardware. This page follows that
+check live: it updates as each step finishes, and every result on it is quoted from the run's logs.
+
 {{< include _status.md >}}
-
-On 20 November 2026, Levent Alpöge posted a [short remark](https://alpo.ge/remark.pdf) and a
-1.4 GB [Lean 4 project](https://alpo.ge/lean.tar.gz.part01) claiming a machine-checked proof of the
-Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof
-assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns
-"is this proof right?" into a question anyone with a computer can answer, if they are careful about
-what exactly they check.
-
-Within hours, people in the Lean community had built and checked it (see the
-[forum thread](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis)).
-The most complete public record is [Andrew Sutherland's page](https://math.mit.edu/~drew/grh/). I wanted
-to do it myself, end to end, for my own understanding, and to feel a small part of history being made.
-
-I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago,
-in a [Numberphile interview](https://www.youtube.com/watch?v=bAnwMdfcMVw), I remember Terence Tao saying he
-didn't expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI,
-that Lean's checkers accept. The only thing anyone can say with certainty is that nothing is off the table.
-
-This page is my run. It updates as each step finishes, and every result on it is quoted from the run's logs.
 
 ## What Is the Riemann Hypothesis?
 
@@ -60,40 +45,62 @@ Why it matters:
 (It wouldn't break internet encryption, a common worry. That depends on how hard it is to factor large numbers,
 which this doesn't change.)
 
+## What Happened
+
+On 20 November 2026, Levent Alpöge posted a [short remark](https://alpo.ge/remark.pdf) and a 1.4 GB project
+written in [Lean](https://lean-lang.org), claiming a proof of the Riemann Hypothesis, along with the same statement
+for every Dirichlet L-function (a whole family of close relatives of ζ). The proof was written with AI, and it is
+enormous: 175,187 files and about 17 million lines.
+
+No person can read a proof that size. Lean is what makes it checkable anyway. Lean is a proof assistant: a program
+whose small core, the *kernel*, accepts a proof only if every single step follows from the rules of logic. That
+turns "is this proof right?" into a question anyone with a powerful enough computer can answer, as long as they're
+careful about exactly what they check.
+
+Within hours, people in the Lean community had built it and run it through several independent checkers (see the
+[forum thread](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis)).
+The most complete public record is [Andrew Sutherland's page](https://math.mit.edu/~drew/grh/), which this page is
+modelled on.
+
+## Why I'm Checking It Myself
+
+I wanted to do it end to end, for my own understanding, and to feel a small part of history being made.
+
+I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago,
+in a [Numberphile interview](https://www.youtube.com/watch?v=bAnwMdfcMVw), I remember Terence Tao saying he
+didn't expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI,
+that Lean's checkers accept. The only thing anyone can say with certainty is that nothing is off the table.
+
 ## What a Check Can and Can't Tell You
 
-A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact
-formal statements from Lean's three standard axioms. It does **not** mean:
+If every check passes, it means Lean's kernel, and several independent checkers, accepted a proof of five exact
+formal statements, using nothing beyond Lean's three standard axioms. It does **not** mean:
 
-- that anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;
-- that the formal statements mean what we think. That is why they are printed below, and why the main one
-  is Mathlib's own definition, written long before this project existed;
-- that every checker can't share one bug. Using checkers written independently, in different languages,
-  some with formal proofs of their own soundness, makes that very unlikely.
+- **that anyone understands the proof.** Understanding it is the work of mathematicians, and it will take years;
+- **that the formal statements mean what we think.** That is why they are spelled out in the next section;
+- **that the checkers can't all share one bug.** They were written independently, in different languages, and
+  some come with formal proofs of their own correctness, which makes a shared bug very unlikely.
 
 ## The Five Statements
 
 A proof is only as good as the statement it proves, so the check starts by pinning down exactly what has to be
 proved. It does that with two separate files.
 
-- **The challenge** is a short file that only *states* the five theorems below. It doesn't prove anything. Lean
-  won't accept a theorem without a proof attached, so each one ends in `sorry`, Lean's placeholder for a proof
-  left blank.
+- **The challenge** is a short file that only *states* the five theorems. It doesn't prove anything. Lean won't
+  accept a theorem without a proof attached, so each one ends in `sorry`, Lean's placeholder for a proof left blank.
 - **The solution** is the project's own `Main.lean`. It states theorems with the same five names and supplies the
-  real proofs, drawn from its 175,187 files.
+  real proofs.
 
-The checker, [Comparator](https://github.com/leanprover/comparator), then asks three questions. Does each
-statement in the solution mean exactly the same thing as in the challenge, down to the definition of every symbol?
-Are the proofs complete, with no `sorry` and nothing assumed beyond Lean's three standard axioms? Does Lean's kernel
-accept every step?
+A checker then compares the two: the statements must mean exactly the same thing, and the proofs must be complete
+and accepted by the kernel.
 
 **Why a separate file?** Building the project runs code the project contains, and that code can change what
 words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that
 *looks* like Fermat's Last Theorem becomes trivially "provable". In the forum thread about this proof, someone
 showed that one line of `notation` can make `RiemannHypothesis` mean `True`. Reading the project's own copy of the
-statements would not catch that. The challenge imports nothing but Mathlib, whose definition of the Riemann
-Hypothesis was written long before this project existed, and it is built before any project code runs. Comparator
-then confirms that the project proves that exact meaning.
+statements would not catch that. The challenge imports nothing but Mathlib, Lean's shared math library, whose
+definition of the Riemann Hypothesis was written long before this project existed. It is built before any project
+code runs, so nothing in the project can tamper with it.
 
 **An analogy.** Think of an exam. The challenge is the official question paper, printed by the examiner before
 the exam with every answer box empty; that's what `sorry` is. The solution is a student's answer booklet, with the
@@ -101,17 +108,17 @@ questions copied out at the top. A careful examiner doesn't trust the student's 
 it word for word against the official paper, and only then mark the answers. A student who quietly rewrote a hard
 question into an easy one is caught at the first step.
 
-**Where this comes from.** The setup isn't mine. It is the Lean FRO's
-[Comparator](https://github.com/leanprover/comparator) model of a trusted challenge and an untrusted solution. The
-community applied it to this project in
-[Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis), and Kevin Buzzard's
-[post](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/) explains why each question
-matters. I wrote my challenge file independently. Apart from comments it is identical to the community's
-[`Challenge.lean`](https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean), and when I build
-their file with my Mathlib, it exports to exactly the same bytes they published.
+The five statements, in words:
 
-Here is the challenge:
+| Theorem | In Words |
+|---|---|
+| `riemannHypothesis` | Mathlib's `RiemannHypothesis`: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½. |
+| `riemannZeta_eq_zero_re` | The same statement, written out. |
+| `LFunction_ne_zero_of_half_lt_re` | For every modulus N and Dirichlet character χ, L(χ, s) ≠ 0 when Re s > ½, except at the pole χ = 1, s = 1. |
+| `LFunction_eq_zero_re` | Every zero of every Dirichlet L-function in the strip 0 < Re s < 1 has Re s = ½. |
+| `LFunction_eq_zero_re_of_isPrimitive` | The same, for primitive characters. |
 
+::: {.callout-note collapse="true" title="The challenge file in Lean"}
 ```lean
 import Mathlib
 
@@ -136,84 +143,103 @@ theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := b
 theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
 theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry
 ```
+:::
 
-| Theorem | In Words |
-|---|---|
-| `riemannHypothesis` | Mathlib's `RiemannHypothesis`: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½. |
-| `riemannZeta_eq_zero_re` | The same statement, written out. |
-| `LFunction_ne_zero_of_half_lt_re` | For every modulus N and Dirichlet character χ, L(χ, s) ≠ 0 when Re s > ½, except at the pole χ = 1, s = 1. |
-| `LFunction_eq_zero_re` | Every zero of every Dirichlet L-function in the strip 0 < Re s < 1 has Re s = ½. |
-| `LFunction_eq_zero_re_of_isPrimitive` | The same, for primitive characters. |
+I'm not a number theorist, so I don't rely on my own reading of the last four. They have to match the project's
+definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people
+who are.
 
-I'm not a number theorist, so I don't rely on my own reading of the last four. They have to match the
-project's definitions term for term, which the checkers enforce, and they agree with the version reviewed
-in public by people who are.
+**Where this comes from.** The setup isn't mine. It is the Lean FRO's
+[Comparator](https://github.com/leanprover/comparator) model of a trusted challenge and an untrusted solution. The
+community applied it to this project in
+[Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis), and Kevin Buzzard's
+[post](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/) explains why each part
+matters. I wrote my challenge file independently. Apart from comments it is identical to the community's
+[`Challenge.lean`](https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean), and when I build
+their file with my Mathlib, it comes out byte for byte the same as theirs.
 
-## How the Check Works
+## Live Results
 
-I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros,
-build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.
-
-1. **A fresh virtual machine** with its own kernel. Every tool is pinned to an exact commit and verified,
-   and the project is downloaded and checked inside the VM.
-2. **No network** once the downloads are done. Mathlib, the math library the project builds on, is then
-   compiled from source and compared file by file with Mathlib's official build cache.
-3. **The statements first.** The challenge file is built and exported before any project code runs.
-4. **A sandbox for the project.** The build runs under [Landlock](https://landlock.io) via
-   [landrun](https://github.com/Zouuup/landrun): it can read its sources and the toolchain and write only its
-   own build folder. I tested that writes elsewhere, reading SSH keys and network connections all fail before
-   starting.
-5. **Export, then judge.** The compiled proof is exported to a single file. The judges read only that file, so
-   no project code runs while checking. [`lake comparator`](https://lean-lang.org/doc/reference/latest/)
-   checks that the statements match and that only `propext`, `Quot.sound` and `Classical.choice` are used, then
-   replays the whole proof through Lean's kernel. Then it goes through every independent checker that fits in
-   the VM's memory.
-
-## Steps and Status
+### Steps and Status
 
 {{< include _steps.md >}}
 
-## Checkers
+### Checkers
 
-Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A
-rejection by any one of them would override every acceptance.
+Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by
+any one of them would override every acceptance.
 
 {{< include _kernels.md >}}
 
-## Hashes You Can Compare
+### Hashes You Can Compare
 
-A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as
-other public runs, and that the build reproduces bit for bit on a different machine, built a different way
-(sandboxed `lake build` here, unsandboxed elsewhere).
+A hash is a fingerprint of a file: change one byte and it changes completely. Matching hashes mean my run checked
+the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a
+different way (sandboxed here, unsandboxed elsewhere).
 
 {{< include _hashes.md >}}
 
-## Findings along the Way
+## What Happens Next
+
+The project build takes roughly a day on this machine. After it come the export, then the checkers; the slowest,
+Lean's own kernel replaying the full 61 GB proof on a single thread, may take another day or more. This page updates
+as each one reports. When the last result is in, I'll write up what I found here, whatever it is.
+
+## How I Used AI
+
+It felt right to check an AI-written proof with an AI's help, and also strange. Claude (Anthropic's AI) set up and
+ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed
+the work. That is exactly why the check is built so that no single party has to be trusted, including the AI
+running it. Every result here is read from logs, and the hashes let anyone confirm that the same bytes were checked.
+It doesn't settle my mixed feelings about AI, but it does show one thing it can't take away: a proof that anyone
+can check for themselves.
+
+## Technical Notes
+
+### How the Check Works
+
+I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build
+commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.
+
+1. **A fresh virtual machine** with its own kernel. Every tool is pinned to an exact commit and verified, and the
+   project is downloaded and checked inside the VM.
+2. **No network** once the downloads are done. Mathlib is then compiled from source and compared file by file with
+   Mathlib's official build cache.
+3. **The statements first.** The challenge file is built and exported before any project code runs.
+4. **A sandbox for the project.** The build runs under [Landlock](https://landlock.io) via
+   [landrun](https://github.com/Zouuup/landrun): it can read its sources and the toolchain and write only its own
+   build folder. Before starting, I tested that writes elsewhere, reading SSH keys and network connections all fail.
+5. **Export, then judge.** The compiled proof is exported to a single file, and the judges read only that file, so
+   no project code runs while checking. `lake comparator` checks that the statements match the challenge and that
+   only `propext`, `Quot.sound` and `Classical.choice` are used, then replays the whole proof through Lean's kernel.
+   Then the proof goes through every independent checker that fits in the VM's memory.
+
+### Findings along the Way
 
 ::: {.callout-note title="Mathlib from Source Matches the Official Cache, with One Exception"}
-Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build.
-Ten belong to the cache tool itself and aren't part of the math. One differs:
+Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build. Ten belong
+to the cache tool itself and aren't part of the math. One differs:
 `Mathlib/Combinatorics/SimpleGraph/Walk/Operations.olean`, and only in a single auto-generated lemma,
-`SimpleGraph.Walk.take.eq_2`. The other 230 constants in that file match. My build of it is deterministic
-(rebuilt twice, same bytes), so the cache's copy was produced differently. Both versions are kernel-checked
-theorems; this is a reproducibility quirk, not a soundness problem.
+`SimpleGraph.Walk.take.eq_2`. The other 230 constants in that file match. My build of it is deterministic (rebuilt
+twice, same bytes), so the cache's copy was produced differently. Both versions are kernel-checked theorems; this is
+a reproducibility quirk, not a soundness problem.
 :::
 
 ::: {.callout-note title="A Full Build Needs about 1.7 TB of Bookkeeping"}
-For each module, Lake writes a `.setup.json` file listing everything it imports. Here that averages about
-7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with
-zstd, so this run builds on a compressed btrfs disk.
+For each module, Lake writes a `.setup.json` file listing everything it imports. Here that averages about 7 MB, and
+a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run
+builds on a compressed btrfs disk.
 :::
 
 ::: {.callout-note title="Two Problems the Tests Caught"}
-My sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6,
-landrun asked for v10 and refused to start, and every "access denied" test passed because nothing ran at all.
-A positive control (a command that must succeed) now runs first. Separately, the original checker script
-counted `sorry` warnings with the wrong quote characters, so that count could never be non-zero; it's
+My sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6, landrun
+asked for v10 and refused to start, and every "access denied" test passed because nothing ran at all. A positive
+control (a command that must succeed) now runs first. Separately, the original checker script counted `sorry`
+warnings with the wrong quote characters, so that count could never be non-zero; it's
 [fixed](https://github.com/kai-do/riemann-hypothesis-lean-check). The axiom check was never affected.
 :::
 
-## Provenance
+### Provenance
 
 | Component | Version |
 |---|---|
@@ -232,15 +258,15 @@ counted `sorry` warnings with the wrong quote characters, so that count could ne
 The scripts for every step are in
 [kai-do/riemann-hypothesis-lean-check](https://github.com/kai-do/riemann-hypothesis-lean-check).
 
-## Sources
+### Sources
 
 - **The original write-up:** Levent Alpöge, [*remark.pdf*](https://alpo.ge/remark.pdf) (4 pages, 20 November 2026).
-- **The Lean project:** [`lean.tar.gz.part01`](https://alpo.ge/lean.tar.gz.part01) … `part14`, joined
-  sha256 `9631b4f0…c7fc`.
+- **The Lean project:** [`lean.tar.gz.part01`](https://alpo.ge/lean.tar.gz.part01) … `part14`, joined sha256
+  `9631b4f0…c7fc`.
 - **The forum discussion:** Lean Zulip,
   [#general › Discussion: Alpöge Proves the Riemann Hypothesis](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis).
-- **Andrew Sutherland's checks:** [math.mit.edu/~drew/grh](https://math.mit.edu/~drew/grh/), the
-  model for this page.
+- **Andrew Sutherland's checks:** [math.mit.edu/~drew/grh](https://math.mit.edu/~drew/grh/), the model for this
+  page.
 - **The community mirror and challenge:**
   [Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis).
 - **The checker model:** the Lean FRO's [Comparator](https://github.com/leanprover/comparator).
@@ -249,10 +275,3 @@ The scripts for every step are in
 - **Background on what checking a Lean proof involves:** Kevin Buzzard,
   [*And the proof is checked in Lean*](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/),
   and the Lean reference on [external kernels](https://lean-lang.org/doc/reference/latest/External-Kernels/).
-
-## How I Used AI
-
-Claude (Anthropic's AI) set up and ran this check with me: it wrote the scripts, ran the commands and
-drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single
-party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let
-anyone confirm the same bytes were checked.
