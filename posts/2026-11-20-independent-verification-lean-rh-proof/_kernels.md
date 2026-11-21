@@ -1,4 +1,4 @@
-| Checker | By | What it is | Verdict | Time | Peak RAM | Evidence |
+| Checker | By | What It Is | Verdict | Time | Peak RAM | Evidence |
 |---|---|---|---|--:|--:|---|
 | Lean kernel (C++) | Lean FRO | The reference kernel, replaying the export inside `lake comparator`. | ⏸ Pending |  |  |  |
 | Lean kernel, paranoid mode | Lean FRO | The same kernel with extra internal checks. | ⏸ Pending |  |  |  |

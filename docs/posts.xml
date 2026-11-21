@@ -35,17 +35,17 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, updated 2026-11-20 11:18 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:19 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 8,225 of 175,187 modules (4.69%) after 1h10m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 8,743 of 175,187 modules (4.99%) after 1h15m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
 <p>On 20 November 2026, Levent Alpöge posted a <a href="https://alpo.ge/remark.pdf">short remark</a> and a 1.4 GB <a href="https://alpo.ge/lean.tar.gz.part01">Lean 4 project</a> claiming a machine-checked proof of the Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns “is this proof right?” into a question anyone with a computer can answer, if they are careful about what exactly they check.</p>
 <p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding. This page is that run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
 <section id="what-a-check-can-and-cant-tell-you" class="level2">
-<h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a check can and can’t tell you</h2>
+<h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</h2>
 <p>A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
 <ul>
 <li>that anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;</li>
@@ -54,7 +54,7 @@
 </ul>
 </section>
 <section id="the-five-statements" class="level2">
-<h2 class="anchored" data-anchor-id="the-five-statements">The five statements</h2>
+<h2 class="anchored" data-anchor-id="the-five-statements">The Five Statements</h2>
 <p>The proof is judged against these statements, which import nothing but Mathlib. Each is proved with <code>sorry</code>, Lean’s placeholder for “not proved here”; the project has to supply the real proofs under the same names. I wrote this file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and built with my Mathlib their file exports to exactly the same bytes they published.</p>
 <pre class="lean"><code>import Mathlib
 
@@ -86,7 +86,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <thead>
 <tr class="header">
 <th>Theorem</th>
-<th>In words</th>
+<th>In Words</th>
 </tr>
 </thead>
 <tbody>
@@ -115,7 +115,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <p>I’m not a number theorist, so I don’t rely on my own reading of the last four. They have to match the project’s definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people who are.</p>
 </section>
 <section id="how-the-check-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-check-works">How the check works</h2>
+<h2 class="anchored" data-anchor-id="how-the-check-works">How the Check Works</h2>
 <p>I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.</p>
 <ol type="1">
 <li><strong>A fresh virtual machine</strong> with its own kernel. Every tool is pinned to an exact commit and verified, and the project is downloaded and checked inside the VM.</li>
@@ -126,7 +126,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </ol>
 </section>
 <section id="steps-and-status" class="level2">
-<h2 class="anchored" data-anchor-id="steps-and-status">Steps and status</h2>
+<h2 class="anchored" data-anchor-id="steps-and-status">Steps and Status</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -139,7 +139,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <tr class="header">
 <th style="text-align: right;">#</th>
 <th>Step</th>
-<th>What it establishes</th>
+<th>What It Establishes</th>
 <th>Status</th>
 <th>Evidence</th>
 </tr>
@@ -213,7 +213,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>8,225 / 175,187 modules (4.69%), 1h10m elapsed, ~7,042/h, rough ETA 23.7 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>8,743 / 175,187 modules (4.99%), 1h15m elapsed, ~6,987/h, rough ETA 23.8 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
@@ -256,7 +256,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <tr class="header">
 <th>Checker</th>
 <th>By</th>
-<th>What it is</th>
+<th>What It Is</th>
 <th>Verdict</th>
 <th style="text-align: right;">Time</th>
 <th style="text-align: right;">Peak RAM</th>
@@ -349,7 +349,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </table>
 </section>
 <section id="hashes-you-can-compare" class="level2">
-<h2 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes you can compare</h2>
+<h2 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes You Can Compare</h2>
 <p>A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed <code>lake build</code> here, unsandboxed elsewhere).</p>
 <table class="caption-top table">
 <colgroup>
@@ -407,14 +407,14 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </table>
 </section>
 <section id="findings-along-the-way" class="level2">
-<h2 class="anchored" data-anchor-id="findings-along-the-way">Findings along the way</h2>
+<h2 class="anchored" data-anchor-id="findings-along-the-way">Findings along the Way</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Mathlib from source matches the official cache, with one exception
+<span class="screen-reader-only">Note</span>Mathlib from Source Matches the Official Cache, with One Exception
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -427,7 +427,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>A full build needs about 1.7 TB of bookkeeping
+<span class="screen-reader-only">Note</span>A Full Build Needs about 1.7 TB of Bookkeeping
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -440,7 +440,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Two problems the tests caught
+<span class="screen-reader-only">Note</span>Two Problems the Tests Caught
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -522,7 +522,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </ul>
 </section>
 <section id="how-i-used-ai" class="level2">
-<h2 class="anchored" data-anchor-id="how-i-used-ai">How I used AI</h2>
+<h2 class="anchored" data-anchor-id="how-i-used-ai">How I Used AI</h2>
 <p>Claude (Anthropic’s AI) set up and ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let anyone confirm the same bytes were checked.</p>
 
 

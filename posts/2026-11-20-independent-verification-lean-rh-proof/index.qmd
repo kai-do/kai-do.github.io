@@ -28,7 +28,7 @@ The most complete public record is [Andrew Sutherland's page](https://math.mit.e
 to do it myself, end to end, for my own understanding. This page is that run. It updates as each step
 finishes, and every result on it is quoted from the run's logs.
 
-## What a check can and can't tell you
+## What a Check Can and Can't Tell You
 
 A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact
 formal statements from Lean's three standard axioms. It does **not** mean:
@@ -39,7 +39,7 @@ formal statements from Lean's three standard axioms. It does **not** mean:
 - that every checker can't share one bug. Using checkers written independently, in different languages,
   some with formal proofs of their own soundness, makes that very unlikely.
 
-## The five statements
+## The Five Statements
 
 The proof is judged against these statements, which import nothing but Mathlib. Each is proved with
 `sorry`, Lean's placeholder for "not proved here"; the project has to supply the real proofs under the same
@@ -72,7 +72,7 @@ theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
 theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry
 ```
 
-| Theorem | In words |
+| Theorem | In Words |
 |---|---|
 | `riemannHypothesis` | Mathlib's `RiemannHypothesis`: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½. |
 | `riemannZeta_eq_zero_re` | The same statement, written out. |
@@ -84,7 +84,7 @@ I'm not a number theorist, so I don't rely on my own reading of the last four. T
 project's definitions term for term, which the checkers enforce, and they agree with the version reviewed
 in public by people who are.
 
-## How the check works
+## How the Check Works
 
 I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros,
 build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.
@@ -104,7 +104,7 @@ build commands), so nothing from it ran on my own machine, and nothing that load
    replays the whole proof through Lean's kernel. Then it goes through every independent checker that fits in
    the VM's memory.
 
-## Steps and status
+## Steps and Status
 
 {{< include _steps.md >}}
 
@@ -115,7 +115,7 @@ rejection by any one of them would override every acceptance.
 
 {{< include _kernels.md >}}
 
-## Hashes you can compare
+## Hashes You Can Compare
 
 A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as
 other public runs, and that the build reproduces bit for bit on a different machine, built a different way
@@ -123,9 +123,9 @@ other public runs, and that the build reproduces bit for bit on a different mach
 
 {{< include _hashes.md >}}
 
-## Findings along the way
+## Findings along the Way
 
-::: {.callout-note title="Mathlib from source matches the official cache, with one exception"}
+::: {.callout-note title="Mathlib from Source Matches the Official Cache, with One Exception"}
 Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build.
 Ten belong to the cache tool itself and aren't part of the math. One differs:
 `Mathlib/Combinatorics/SimpleGraph/Walk/Operations.olean`, and only in a single auto-generated lemma,
@@ -134,13 +134,13 @@ Ten belong to the cache tool itself and aren't part of the math. One differs:
 theorems; this is a reproducibility quirk, not a soundness problem.
 :::
 
-::: {.callout-note title="A full build needs about 1.7 TB of bookkeeping"}
+::: {.callout-note title="A Full Build Needs about 1.7 TB of Bookkeeping"}
 For each module, Lake writes a `.setup.json` file listing everything it imports. Here that averages about
 7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with
 zstd, so this run builds on a compressed btrfs disk.
 :::
 
-::: {.callout-note title="Two problems the tests caught"}
+::: {.callout-note title="Two Problems the Tests Caught"}
 My sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6,
 landrun asked for v10 and refused to start, and every "access denied" test passed because nothing ran at all.
 A positive control (a command that must succeed) now runs first. Separately, the original checker script
@@ -182,7 +182,7 @@ The scripts for every step are in
   [*And the proof is checked in Lean*](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/),
   and the Lean reference on [external kernels](https://lean-lang.org/doc/reference/latest/External-Kernels/).
 
-## How I used AI
+## How I Used AI
 
 Claude (Anthropic's AI) set up and ran this check with me: it wrote the scripts, ran the commands and
 drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single
