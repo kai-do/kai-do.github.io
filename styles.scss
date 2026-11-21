@@ -44,12 +44,7 @@ $line-height-base: 1.5;    // body: 24px
 
 body { font-size: 16px; line-height: 24px; }
 
-#quarto-content main.content,
-.page-columns .content { max-width: 70ch; }
-// Post and project write-ups (body class set in posts/ and projects/ _metadata.yml) use the wider
-// 1000px body column from those folders' grid settings instead of the 70ch reading measure.
-.ka-writeup #quarto-content main.content,
-.ka-writeup .page-columns .content { max-width: none; }
+// Content width comes from the 1000px body column set in _quarto.yml (format.html.grid), site-wide.
 
 // Page-opening headings: display family
 .quarto-title h1.title,

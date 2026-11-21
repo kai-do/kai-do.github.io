@@ -4,8 +4,3 @@ code-fold: true
 code-tools: false
 freeze: auto
 title-block-banner: false
-body-classes: ka-writeup
-format:
-  html:
-    grid:
-      body-width: 1000px

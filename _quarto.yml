@@ -58,6 +58,8 @@ format:
       light: github
       dark: nord
     html-math-method: katex
+    grid:
+      body-width: 1000px
     date-format: iso
     toc: false
     include-in-header: [assets/goatcounter.html, assets/head-icons.html]
