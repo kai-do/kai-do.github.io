@@ -404,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2026-11-20</p>
+      <p class="date-modified">2026-11-21</p>
     </div>
   </div>
     
@@ -422,11 +422,11 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 6:27 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 6:45 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 144,280 of 175,187 modules (82.36%) after 20h18m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 146,745 of 175,187 modules (83.76%) after 20h38m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -644,7 +644,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>144,280 / 175,187 modules (82.36%), 20h18m elapsed, ~7,105/h, rough ETA 4.4 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>146,745 / 175,187 modules (83.76%), 20h38m elapsed, ~7,109/h, rough ETA 4.0 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
@@ -861,6 +861,19 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </section>
 <section id="findings-along-the-way" class="level3">
 <h3 class="anchored" data-anchor-id="findings-along-the-way">Findings along the Way</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The Checkers Catch a Missing Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before trusting a “pass”, I checked that the tools can fail. The challenge file is all <code>sorry</code>, so I fed it to them as if it were a solution. Comparator rejected it in 34 seconds with <code>error: Illegal axiom detected: 'sorryAx'</code> (exit 1), and con-leche refused it with <code>not implemented yet: use of the sorryAx axiom in value of riemannHypothesis</code>. A missing proof can’t slip through either of them.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

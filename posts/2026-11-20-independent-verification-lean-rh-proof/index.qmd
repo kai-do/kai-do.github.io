@@ -228,6 +228,13 @@ commands), so nothing from it ran on my own machine, and nothing that loads it r
 
 ### Findings along the Way
 
+::: {.callout-note title="The Checkers Catch a Missing Proof"}
+Before trusting a "pass", I checked that the tools can fail. The challenge file is all `sorry`, so I fed it to
+them as if it were a solution. Comparator rejected it in 34 seconds with `error: Illegal axiom detected:
+'sorryAx'` (exit 1), and con-leche refused it with `not implemented yet: use of the sorryAx axiom in value of
+riemannHypothesis`. A missing proof can't slip through either of them.
+:::
+
 ::: {.callout-note title="Mathlib from Source Matches the Official Cache, with One Exception"}
 Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build. Ten belong
 to the cache tool itself and aren't part of the math. One differs:
