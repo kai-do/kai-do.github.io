@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 4:27 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 5:24 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 45,399 of 175,187 modules (25.91%) after 6h20m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 52,820 of 175,187 modules (30.15%) after 7h20m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -258,7 +258,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>45,399 / 175,187 modules (25.91%), 6h20m elapsed, ~7,159/h, rough ETA 18.1 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>52,820 / 175,187 modules (30.15%), 7h20m elapsed, ~7,193/h, rough ETA 17.0 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
