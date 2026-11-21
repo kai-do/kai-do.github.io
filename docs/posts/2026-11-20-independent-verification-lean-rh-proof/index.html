@@ -415,18 +415,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>On 20 November 2026, someone posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous open problems in mathematics. I’m checking it myself, from scratch, on my own hardware. This page follows that check live: it updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
+<p>On 20 November 2026, Levent Alpöge posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous open problems in mathematics. I’m checking it myself, from scratch, on my own hardware. This page follows that check live: it updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:36 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:42 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 10,508 of 175,187 modules (6.00%) after 1h30m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 11,056 of 175,187 modules (6.31%) after 1h35m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -470,7 +470,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>A checker then compares the two: the statements must mean exactly the same thing, and the proofs must be complete and accepted by the kernel.</p>
 <p><strong>Why a separate file?</strong> Building the project runs code the project contains, and that code can change what words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that <em>looks</em> like Fermat’s Last Theorem becomes trivially “provable”. In the forum thread about this proof, someone showed that one line of <code>notation</code> can make <code>RiemannHypothesis</code> mean <code>True</code>. Reading the project’s own copy of the statements would not catch that. The challenge imports nothing but Mathlib, Lean’s shared math library, whose definition of the Riemann Hypothesis was written long before this project existed. It is built before any project code runs, so nothing in the project can tamper with it.</p>
-<p><strong>An analogy.</strong> Think of an exam. The challenge is the official question paper, printed by the examiner before the exam with every answer box empty; that’s what <code>sorry</code> is. The solution is a student’s answer booklet, with the questions copied out at the top. A careful examiner doesn’t trust the student’s copy of the questions. They check it word for word against the official paper, and only then mark the answers. A student who quietly rewrote a hard question into an easy one is caught at the first step.</p>
 <p>The five statements, in words:</p>
 <table class="caption-top table">
 <colgroup>
@@ -544,7 +543,16 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </div>
 </div>
 <p>I’m not a number theorist, so I don’t rely on my own reading of the last four. They have to match the project’s definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people who are.</p>
-<p><strong>Where this comes from.</strong> The setup isn’t mine. It is the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a> model of a trusted challenge and an untrusted solution. The community applied it to this project in <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>, and Kevin Buzzard’s <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/">post</a> explains why each part matters. I wrote my challenge file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and when I build their file with my Mathlib, it comes out byte for byte the same as theirs.</p>
+<p><strong>Where this comes from.</strong> The challenge-and-solution setup isn’t mine. It is the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a> model, which the community applied to this project in <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>; Kevin Buzzard’s <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/">post</a> explains why each part matters. I wrote my challenge file independently, and apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>. It has to be: the statements are fixed by the project, and the checker requires them to match exactly. When I build their file with my Mathlib, it comes out byte for byte the same as theirs.</p>
+<p><strong>What this check adds.</strong> The challenge file only fixes <em>what</em> is checked. Everything around it is where this run goes further than the basic setup:</p>
+<ul>
+<li><strong>Sandboxed build in a fresh VM.</strong> The project is compiled with the network off, inside a Landlock sandbox that was tested before use, so the code that builds the proof can’t touch anything else.</li>
+<li><strong>Mathlib from source.</strong> Mathlib is compiled from source and compared file by file with its official build cache, so the check doesn’t rely on prebuilt files.</li>
+<li><strong>Nine checkers.</strong> Beyond Comparator’s Lean kernel and nanoda, the proof also goes to con-leche (including its <code>--compare</code> mode, a formally verified second implementation of the statement comparison), con-ron, lean4lean, Pestka and nanoclo.</li>
+<li><strong>Secondary checks.</strong> An axiom audit that walks every constant itself, a per-module kernel replay, and checks that no source file or tool changed during the run.</li>
+<li><strong>Hashes against other runs.</strong> My build and export are compared with the hashes other people published, so a match shows we checked the same bytes.</li>
+</ul>
+<p>The formal proof itself doesn’t claim more than these five statements. Alpöge’s remark says the method should extend further, but the Lean project proves exactly these five, and those are what get checked.</p>
 </section>
 <section id="live-results" class="level2">
 <h2 class="anchored" data-anchor-id="live-results">Live Results</h2>
@@ -636,7 +644,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>10,508 / 175,187 modules (6.00%), 1h30m elapsed, ~6,998/h, rough ETA 23.5 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>11,056 / 175,187 modules (6.31%), 1h35m elapsed, ~6,975/h, rough ETA 23.5 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
