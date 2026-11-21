@@ -17,11 +17,11 @@
 <width>144</width>
 </image>
 <generator>quarto-1.11.9</generator>
-<lastBuildDate>Sat, 21 Nov 2026 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 20 Nov 2026 05:00:00 GMT</lastBuildDate>
 <item>
   <title>An Independent Verification of the Riemann Hypothesis Lean Proof</title>
   <dc:creator>Nakai Zemer</dc:creator>
-  <link>https://kai.do/posts/2026-11-21-independent-verification-lean-rh-proof/</link>
+  <link>https://kai.do/posts/2026-11-20-independent-verification-lean-rh-proof/</link>
   <description><![CDATA[ 
 
 
@@ -34,7 +34,7 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, updated 2026-11-21 04:14 UTC
+<span class="screen-reader-only">Important</span>Status, updated 2026-11-20 11:15 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -531,8 +531,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
   <category>math</category>
   <category>lean</category>
   <category>verification</category>
-  <guid>https://kai.do/posts/2026-11-21-independent-verification-lean-rh-proof/</guid>
-  <pubDate>Sat, 21 Nov 2026 05:00:00 GMT</pubDate>
+  <guid>https://kai.do/posts/2026-11-20-independent-verification-lean-rh-proof/</guid>
+  <pubDate>Fri, 20 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
