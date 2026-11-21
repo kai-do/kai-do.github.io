@@ -4,8 +4,7 @@ description: "A live, step-by-step independent check of the Lean proof posted on
 date: 2026-11-20
 author:
   - Nakai Zemer
-  - name: Claude
-    affiliation: Anthropic
+  - Claude
 aliases:
   - /posts/2026-11-21-independent-verification-lean-rh-proof/
 date-modified: last-modified
