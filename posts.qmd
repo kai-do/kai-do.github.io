@@ -1,6 +1,6 @@
 ---
-title: "Writing"
-description: "Fire/EMS, data, and methods."
+title: "Posts"
+description: "Fire/EMS, data, math, and methods."
 toc: false
 draft: true  # hidden until the first post is published
 listing:

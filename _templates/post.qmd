@@ -2,8 +2,7 @@
 title: "TODO: title"
 description: "TODO: one sentence; used for the LinkedIn/Open Graph preview"
 date: 2026-01-01
-# Writing (posts/): fire-ems, statistics, optimization, simulation, data-engineering, sql, r, til
-# Notes (notes/):   math, physics, learning, til
+# Categories: fire-ems, statistics, optimization, simulation, data-engineering, sql, r, math, physics, learning, til
 categories: [til]
 image: # optional: preview image, e.g. preview.png in this folder
 draft: true

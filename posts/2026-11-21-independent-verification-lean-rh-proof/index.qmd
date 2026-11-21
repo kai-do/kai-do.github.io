@@ -1,0 +1,185 @@
+---
+title: "An Independent Verification of the Riemann Hypothesis Lean Proof"
+description: "A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare."
+date: 2026-11-21
+date-modified: last-modified
+categories: [math, lean, verification]
+draft: true
+toc: true
+---
+
+{{< include _status.md >}}
+
+On 20 November 2026, Levent Alpöge posted a [short remark](https://alpo.ge/remark.pdf) and a
+1.4 GB [Lean 4 project](https://alpo.ge/lean.tar.gz.part01) claiming a machine-checked proof of the
+Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof
+assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns
+"is this proof right?" into a question anyone with a computer can answer, if they are careful about
+what exactly they check.
+
+Within hours, people in the Lean community had built and checked it (see the
+[forum thread](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis)).
+The most complete public record is [Andrew Sutherland's page](https://math.mit.edu/~drew/grh/). I wanted
+to do it myself, end to end, for my own understanding. This page is that run. It updates as each step
+finishes, and every result on it is quoted from the run's logs.
+
+## What a check can and can't tell you
+
+A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact
+formal statements from Lean's three standard axioms. It does **not** mean:
+
+- that anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;
+- that the formal statements mean what we think. That is why they are printed below, and why the main one
+  is Mathlib's own definition, written long before this project existed;
+- that every checker can't share one bug. Using checkers written independently, in different languages,
+  some with formal proofs of their own soundness, makes that very unlikely.
+
+## The five statements
+
+The proof is judged against these statements, which import nothing but Mathlib. Each is proved with
+`sorry`, Lean's placeholder for "not proved here"; the project has to supply the real proofs under the same
+names. I wrote this file independently. Apart from comments it is identical to the community's
+[`Challenge.lean`](https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean), and built
+with my Mathlib their file exports to exactly the same bytes they published.
+
+```lean
+import Mathlib
+
+def RiemannZetaZerosOnLine : Prop :=
+  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
+
+def DirichletLNonvanishingRightOfHalf : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    1 / 2 < s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
+
+def DirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+def PrimitiveDirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
+    ∀ s : ℂ, 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+theorem riemannHypothesis : RiemannHypothesis := by sorry
+theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry
+theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry
+theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
+theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry
+```
+
+| Theorem | In words |
+|---|---|
+| `riemannHypothesis` | Mathlib's `RiemannHypothesis`: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½. |
+| `riemannZeta_eq_zero_re` | The same statement, written out. |
+| `LFunction_ne_zero_of_half_lt_re` | For every modulus N and Dirichlet character χ, L(χ, s) ≠ 0 when Re s > ½, except at the pole χ = 1, s = 1. |
+| `LFunction_eq_zero_re` | Every zero of every Dirichlet L-function in the strip 0 < Re s < 1 has Re s = ½. |
+| `LFunction_eq_zero_re_of_isPrimitive` | The same, for primitive characters. |
+
+I'm not a number theorist, so I don't rely on my own reading of the last four. They have to match the
+project's definitions term for term, which the checkers enforce, and they agree with the version reviewed
+in public by people who are.
+
+## How the check works
+
+I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros,
+build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.
+
+1. **A fresh virtual machine** with its own kernel. Every tool is pinned to an exact commit and verified,
+   and the project is downloaded and checked inside the VM.
+2. **No network** once the downloads are done. Mathlib, the math library the project builds on, is then
+   compiled from source and compared file by file with Mathlib's official build cache.
+3. **The statements first.** The challenge file is built and exported before any project code runs.
+4. **A sandbox for the project.** The build runs under [Landlock](https://landlock.io) via
+   [landrun](https://github.com/Zouuup/landrun): it can read its sources and the toolchain and write only its
+   own build folder. I tested that writes elsewhere, reading SSH keys and network connections all fail before
+   starting.
+5. **Export, then judge.** The compiled proof is exported to a single file. The judges read only that file, so
+   no project code runs while checking. [`lake comparator`](https://lean-lang.org/doc/reference/latest/)
+   checks that the statements match and that only `propext`, `Quot.sound` and `Classical.choice` are used, then
+   replays the whole proof through Lean's kernel. Then it goes through every independent checker that fits in
+   the VM's memory.
+
+## Steps and status
+
+{{< include _steps.md >}}
+
+## Checkers
+
+Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A
+rejection by any one of them would override every acceptance.
+
+{{< include _kernels.md >}}
+
+## Hashes you can compare
+
+A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as
+other public runs, and that the build reproduces bit for bit on a different machine, built a different way
+(sandboxed `lake build` here, unsandboxed elsewhere).
+
+{{< include _hashes.md >}}
+
+## Findings along the way
+
+::: {.callout-note title="Mathlib from source matches the official cache, with one exception"}
+Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build.
+Ten belong to the cache tool itself and aren't part of the math. One differs:
+`Mathlib/Combinatorics/SimpleGraph/Walk/Operations.olean`, and only in a single auto-generated lemma,
+`SimpleGraph.Walk.take.eq_2`. The other 230 constants in that file match. My build of it is deterministic
+(rebuilt twice, same bytes), so the cache's copy was produced differently. Both versions are kernel-checked
+theorems; this is a reproducibility quirk, not a soundness problem.
+:::
+
+::: {.callout-note title="A full build needs about 1.7 TB of bookkeeping"}
+For each module, Lake writes a `.setup.json` file listing everything it imports. Here that averages about
+7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with
+zstd, so this run builds on a compressed btrfs disk.
+:::
+
+::: {.callout-note title="Two problems the tests caught"}
+My sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6,
+landrun asked for v10 and refused to start, and every "access denied" test passed because nothing ran at all.
+A positive control (a command that must succeed) now runs first. Separately, the original checker script
+counted `sorry` warnings with the wrong quote characters, so that count could never be non-zero; it's
+[fixed](https://github.com/kai-do/riemann-hypothesis-lean-check). The axiom check was never affected.
+:::
+
+## Provenance
+
+| Component | Version |
+|---|---|
+| Lean (build, export) | v4.33.1 (`819816b2`), release tarball sha256 `890afd18…f235` |
+| Lean (judge) | v4.36.0, release tarball sha256 `2b7ab1ed…a6eb` |
+| Mathlib | tag `v4.33.1` (`0df444a3`), built from source |
+| lean4export | `15f6055e` (tag v4.33.0), built with v4.33.1 |
+| con-leche | `11d8ff13` |
+| con-ron | `de06320f` |
+| lean4lean | `67f63b0c`, built with v4.33.1 |
+| Pestka | `48857ad7` |
+| nanoclo | `b8cefd0d` |
+| landrun | `ec104f6e` (v0.1.18) |
+| VM | Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM, 1 TB zstd btrfs |
+
+The scripts for every step are in
+[kai-do/riemann-hypothesis-lean-check](https://github.com/kai-do/riemann-hypothesis-lean-check).
+
+## Sources
+
+- **The original write-up:** Levent Alpöge, [*remark.pdf*](https://alpo.ge/remark.pdf) (4 pages, 20 November 2026).
+- **The Lean project:** [`lean.tar.gz.part01`](https://alpo.ge/lean.tar.gz.part01) … `part14`, joined
+  sha256 `9631b4f0…c7fc`.
+- **The forum discussion:** Lean Zulip,
+  [#general › Discussion: Alpöge Proves the Riemann Hypothesis](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis).
+- **Andrew Sutherland's checks:** [math.mit.edu/~drew/grh](https://math.mit.edu/~drew/grh/), the
+  model for this page.
+- **The community mirror and challenge:**
+  [Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis).
+- **Background on what checking a Lean proof involves:** Kevin Buzzard,
+  [*And the proof is checked in Lean*](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/),
+  and the Lean reference on [external kernels](https://lean-lang.org/doc/reference/latest/External-Kernels/).
+
+## How I used AI
+
+Claude (Anthropic's AI) set up and ran this check with me: it wrote the scripts, ran the commands and
+drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single
+party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let
+anyone confirm the same bytes were checked.

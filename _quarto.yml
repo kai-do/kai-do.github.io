@@ -26,13 +26,11 @@ website:
     logo-alt: "Kaido Analytics mark"
     title: '<span class="brand-domain">kai.do</span> Nakai Zemer'
     right:
-      # Writing and Notes are hidden until the first post is published.
-      # To restore: uncomment these two items and the RSS links below, and remove
-      # `draft: true` from posts.qmd and notes.qmd.
+      # Posts is hidden until the first post is published.
+      # To restore: uncomment this item and the RSS links below, and remove
+      # `draft: true` from posts.qmd.
       # - href: posts.qmd
-      #   text: Writing
-      # - href: notes.qmd
-      #   text: Notes
+      #   text: Posts
       - href: projects.qmd
         text: Projects
       - href: resume.qmd

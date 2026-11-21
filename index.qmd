@@ -10,7 +10,7 @@ listing:
   # Recent writing is hidden until the first post is published. To restore it,
   # add this listing back and the "Recent writing" section below:
   # - id: recent
-  #   contents: [posts, notes]
+  #   contents: posts
   #   type: default
   #   sort: "date desc"
   #   max-items: 5
