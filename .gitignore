@@ -6,3 +6,6 @@
 /.quarto/
 
 **/*.quarto_ipynb
+
+# Private notes kept out of the public repo
+/_archive/
