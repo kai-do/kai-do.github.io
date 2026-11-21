@@ -2,6 +2,10 @@
 title: "An Independent Verification of the Riemann Hypothesis Lean Proof"
 description: "A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare."
 date: 2026-11-20
+author:
+  - Nakai Zemer
+  - name: Claude
+    affiliation: Anthropic
 aliases:
   - /posts/2026-11-21-independent-verification-lean-rh-proof/
 date-modified: last-modified
