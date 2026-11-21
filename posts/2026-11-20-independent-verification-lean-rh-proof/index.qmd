@@ -34,6 +34,32 @@ that Lean's checkers accept. The only thing anyone can say with certainty is tha
 
 This page is my run. It updates as each step finishes, and every result on it is quoted from the run's logs.
 
+## What Is the Riemann Hypothesis?
+
+Prime numbers (2, 3, 5, 7, 11, 13, …) are the building blocks of whole numbers: every whole number is a product
+of primes in exactly one way. They get rarer as numbers grow, but they never follow a simple pattern. Look at any
+stretch of numbers and the primes seem scattered almost at random.
+
+In the 1790s, Gauss noticed that the *number* of primes up to any point follows a smooth curve surprisingly well.
+In 1859, Bernhard Riemann found a way to describe exactly how far the true count wanders from that curve. The
+errors are controlled by the zeros of a function now called the Riemann zeta function, written ζ(s). His
+hypothesis is that all of those zeros (apart from some easy ones at −2, −4, −6, …) sit on a single straight line,
+where the real part of *s* is ½. If that's true, the primes are as evenly spread as they could possibly be. Their
+irregularity is like the static of a coin-flip sequence, never anything worse.
+
+Why it matters:
+
+- **It's the most famous open problem in mathematics.** It was on Hilbert's 1900 list of the century's key
+  problems, and it is one of the Clay Institute's seven
+  [Millennium Prize Problems](https://www.claymath.org/millennium/riemann-hypothesis/), with a \$1 million prize.
+- **A lot of mathematics is built on it.** Thousands of published results begin "assuming the Riemann
+  Hypothesis…". A proof would turn every one of them into a theorem.
+- **It has resisted the best mathematicians for 167 years,** despite checks of the first trillions of zeros, which
+  all lie on the line.
+
+(It wouldn't break internet encryption, a common worry. That depends on how hard it is to factor large numbers,
+which this doesn't change.)
+
 ## What a Check Can and Can't Tell You
 
 A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact

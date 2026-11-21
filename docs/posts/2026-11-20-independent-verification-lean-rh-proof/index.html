@@ -340,7 +340,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-a-check-can-and-cant-tell-you" id="toc-what-a-check-can-and-cant-tell-you" class="nav-link active" data-scroll-target="#what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</a></li>
+  <li><a href="#what-is-the-riemann-hypothesis" id="toc-what-is-the-riemann-hypothesis" class="nav-link active" data-scroll-target="#what-is-the-riemann-hypothesis">What Is the Riemann Hypothesis?</a></li>
+  <li><a href="#what-a-check-can-and-cant-tell-you" id="toc-what-a-check-can-and-cant-tell-you" class="nav-link" data-scroll-target="#what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</a></li>
   <li><a href="#the-five-statements" id="toc-the-five-statements" class="nav-link" data-scroll-target="#the-five-statements">The Five Statements</a></li>
   <li><a href="#how-the-check-works" id="toc-how-the-check-works" class="nav-link" data-scroll-target="#how-the-check-works">How the Check Works</a></li>
   <li><a href="#steps-and-status" id="toc-steps-and-status" class="nav-link" data-scroll-target="#steps-and-status">Steps and Status</a></li>
@@ -411,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:31 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:32 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -422,6 +423,18 @@ ul.task-list li input[type="checkbox"] {
 <p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding, and to feel a small part of history being made.</p>
 <p>I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago, in a <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">Numberphile interview</a>, I remember Terence Tao saying he didn’t expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI, that Lean’s checkers accept. The only thing anyone can say with certainty is that nothing is off the table.</p>
 <p>This page is my run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
+<section id="what-is-the-riemann-hypothesis" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-riemann-hypothesis">What Is the Riemann Hypothesis?</h2>
+<p>Prime numbers (2, 3, 5, 7, 11, 13, …) are the building blocks of whole numbers: every whole number is a product of primes in exactly one way. They get rarer as numbers grow, but they never follow a simple pattern. Look at any stretch of numbers and the primes seem scattered almost at random.</p>
+<p>In the 1790s, Gauss noticed that the <em>number</em> of primes up to any point follows a smooth curve surprisingly well. In 1859, Bernhard Riemann found a way to describe exactly how far the true count wanders from that curve. The errors are controlled by the zeros of a function now called the Riemann zeta function, written ζ(s). His hypothesis is that all of those zeros (apart from some easy ones at −2, −4, −6, …) sit on a single straight line, where the real part of <em>s</em> is ½. If that’s true, the primes are as evenly spread as they could possibly be. Their irregularity is like the static of a coin-flip sequence, never anything worse.</p>
+<p>Why it matters:</p>
+<ul>
+<li><strong>It’s the most famous open problem in mathematics.</strong> It was on Hilbert’s 1900 list of the century’s key problems, and it is one of the Clay Institute’s seven <a href="https://www.claymath.org/millennium/riemann-hypothesis/">Millennium Prize Problems</a>, with a $1 million prize.</li>
+<li><strong>A lot of mathematics is built on it.</strong> Thousands of published results begin “assuming the Riemann Hypothesis…”. A proof would turn every one of them into a theorem.</li>
+<li><strong>It has resisted the best mathematicians for 167 years,</strong> despite checks of the first trillions of zeros, which all lie on the line.</li>
+</ul>
+<p>(It wouldn’t break internet encryption, a common worry. That depends on how hard it is to factor large numbers, which this doesn’t change.)</p>
+</section>
 <section id="what-a-check-can-and-cant-tell-you" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</h2>
 <p>A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
