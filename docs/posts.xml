@@ -8,13 +8,531 @@
 <title>Nakai Zemer</title>
 <link>https://kai.do/posts.html</link>
 <atom:link href="https://kai.do/posts.xml" rel="self" type="application/rss+xml"/>
-<description>Fire/EMS, data, and methods.</description>
+<description>Fire/EMS, data, math, and methods.</description>
 <image>
 <url>https://kai.do/assets/share-card.png</url>
 <title>Nakai Zemer</title>
 <link>https://kai.do/posts.html</link>
+<height>76</height>
+<width>144</width>
 </image>
-<generator>quarto-1.8.27</generator>
-<lastBuildDate>Thu, 12 Nov 2026 20:45:36 GMT</lastBuildDate>
+<generator>quarto-1.11.9</generator>
+<lastBuildDate>Sat, 21 Nov 2026 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>An Independent Verification of the Riemann Hypothesis Lean Proof</title>
+  <dc:creator>Nakai Zemer</dc:creator>
+  <link>https://kai.do/posts/2026-11-21-independent-verification-lean-rh-proof/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Status, updated 2026-11-21 04:14 UTC
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Building the project:</strong> 8,225 of 175,187 modules (4.69%) after 1h10m. No verdict yet; the checkers run after the build and export.</p>
+</div>
+</div>
+<p>On 20 November 2026, Levent Alpöge posted a <a href="https://alpo.ge/remark.pdf">short remark</a> and a 1.4 GB <a href="https://alpo.ge/lean.tar.gz.part01">Lean 4 project</a> claiming a machine-checked proof of the Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns “is this proof right?” into a question anyone with a computer can answer, if they are careful about what exactly they check.</p>
+<p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding. This page is that run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
+<section id="what-a-check-can-and-cant-tell-you" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a check can and can’t tell you</h2>
+<p>A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
+<ul>
+<li>that anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;</li>
+<li>that the formal statements mean what we think. That is why they are printed below, and why the main one is Mathlib’s own definition, written long before this project existed;</li>
+<li>that every checker can’t share one bug. Using checkers written independently, in different languages, some with formal proofs of their own soundness, makes that very unlikely.</li>
+</ul>
+</section>
+<section id="the-five-statements" class="level2">
+<h2 class="anchored" data-anchor-id="the-five-statements">The five statements</h2>
+<p>The proof is judged against these statements, which import nothing but Mathlib. Each is proved with <code>sorry</code>, Lean’s placeholder for “not proved here”; the project has to supply the real proofs under the same names. I wrote this file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and built with my Mathlib their file exports to exactly the same bytes they published.</p>
+<pre class="lean"><code>import Mathlib
+
+def RiemannZetaZerosOnLine : Prop :=
+  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2
+
+def DirichletLNonvanishingRightOfHalf : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    1 / 2 &lt; s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0
+
+def DirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+    0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+def PrimitiveDirichletLZerosOnLine : Prop :=
+  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
+    ∀ s : ℂ, 0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+
+theorem riemannHypothesis : RiemannHypothesis := by sorry
+theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry
+theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry
+theorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry
+theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theorem</th>
+<th>In words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>riemannHypothesis</code></td>
+<td>Mathlib’s <code>RiemannHypothesis</code>: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½.</td>
+</tr>
+<tr class="even">
+<td><code>riemannZeta_eq_zero_re</code></td>
+<td>The same statement, written out.</td>
+</tr>
+<tr class="odd">
+<td><code>LFunction_ne_zero_of_half_lt_re</code></td>
+<td>For every modulus N and Dirichlet character χ, L(χ, s) ≠ 0 when Re s &gt; ½, except at the pole χ = 1, s = 1.</td>
+</tr>
+<tr class="even">
+<td><code>LFunction_eq_zero_re</code></td>
+<td>Every zero of every Dirichlet L-function in the strip 0 &lt; Re s &lt; 1 has Re s = ½.</td>
+</tr>
+<tr class="odd">
+<td><code>LFunction_eq_zero_re_of_isPrimitive</code></td>
+<td>The same, for primitive characters.</td>
+</tr>
+</tbody>
+</table>
+<p>I’m not a number theorist, so I don’t rely on my own reading of the last four. They have to match the project’s definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people who are.</p>
+</section>
+<section id="how-the-check-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-check-works">How the check works</h2>
+<p>I treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.</p>
+<ol type="1">
+<li><strong>A fresh virtual machine</strong> with its own kernel. Every tool is pinned to an exact commit and verified, and the project is downloaded and checked inside the VM.</li>
+<li><strong>No network</strong> once the downloads are done. Mathlib, the math library the project builds on, is then compiled from source and compared file by file with Mathlib’s official build cache.</li>
+<li><strong>The statements first.</strong> The challenge file is built and exported before any project code runs.</li>
+<li><strong>A sandbox for the project.</strong> The build runs under <a href="https://landlock.io">Landlock</a> via <a href="https://github.com/Zouuup/landrun">landrun</a>: it can read its sources and the toolchain and write only its own build folder. I tested that writes elsewhere, reading SSH keys and network connections all fail before starting.</li>
+<li><strong>Export, then judge.</strong> The compiled proof is exported to a single file. The judges read only that file, so no project code runs while checking. <a href="https://lean-lang.org/doc/reference/latest/"><code>lake comparator</code></a> checks that the statements match and that only <code>propext</code>, <code>Quot.sound</code> and <code>Classical.choice</code> are used, then replays the whole proof through Lean’s kernel. Then it goes through every independent checker that fits in the VM’s memory.</li>
+</ol>
+</section>
+<section id="steps-and-status" class="level2">
+<h2 class="anchored" data-anchor-id="steps-and-status">Steps and status</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">#</th>
+<th>Step</th>
+<th>What it establishes</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>Fresh VM</td>
+<td>A new Debian 13 VM (22 vCPU, 106 GB RAM) with its own kernel; the build user has no sudo.</td>
+<td>✅ Done</td>
+<td>Base image SHA-512 matches Debian’s published <code>SHA512SUMS</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>Toolchains</td>
+<td>Lean v4.33.1 (build, export) and v4.36.0 (judge) match the official release tarballs.</td>
+<td>✅ Done</td>
+<td><code>v4.33.1: installed toolchain matches verified tarball (17493 files)</code>; v4.36.0: 18248 files.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>Checker tools</td>
+<td>lean4export, lean4lean, con-leche, con-ron, nanoclo, Pestka and landrun cloned at pinned commits and built.</td>
+<td>✅ Done</td>
+<td>Commits listed under <em>Provenance</em>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>Project archive</td>
+<td>Downloaded inside the VM, verified, extracted read-only.</td>
+<td>✅ Done</td>
+<td><code>Archive checksum OK (9631b4f0…c7fc)</code>; <code>Extracted 175190 files into lean/ (read-only).</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td>Dependencies</td>
+<td>Mathlib and 8 packages cloned at the revisions the project pins; no prebuilt files.</td>
+<td>✅ Done</td>
+<td><code>mathlib at pinned 0df444a3</code>; all worktrees clean; <code>oleans present in packages (should be 0): 0</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td>Network cut</td>
+<td>VM restarted in isolated mode; nothing after this point can reach the internet.</td>
+<td>✅ Done</td>
+<td><code>curl: (6) Could not resolve host: github.com</code>; ping blocked.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td>Mathlib from source</td>
+<td>Built from source with the network off, then compared with Mathlib’s official cache.</td>
+<td>✅ Done</td>
+<td>32 min, 0 errors. 8,689 of 8,700 cache oleans byte-identical; 10 are the cache tool itself; 1 differs (see <em>Findings</em>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td>Challenge export</td>
+<td>The five statements, built and exported before any project code ran.</td>
+<td>✅ Done</td>
+<td>The community’s <code>Challenge.lean</code>, built with this Mathlib, exports to exactly <code>bd484ac9…b2b9</code>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td>Sandbox</td>
+<td>Landlock (landrun) confinement for everything that loads project code, tested before use.</td>
+<td>✅ Done</td>
+<td>Positive control passes; writes to sources (even after <code>chmod</code>), writes outside the build dir, <code>~/.ssh</code>, TCP: all denied.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td>Project build</td>
+<td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
+<td>⏳ Running</td>
+<td>8,225 / 175,187 modules (4.69%), 1h10m elapsed, ~7,042/h, rough ETA 23.7 h; errors 0, <code>sorry</code> warnings 0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td>Export</td>
+<td>The compiled proof written out as one file (<code>lean4export</code>) for the checkers.</td>
+<td>⏸ Pending</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td>Comparator</td>
+<td>Statements match the challenge; only the 3 standard axioms; Lean kernel + paranoid + nanoda replay.</td>
+<td>⏸ Pending</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td>Secondary checks</td>
+<td>Axiom audit, per-module <code>leanchecker</code> replay, sources unchanged, tools unchanged.</td>
+<td>⏸ Pending</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="checkers" class="level2">
+<h2 class="anchored" data-anchor-id="checkers">Checkers</h2>
+<p>Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by any one of them would override every acceptance.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Checker</th>
+<th>By</th>
+<th>What it is</th>
+<th>Verdict</th>
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Peak RAM</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lean kernel (C++)</td>
+<td>Lean FRO</td>
+<td>The reference kernel, replaying the export inside <code>lake comparator</code>.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Lean kernel, paranoid mode</td>
+<td>Lean FRO</td>
+<td>The same kernel with extra internal checks.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>nanoda</td>
+<td>Chris Bailey</td>
+<td>Independent kernel in Rust.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>con-leche <code>--compare</code></td>
+<td>Lean FRO</td>
+<td>Formally verified checker; also re-does the statement comparison.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>con-leche</td>
+<td>Lean FRO</td>
+<td>Formally verified: anything it accepts has a model in set theory.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>con-ron</td>
+<td>Lean FRO</td>
+<td>Rust port of con-leche.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>lean4lean</td>
+<td>Mario Carneiro</td>
+<td>Kernel written in Lean, partly verified; run module by module.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pestka</td>
+<td>jasisz</td>
+<td>Independent kernel written in Aver.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>nanoclo</td>
+<td>sgraf812</td>
+<td>Independent Rust kernel, forked from nanoda.</td>
+<td>⏸ Pending</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hashes-you-can-compare" class="level2">
+<h2 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes you can compare</h2>
+<p>A hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed <code>lake build</code> here, unsandboxed elsewhere).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Artifact</th>
+<th>Published (SHA-256)</th>
+<th>Ours</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source archive <code>lean.tar.gz</code></td>
+<td><code>9631b4f0…c7fc</code></td>
+<td><code>9631b4f0…c7fc</code></td>
+<td>✅ Match</td>
+</tr>
+<tr class="even">
+<td>Challenge export (their <code>Challenge.lean</code>, our build)</td>
+<td><code>bd484ac9…b2b9</code></td>
+<td><code>bd484ac9…b2b9</code></td>
+<td>✅ Match</td>
+</tr>
+<tr class="odd">
+<td><code>Main.olean</code></td>
+<td><code>9146dfb4…96ad</code></td>
+<td>—</td>
+<td>⏸ Pending</td>
+</tr>
+<tr class="even">
+<td><code>Statements.olean</code></td>
+<td><code>f8e0aed3…d6b1</code></td>
+<td>—</td>
+<td>⏸ Pending</td>
+</tr>
+<tr class="odd">
+<td>List of all 175,187 project <code>.olean</code> hashes</td>
+<td><code>375cbee2…1d25</code></td>
+<td>—</td>
+<td>⏸ Pending</td>
+</tr>
+<tr class="even">
+<td>Solution export <code>solution.ndjson</code> (61.6 GB)</td>
+<td><code>5ea74b91…244e</code></td>
+<td>—</td>
+<td>⏸ Pending</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="findings-along-the-way" class="level2">
+<h2 class="anchored" data-anchor-id="findings-along-the-way">Findings along the way</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Mathlib from source matches the official cache, with one exception
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Of the 8,700 files in Mathlib’s official build cache, 8,689 are byte-identical to my from-source build. Ten belong to the cache tool itself and aren’t part of the math. One differs: <code>Mathlib/Combinatorics/SimpleGraph/Walk/Operations.olean</code>, and only in a single auto-generated lemma, <code>SimpleGraph.Walk.take.eq_2</code>. The other 230 constants in that file match. My build of it is deterministic (rebuilt twice, same bytes), so the cache’s copy was produced differently. Both versions are kernel-checked theorems; this is a reproducibility quirk, not a soundness problem.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A full build needs about 1.7 TB of bookkeeping
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each module, Lake writes a <code>.setup.json</code> file listing everything it imports. Here that averages about 7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run builds on a compressed btrfs disk.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Two problems the tests caught
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>My sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6, landrun asked for v10 and refused to start, and every “access denied” test passed because nothing ran at all. A positive control (a command that must succeed) now runs first. Separately, the original checker script counted <code>sorry</code> warnings with the wrong quote characters, so that count could never be non-zero; it’s <a href="https://github.com/kai-do/riemann-hypothesis-lean-check">fixed</a>. The axiom check was never affected.</p>
+</div>
+</div>
+</section>
+<section id="provenance" class="level2">
+<h2 class="anchored" data-anchor-id="provenance">Provenance</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lean (build, export)</td>
+<td>v4.33.1 (<code>819816b2</code>), release tarball sha256 <code>890afd18…f235</code></td>
+</tr>
+<tr class="even">
+<td>Lean (judge)</td>
+<td>v4.36.0, release tarball sha256 <code>2b7ab1ed…a6eb</code></td>
+</tr>
+<tr class="odd">
+<td>Mathlib</td>
+<td>tag <code>v4.33.1</code> (<code>0df444a3</code>), built from source</td>
+</tr>
+<tr class="even">
+<td>lean4export</td>
+<td><code>15f6055e</code> (tag v4.33.0), built with v4.33.1</td>
+</tr>
+<tr class="odd">
+<td>con-leche</td>
+<td><code>11d8ff13</code></td>
+</tr>
+<tr class="even">
+<td>con-ron</td>
+<td><code>de06320f</code></td>
+</tr>
+<tr class="odd">
+<td>lean4lean</td>
+<td><code>67f63b0c</code>, built with v4.33.1</td>
+</tr>
+<tr class="even">
+<td>Pestka</td>
+<td><code>48857ad7</code></td>
+</tr>
+<tr class="odd">
+<td>nanoclo</td>
+<td><code>b8cefd0d</code></td>
+</tr>
+<tr class="even">
+<td>landrun</td>
+<td><code>ec104f6e</code> (v0.1.18)</td>
+</tr>
+<tr class="odd">
+<td>VM</td>
+<td>Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM, 1 TB zstd btrfs</td>
+</tr>
+</tbody>
+</table>
+<p>The scripts for every step are in <a href="https://github.com/kai-do/riemann-hypothesis-lean-check">kai-do/riemann-hypothesis-lean-check</a>.</p>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<ul>
+<li><strong>The original write-up:</strong> Levent Alpöge, <a href="https://alpo.ge/remark.pdf"><em>remark.pdf</em></a> (4 pages, 20 November 2026).</li>
+<li><strong>The Lean project:</strong> <a href="https://alpo.ge/lean.tar.gz.part01"><code>lean.tar.gz.part01</code></a> … <code>part14</code>, joined sha256 <code>9631b4f0…c7fc</code>.</li>
+<li><strong>The forum discussion:</strong> Lean Zulip, <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">#general › Discussion: Alpöge Proves the Riemann Hypothesis</a>.</li>
+<li><strong>Andrew Sutherland’s checks:</strong> <a href="https://math.mit.edu/~drew/grh/">math.mit.edu/~drew/grh</a>, the model for this page.</li>
+<li><strong>The community mirror and challenge:</strong> <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>.</li>
+<li><strong>Background on what checking a Lean proof involves:</strong> Kevin Buzzard, <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/"><em>And the proof is checked in Lean</em></a>, and the Lean reference on <a href="https://lean-lang.org/doc/reference/latest/External-Kernels/">external kernels</a>.</li>
+</ul>
+</section>
+<section id="how-i-used-ai" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-used-ai">How I used AI</h2>
+<p>Claude (Anthropic’s AI) set up and ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let anyone confirm the same bytes were checked.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>math</category>
+  <category>lean</category>
+  <category>verification</category>
+  <guid>https://kai.do/posts/2026-11-21-independent-verification-lean-rh-proof/</guid>
+  <pubDate>Sat, 21 Nov 2026 05:00:00 GMT</pubDate>
+</item>
 </channel>
 </rss>

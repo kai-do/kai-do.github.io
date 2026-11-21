@@ -4,7 +4,7 @@ description: "A live, step-by-step independent check of the Lean proof posted on
 date: 2026-11-21
 date-modified: last-modified
 categories: [math, lean, verification]
-draft: true
+draft: false
 toc: true
 ---
 

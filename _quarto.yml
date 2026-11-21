@@ -26,11 +26,8 @@ website:
     logo-alt: "Kaido Analytics mark"
     title: '<span class="brand-domain">kai.do</span> Nakai Zemer'
     right:
-      # Posts is hidden until the first post is published.
-      # To restore: uncomment this item and the RSS links below, and remove
-      # `draft: true` from posts.qmd.
-      # - href: posts.qmd
-      #   text: Posts
+      - href: posts.qmd
+        text: Posts
       - href: projects.qmd
         text: Projects
       - href: resume.qmd
@@ -43,14 +40,14 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/nakai-zemer
         aria-label: LinkedIn
-      # - icon: rss
-      #   href: posts.xml
-      #   aria-label: RSS
+      - icon: rss
+        href: posts.xml
+        aria-label: RSS
   page-footer:
     left: "© {{< now year >}} Nakai Zemer · Kaido Analytics LLC"
-    # right:
-    #   - text: RSS
-    #     href: posts.xml
+    right:
+      - text: RSS
+        href: posts.xml
 
 format:
   html:

@@ -1,208 +1,5 @@
 [
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Download PDF\nFire Data Analyst | Public Safety Data Systems, Planning & Analytics"
-  },
-  {
-    "objectID": "resume.html#summary",
-    "href": "resume.html#summary",
-    "title": "Resume",
-    "section": "Summary",
-    "text": "Summary\nSenior data analyst with 8 years developing and managing the reporting infrastructure for Cobb County Fire & Emergency Services, supporting 750+ users across ~68,000 incidents annually. Specializes in SQL, data engineering, report development, and applying math, statistics, and optimization to operational problems."
-  },
-  {
-    "objectID": "resume.html#experience",
-    "href": "resume.html#experience",
-    "title": "Resume",
-    "section": "Experience",
-    "text": "Experience\n\nFire Data Analyst\nCobb County Fire & Emergency Services, Marietta, GA · Sep 2022–present\nManages the full data lifecycle for department stakeholders, from understanding fire/EMS organizational needs to building data collection forms, data pipelines, and analytics.\nTechnical Leadership and Support\n\nSenior technical resource; regularly mentors and supports fellow analysts in SQL, SSRS, and statistical analysis, reviewing queries and reports, sharing advanced techniques, and helping solve difficult data problems in the fire service domain\nServes as primary support contact for ImageTrend Elite’s 750+ users, resolving 20+ tickets per month across data integrity, user access, and analytical reporting\nDevelops training materials, including a versioned 52-page end-user guide for the NERIS form\nAuthors decision briefs; co-authored the department’s data management policy\n\nData Systems and Engineering\n\nAdministers and configures ImageTrend Elite RMS, building complex fire and EMS forms, validation rules, and workflow logic to maintain compliance with state and federal reporting standards\nServes as a subject-matter expert on the ImageTrend Elite, TeleStaff, and PremierOne CAD databases, writing SQL for reporting and analytics\nArchitects a data modernization initiative, designing a departmental data warehouse and leading the Power BI implementation\nDesigned and deployed the department’s NERIS and NEMSIS 3.5 PCR forms\nBuilds and maintains databases and reporting data marts integrating CAD, ImageTrend, TeleStaff, accreditation, and unit assignment data\nAdministers the department’s SharePoint site, permissions, and Power Automate workflows\n\nReporting and Data Quality\n\nDesigns and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations\nMonitors data quality trends and operational anomalies and oversees NERIS and EMS data exports to state and federal reporting systems\nResponds to and investigates frequent data requests from department divisions and outside agencies, ensuring accurate, complete, and confidential information exchange\n\nPlanning and Analytics\n\nLed development of a new risk scoring method for the Community Risk Assessment and Standards of Cover\nApplies optimization, statistical models, and GIS in R to planning problems like resource placement\nLeads data integration and technical setup for the department’s Deccan deployment analysis software\n\nInnovation and Professional Development\n\nResearches and prototypes emerging machine learning, optimization, and web application techniques for adoption at CCFES, driving continuous improvement in department data practices\nPresents on public safety data science and the fire data analyst role at Kennesaw State University\n\n\n\nFounder & Data Science Consultant\nKaido Analytics LLC, Georgia (remote) · Jan 2023–present\nIndependent consultancy delivering applied statistical analysis, predictive modeling, and reproducible reporting for public safety and other clients.\n\nDesign and deliver reproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report built and maintained for a client over two consecutive years\nApply regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization, and machine learning to real-world problems with complex, imperfect data, end to end, from data cleaning through client-facing reporting\n\n\n\nFire Data Technician III\nCobb County Fire & Emergency Services, Marietta, GA · Dec 2019–Sep 2022\n\nIntroduced R and RStudio for advanced analysis and managed R projects with Git and GitHub\nAdded ~40 SSRS reports (~131 total), integrating multiple data sources\n\n\n\nFire Data Technician II\nCobb County Fire & Emergency Services, Marietta, GA · May 2019–Dec 2019\n\nBuilt complex T-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server\nCreated ~58 SSRS reports (~91 total) for operational and administrative needs\n\n\n\nFire Data Technician I\nCobb County Fire & Emergency Services, Marietta, GA · Aug 2018–May 2019\n\nAdministered ImageTrend Elite forms and validations for fire/EMS reporting and user support\nDeveloped SQL for SSRS and Excel reports and managed SSRS projects in Visual Studio with Azure DevOps\n\n\n\nIndependent Information Technology Contractor\nVarious clients, Canton, GA · Feb 2015–Aug 2018\n\nSupported servers and infrastructure for small and mid-sized businesses, installing server racks and cabling, configuring networks, and providing end-user support (Personalized Technology Services)\nBuilt and maintained an HTML5/CSS3 website and web store for a CNC manufacturing start-up; designed CNC files, operated the CNC router, and assembled vacuum systems (Black Box Vacuum Solutions)"
-  },
-  {
-    "objectID": "resume.html#education",
-    "href": "resume.html#education",
-    "title": "Resume",
-    "section": "Education",
-    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics Concentration), minor in Data Science and Analytics, Jan 2022–2027 (expected), GPA 3.95. Relevant coursework: Statistical Methods I & II; Applied Regression Analysis; Mathematical Modeling; Linear Algebra; Differential Equations; Real Analysis; Data Structures; Programming I & II\nChattahoochee Technical College: AAS in Cybersecurity, Aug 2014–Dec 2018"
-  },
-  {
-    "objectID": "resume.html#skills",
-    "href": "resume.html#skills",
-    "title": "Resume",
-    "section": "Skills",
-    "text": "Skills\n\nProgramming languages: R, SQL (T-SQL), Python, Java, C++, HTML/CSS\nDatabases and data engineering: Microsoft SQL Server, stored procedures, database design and normalization, data marts, data warehousing, indexing and performance tuning\nReporting and visualization: SSRS paginated reports, Power BI, Quarto and R Markdown, Shiny, ggplot2, plotly, leaflet\nStatistics and modeling: Linear and logistic regression, ANOVA and non-parametric methods, Poisson models and anomaly detection, time-series forecasting, machine learning (XGBoost, random forest, neural networks), mathematical modeling and optimization\nData analysis and wrangling: Excel, tidyverse and data.table, web scraping\nGIS and spatial: Spatial analysis in R (sf), OSRM routing and travel-time analysis, Census data (tidycensus) and geocoding\nPlatforms and tooling: Azure DevOps, Git and GitHub, CI/CD, Docker, Power Apps, Power Automate, SharePoint administration, applied LLM use and prompt engineering\nPublic safety systems: ImageTrend Elite (NERIS, NEMSIS 3.5, custom forms), PremierOne CAD, TeleStaff"
-  },
-  {
-    "objectID": "resume.html#certifications",
-    "href": "resume.html#certifications",
-    "title": "Resume",
-    "section": "Certifications",
-    "text": "Certifications\nData Science: R Basics (HarvardX, 2021)"
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html",
-    "href": "projects/house-pricing-model/index.html",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "",
-    "text": "Final project for STAT 3130 (Kennesaw State University), July 2024. The report is the main write-up; this page summarizes it."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#question",
-    "href": "projects/house-pricing-model/index.html#question",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Question",
-    "text": "Question\nHow do linear regression models with increasing amounts of feature engineering compare with XGBoost and random forest models, run at default settings, at predicting home sale prices? The project also tests whether sale price differs by pool quality."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#the-report",
-    "href": "projects/house-pricing-model/index.html#the-report",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "The Report",
-    "text": "The Report\n\n\nDownload the report (PDF) Code on GitHub"
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#data",
-    "href": "projects/house-pricing-model/index.html#data",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Data",
-    "text": "Data\nThe data is the Ames, Iowa housing data from Kaggle’s training set: 1,460 house sales with 79 explanatory variables describing the lot, the building, its condition and the sale. Sale prices are right-skewed, with a median of $163,000 and a mean of $180,921.\nThe data is split 80/20 with a fixed seed into 1,168 training houses and 292 test houses, and every model uses the same split. Before modeling, the ID column is removed, missing lot frontage is imputed by linear regression on lot area, lot shape and lot configuration, variables with only one value are removed, and categorical variables are converted to dummy variables."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#models",
-    "href": "projects/house-pricing-model/index.html#models",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Models",
-    "text": "Models\n\nLinear regression 1: all variables (259 coefficients after dummy coding).\nLinear regression 2: the 47 of 79 predictors that were not significant at the 0.05 level are removed.\nLinear regression 3: starting from model 2, 55 training houses with standardized residuals beyond ±2 are removed as outliers, along with two collinear variables and four variables that were no longer significant.\nXGBoost and random forest (ranger), both at their default settings with no tuning."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#results",
-    "href": "projects/house-pricing-model/index.html#results",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Results",
-    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nRandom forest, with no tuning, predicted test-set prices best (R² 0.919, RMSE $21,117). The best linear model reached only R² 0.444 on the same houses: the linear models overfit the training data and missed badly on a handful of test houses.\n\n\n\n\n\nModel\nTraining R²\nTraining RMSE\nTest R²\nTest RMSE\nTest MAE\n\n\n\n\nLinear regression 1\n0.936\n$20,724\n0.404\n$77,036\n$20,467\n\n\nLinear regression 2\n0.912\n$24,207\n0.444\n$69,639\n$21,502\n\n\nLinear regression 3\n0.944\n$17,042\n0.418\n$70,806\n$22,019\n\n\nXGBoost\n\n\n0.875\n$24,602\n$17,332\n\n\nRandom forest\n\n\n0.919\n$21,117\n$15,180\n\n\n\n\nRandom forest predicts best on every test metric, followed by XGBoost, even with no tuning.\nThe linear models overfit. They fit the training data well (R² 0.91 to 0.94) but explain much less of the variation in the test houses (R² 0.40 to 0.44). Model 1 estimates 259 coefficients from 1,168 houses.\nModel 2 is the best linear model on the test set (R² 0.444). Removing outliers in model 3 improved the training fit but not the test fit. Model 3’s training figures also exclude the 55 houses it removed, so they are not directly comparable with the other two.\nA few large errors drive the linear models’ low test R². Their test RMSE is more than three times their MAE. Their typical error (MAE of $20,000 to $22,000) is not far from the tree models’ ($15,000 to $17,000), but on a handful of houses they miss by a very large amount.\n\nLinear regression is easier to interpret and to put into production, while the tree models predict better with far less feature engineering. Which to use depends on whether accuracy or interpretability matters more."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#pool-quality",
-    "href": "projects/house-pricing-model/index.html#pool-quality",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Pool Quality",
-    "text": "Pool Quality\nPool quality was significant in the linear models, so the project tests whether sale price differs by pool quality. Only 7 of the 1,460 houses have a pool:\n\n\n\nPool quality\nHouses\nMean sale price\nSD\n\n\n\n\nExcellent\n2\n$490,000\n$360,624\n\n\nGood\n3\n$201,990\n$63,441\n\n\nFair\n2\n$215,500\n$48,790\n\n\nNo pool\n1,453\n$180,405\n$78,169\n\n\n\nA one-way ANOVA gave F(3, 1456) = 10.51, p &lt; 0.0001, but the group standard deviations differ too much for its equal-variance assumption to hold. A Kruskal-Wallis test, which does not need that assumption, found no significant difference (χ²(3) = 6.00, p = 0.112). With only seven pools, neither test can say much about pool quality."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#limitations",
-    "href": "projects/house-pricing-model/index.html#limitations",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Limitations",
-    "text": "Limitations\n\nOne train/test split. The test metrics come from 292 houses and one random split, with no cross-validation, so they would shift somewhat with a different split.\nNo tuning. XGBoost and random forest were run at default settings; tuning would likely improve them further.\nSkewed prices. Sale prices were modeled in raw dollars even though they are right-skewed, so large errors on expensive houses dominate RMSE.\nTiny pool groups. The pool-quality comparison rests on seven houses."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#tools-and-data-source",
-    "href": "projects/house-pricing-model/index.html#tools-and-data-source",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Tools and Data Source",
-    "text": "Tools and Data Source\nR and Quarto: tidyverse, tidymodels (rsample and recipes), xgboost, ranger, car and agricolae.\nData: House Prices - Advanced Regression Techniques on Kaggle, originally compiled by Dean De Cock (“Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project”, Journal of Statistics Education, 2011). The data is not included in the repository."
-  },
-  {
-    "objectID": "projects/house-pricing-model/index.html#links",
-    "href": "projects/house-pricing-model/index.html#links",
-    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
-    "section": "Links",
-    "text": "Links\n\nReport (PDF)\nCode on GitHub"
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html",
-    "href": "projects/fire-department-response-times/index.html",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "",
-    "text": "Final project for STAT 3120 (Kennesaw State University), done with Gabriel Salisbury in May 2023. The slide deck is the main write-up; this page summarizes it."
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#question",
-    "href": "projects/fire-department-response-times/index.html#question",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Question",
-    "text": "Question\nIs there a statistically significant difference in mean response time (dispatch to arrival) between career and volunteer fire departments? And how does population density relate to response time?"
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#the-presentation",
-    "href": "projects/fire-department-response-times/index.html#the-presentation",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "The Presentation",
-    "text": "The Presentation\n\n\nDownload the slides (PDF) Code and data on GitHub"
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#data-and-cleaning",
-    "href": "projects/fire-department-response-times/index.html#data-and-cleaning",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Data and Cleaning",
-    "text": "Data and Cleaning\nThe data is the public 2019 NFIRS (National Fire Incident Reporting System) incident data, rolled up to one row per department: 11,884 departments, each with at least 30 incidents. Incident-level cleaning, documented on the last slide of the deck, kept geocoded incidents and dropped mutual-aid incidents, incidents with a missing response time, and extreme response times. Departments and census tracts with very few incidents were also dropped.\nVariables used:\n\n\n\n\n\n\n\n\nVariable\nDefinition\nUsed in\n\n\n\n\nMean response time\nMean dispatch-to-arrival time by department, in minutes\nt-test, correlation\n\n\nDepartment type (2 levels)\nCareer: at least half of firefighters are career. Volunteer: otherwise\nt-test, correlation\n\n\nDepartment type (4 levels)\nCareer, Mostly career, Mostly volunteer, Volunteer\nchi-square\n\n\nPopulation density\nEstimated department population divided by estimated area (people per square mile)\ncorrelation\n\n\nResponse time category\nFast: mean response time of 7.5 minutes or less. Slow: more than 7.5\nchi-square"
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#results",
-    "href": "projects/fire-department-response-times/index.html#results",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Results",
-    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nCareer departments responded 2.23 minutes faster on average than volunteer departments (5.94 vs. 8.17 minutes, dispatch to arrival, across 11,884 departments). Response times were also faster in denser areas (r = −0.31).\n\n\n\nCareer Departments Responded Faster\n\n\n\nDepartment type\nDepartments\nMean response time\nSD\n\n\n\n\nCareer (incl. mostly career)\n3,031\n5.94 min\n1.50\n\n\nVolunteer (incl. mostly volunteer)\n8,853\n8.17 min\n2.57\n\n\n\nThe difference in means is 2.23 minutes (95% CI ±0.075 min). A Welch t-test, used because the variances were unequal, gave t = 57.93, df = 9066.2, p &lt; .0001.\n\n\nDenser Areas Had Faster Response Times\nAcross all departments the correlation between population density and mean response time is r = −0.31. Within groups it is r = −0.22 for career departments and r = −0.27 for volunteer departments (all p &lt; .0001). Volunteer departments are concentrated at low density and account for the longest times.\n\n\n\nMean response time against population density, by department type (2019).\n\n\n\n\nDepartment Type and “Fast” vs. “Slow”\nUsing the four-level department type against fast/slow, a chi-square test of independence gave χ² = 2310.4, df = 3, p &lt; .0001. Career departments were fast far more often than expected under independence, and volunteer departments were slow far more often.\n\n\n\n\n\n\n\n\nDepartment type\nFast (observed / expected)\nSlow (observed / expected)\n\n\n\n\nCareer\n1,716 / 1,029\n184 / 871\n\n\nMostly career\n900 / 612\n231 / 519\n\n\nMostly volunteer\n1,844 / 1,641\n1,186 / 1,389\n\n\nVolunteer\n1,975 / 3,153\n3,848 / 2,670\n\n\n\n\n\n\nObserved minus expected department counts by response time category and department type."
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#limitations",
-    "href": "projects/fire-department-response-times/index.html#limitations",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Limitations",
-    "text": "Limitations\n\nThe unit of analysis is a department’s mean response time, which hides variation between incidents within a department.\nWith about 12,000 departments, p-values are tiny almost by default. The size of the difference (2.2 minutes) and of the correlations matters more than the significance.\nThis is observational data. Career and volunteer departments differ in many ways besides staffing model (density, call volume, geography), so the comparison does not show that staffing model causes the difference.\nNFIRS is reported by the departments themselves, and reporting quality varies."
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#tools",
-    "href": "projects/fire-department-response-times/index.html#tools",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Tools",
-    "text": "Tools\nR and Quarto: tidyverse, ggpubr, moments, knitr and kableExtra."
-  },
-  {
-    "objectID": "projects/fire-department-response-times/index.html#links",
-    "href": "projects/fire-department-response-times/index.html#links",
-    "title": "Career vs. Volunteer Fire Department Response Times",
-    "section": "Links",
-    "text": "Links\n\nSlides (PDF)\nCode and datasets on GitHub"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
-  },
-  {
-    "objectID": "about.html#consulting",
-    "href": "about.html#consulting",
-    "title": "About",
-    "section": "",
-    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About",
-    "section": "Contact",
-    "text": "Contact\nEmail: n@kai.do\nLinkedIn · GitHub"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Nakai Zemer",
-    "section": "",
-    "text": "Math and Data Science for Fire & EMS\nI’m a fire data analyst at Cobb County Fire & Emergency Services in Georgia, where I work with an amazing team in the Fire Planning Division. Together we build and run the department’s reporting systems and analytics, and I apply statistics, optimization, and GIS to planning questions such as where to place resources to best serve the community.\nI also run Kaido Analytics LLC, a small consultancy for statistical analysis and reproducible reporting, and I’m finishing a BS in Mathematics with a concentration in statistics at Kennesaw State University."
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Nakai Zemer",
-    "section": "Projects",
-    "text": "Projects\n\n\n\n\n\n\n\nCareer vs. Volunteer Fire Department Response Times\n\n\n\nstatistics\n\nr\n\nfire-ems\n\n\n\nA statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.\n\n\n\n\n\n\n\n\n\nFire & Life Safety Inspection Benchmark Report\n\n\n\nclient\n\nbenchmarking\n\nfire-ems\n\n\n\n2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.\n\n\n\n\n\n\n\n\n\nModeling Airport Disruptions with a Markov Chain\n\n\n\nstatistics\n\nr\n\n\n\nA discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.\n\n\n\n\n\n\n\n\n\nPredicting House Prices: Linear Regression vs. Tree Models\n\n\n\nstatistics\n\nr\n\nmachine-learning\n\n\n\nComparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.\n\n\n\n\n\n\n\n\n\nPredicting Life Expectancy with Linear Regression\n\n\n\nstatistics\n\nr\n\n\n\nA multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "projects/flight-route-markov-chain/index.html",
     "href": "projects/flight-route-markov-chain/index.html",
     "title": "Modeling Airport Disruptions with a Markov Chain",
@@ -280,6 +77,132 @@
     "text": "Links\n\nReport (PDF)\nCode on GitHub"
   },
   {
+    "objectID": "projects/fire-department-response-times/index.html",
+    "href": "projects/fire-department-response-times/index.html",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "",
+    "text": "Final project for STAT 3120 (Kennesaw State University), done with Gabriel Salisbury in May 2023. The slide deck is the main write-up; this page summarizes it."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#question",
+    "href": "projects/fire-department-response-times/index.html#question",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Question",
+    "text": "Question\nIs there a statistically significant difference in mean response time (dispatch to arrival) between career and volunteer fire departments? And how does population density relate to response time?"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#the-presentation",
+    "href": "projects/fire-department-response-times/index.html#the-presentation",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "The Presentation",
+    "text": "The Presentation\n\n\nDownload the slides (PDF) Code and data on GitHub"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#data-and-cleaning",
+    "href": "projects/fire-department-response-times/index.html#data-and-cleaning",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Data and Cleaning",
+    "text": "Data and Cleaning\nThe data is the public 2019 NFIRS (National Fire Incident Reporting System) incident data, rolled up to one row per department: 11,884 departments, each with at least 30 incidents. Incident-level cleaning, documented on the last slide of the deck, kept geocoded incidents and dropped mutual-aid incidents, incidents with a missing response time, and extreme response times. Departments and census tracts with very few incidents were also dropped.\nVariables used:\n\n\n\n\n\n\n\n\nVariable\nDefinition\nUsed in\n\n\n\n\nMean response time\nMean dispatch-to-arrival time by department, in minutes\nt-test, correlation\n\n\nDepartment type (2 levels)\nCareer: at least half of firefighters are career. Volunteer: otherwise\nt-test, correlation\n\n\nDepartment type (4 levels)\nCareer, Mostly career, Mostly volunteer, Volunteer\nchi-square\n\n\nPopulation density\nEstimated department population divided by estimated area (people per square mile)\ncorrelation\n\n\nResponse time category\nFast: mean response time of 7.5 minutes or less. Slow: more than 7.5\nchi-square"
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#results",
+    "href": "projects/fire-department-response-times/index.html#results",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nCareer departments responded 2.23 minutes faster on average than volunteer departments (5.94 vs. 8.17 minutes, dispatch to arrival, across 11,884 departments). Response times were also faster in denser areas (r = −0.31).\n\n\n\nCareer Departments Responded Faster\n\n\n\nDepartment type\nDepartments\nMean response time\nSD\n\n\n\n\nCareer (incl. mostly career)\n3,031\n5.94 min\n1.50\n\n\nVolunteer (incl. mostly volunteer)\n8,853\n8.17 min\n2.57\n\n\n\nThe difference in means is 2.23 minutes (95% CI ±0.075 min). A Welch t-test, used because the variances were unequal, gave t = 57.93, df = 9066.2, p &lt; .0001.\n\n\nDenser Areas Had Faster Response Times\nAcross all departments the correlation between population density and mean response time is r = −0.31. Within groups it is r = −0.22 for career departments and r = −0.27 for volunteer departments (all p &lt; .0001). Volunteer departments are concentrated at low density and account for the longest times.\n\n\n\nMean response time against population density, by department type (2019).\n\n\n\n\nDepartment Type and “Fast” vs. “Slow”\nUsing the four-level department type against fast/slow, a chi-square test of independence gave χ² = 2310.4, df = 3, p &lt; .0001. Career departments were fast far more often than expected under independence, and volunteer departments were slow far more often.\n\n\n\n\n\n\n\n\nDepartment type\nFast (observed / expected)\nSlow (observed / expected)\n\n\n\n\nCareer\n1,716 / 1,029\n184 / 871\n\n\nMostly career\n900 / 612\n231 / 519\n\n\nMostly volunteer\n1,844 / 1,641\n1,186 / 1,389\n\n\nVolunteer\n1,975 / 3,153\n3,848 / 2,670\n\n\n\n\n\n\nObserved minus expected department counts by response time category and department type."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#limitations",
+    "href": "projects/fire-department-response-times/index.html#limitations",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe unit of analysis is a department’s mean response time, which hides variation between incidents within a department.\nWith about 12,000 departments, p-values are tiny almost by default. The size of the difference (2.2 minutes) and of the correlations matters more than the significance.\nThis is observational data. Career and volunteer departments differ in many ways besides staffing model (density, call volume, geography), so the comparison does not show that staffing model causes the difference.\nNFIRS is reported by the departments themselves, and reporting quality varies."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#tools",
+    "href": "projects/fire-department-response-times/index.html#tools",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Tools",
+    "text": "Tools\nR and Quarto: tidyverse, ggpubr, moments, knitr and kableExtra."
+  },
+  {
+    "objectID": "projects/fire-department-response-times/index.html#links",
+    "href": "projects/fire-department-response-times/index.html#links",
+    "title": "Career vs. Volunteer Fire Department Response Times",
+    "section": "Links",
+    "text": "Links\n\nSlides (PDF)\nCode and datasets on GitHub"
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html",
+    "href": "projects/house-pricing-model/index.html",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "",
+    "text": "Final project for STAT 3130 (Kennesaw State University), July 2024. The report is the main write-up; this page summarizes it."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#question",
+    "href": "projects/house-pricing-model/index.html#question",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Question",
+    "text": "Question\nHow do linear regression models with increasing amounts of feature engineering compare with XGBoost and random forest models, run at default settings, at predicting home sale prices? The project also tests whether sale price differs by pool quality."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#the-report",
+    "href": "projects/house-pricing-model/index.html#the-report",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "The Report",
+    "text": "The Report\n\n\nDownload the report (PDF) Code on GitHub"
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#data",
+    "href": "projects/house-pricing-model/index.html#data",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Data",
+    "text": "Data\nThe data is the Ames, Iowa housing data from Kaggle’s training set: 1,460 house sales with 79 explanatory variables describing the lot, the building, its condition and the sale. Sale prices are right-skewed, with a median of $163,000 and a mean of $180,921.\nThe data is split 80/20 with a fixed seed into 1,168 training houses and 292 test houses, and every model uses the same split. Before modeling, the ID column is removed, missing lot frontage is imputed by linear regression on lot area, lot shape and lot configuration, variables with only one value are removed, and categorical variables are converted to dummy variables."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#models",
+    "href": "projects/house-pricing-model/index.html#models",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Models",
+    "text": "Models\n\nLinear regression 1: all variables (259 coefficients after dummy coding).\nLinear regression 2: the 47 of 79 predictors that were not significant at the 0.05 level are removed.\nLinear regression 3: starting from model 2, 55 training houses with standardized residuals beyond ±2 are removed as outliers, along with two collinear variables and four variables that were no longer significant.\nXGBoost and random forest (ranger), both at their default settings with no tuning."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#results",
+    "href": "projects/house-pricing-model/index.html#results",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\nImportantKey Finding\n\n\n\nRandom forest, with no tuning, predicted test-set prices best (R² 0.919, RMSE $21,117). The best linear model reached only R² 0.444 on the same houses: the linear models overfit the training data and missed badly on a handful of test houses.\n\n\n\n\n\nModel\nTraining R²\nTraining RMSE\nTest R²\nTest RMSE\nTest MAE\n\n\n\n\nLinear regression 1\n0.936\n$20,724\n0.404\n$77,036\n$20,467\n\n\nLinear regression 2\n0.912\n$24,207\n0.444\n$69,639\n$21,502\n\n\nLinear regression 3\n0.944\n$17,042\n0.418\n$70,806\n$22,019\n\n\nXGBoost\n\n\n0.875\n$24,602\n$17,332\n\n\nRandom forest\n\n\n0.919\n$21,117\n$15,180\n\n\n\n\nRandom forest predicts best on every test metric, followed by XGBoost, even with no tuning.\nThe linear models overfit. They fit the training data well (R² 0.91 to 0.94) but explain much less of the variation in the test houses (R² 0.40 to 0.44). Model 1 estimates 259 coefficients from 1,168 houses.\nModel 2 is the best linear model on the test set (R² 0.444). Removing outliers in model 3 improved the training fit but not the test fit. Model 3’s training figures also exclude the 55 houses it removed, so they are not directly comparable with the other two.\nA few large errors drive the linear models’ low test R². Their test RMSE is more than three times their MAE. Their typical error (MAE of $20,000 to $22,000) is not far from the tree models’ ($15,000 to $17,000), but on a handful of houses they miss by a very large amount.\n\nLinear regression is easier to interpret and to put into production, while the tree models predict better with far less feature engineering. Which to use depends on whether accuracy or interpretability matters more."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#pool-quality",
+    "href": "projects/house-pricing-model/index.html#pool-quality",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Pool Quality",
+    "text": "Pool Quality\nPool quality was significant in the linear models, so the project tests whether sale price differs by pool quality. Only 7 of the 1,460 houses have a pool:\n\n\n\nPool quality\nHouses\nMean sale price\nSD\n\n\n\n\nExcellent\n2\n$490,000\n$360,624\n\n\nGood\n3\n$201,990\n$63,441\n\n\nFair\n2\n$215,500\n$48,790\n\n\nNo pool\n1,453\n$180,405\n$78,169\n\n\n\nA one-way ANOVA gave F(3, 1456) = 10.51, p &lt; 0.0001, but the group standard deviations differ too much for its equal-variance assumption to hold. A Kruskal-Wallis test, which does not need that assumption, found no significant difference (χ²(3) = 6.00, p = 0.112). With only seven pools, neither test can say much about pool quality."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#limitations",
+    "href": "projects/house-pricing-model/index.html#limitations",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Limitations",
+    "text": "Limitations\n\nOne train/test split. The test metrics come from 292 houses and one random split, with no cross-validation, so they would shift somewhat with a different split.\nNo tuning. XGBoost and random forest were run at default settings; tuning would likely improve them further.\nSkewed prices. Sale prices were modeled in raw dollars even though they are right-skewed, so large errors on expensive houses dominate RMSE.\nTiny pool groups. The pool-quality comparison rests on seven houses."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#tools-and-data-source",
+    "href": "projects/house-pricing-model/index.html#tools-and-data-source",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Tools and Data Source",
+    "text": "Tools and Data Source\nR and Quarto: tidyverse, tidymodels (rsample and recipes), xgboost, ranger, car and agricolae.\nData: House Prices - Advanced Regression Techniques on Kaggle, originally compiled by Dean De Cock (“Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project”, Journal of Statistics Education, 2011). The data is not included in the repository."
+  },
+  {
+    "objectID": "projects/house-pricing-model/index.html#links",
+    "href": "projects/house-pricing-model/index.html#links",
+    "title": "Predicting House Prices: Linear Regression vs. Tree Models",
+    "section": "Links",
+    "text": "Links\n\nReport (PDF)\nCode on GitHub"
+  },
+  {
     "objectID": "projects/life-expectancy-regression/index.html",
     "href": "projects/life-expectancy-regression/index.html",
     "title": "Predicting Life Expectancy with Linear Regression",
@@ -343,10 +266,178 @@
     "text": "Links\n\nFinal report (PDF)\nCode and data on GitHub"
   },
   {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "",
+    "text": "ImportantStatus, updated 2026-11-21 04:14 UTC\n\n\n\nBuilding the project: 8,225 of 175,187 modules (4.69%) after 1h10m. No verdict yet; the checkers run after the build and export.\nOn 20 November 2026, Levent Alpöge posted a short remark and a 1.4 GB Lean 4 project claiming a machine-checked proof of the Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns “is this proof right?” into a question anyone with a computer can answer, if they are careful about what exactly they check.\nWithin hours, people in the Lean community had built and checked it (see the forum thread). The most complete public record is Andrew Sutherland’s page. I wanted to do it myself, end to end, for my own understanding. This page is that run. It updates as each step finishes, and every result on it is quoted from the run’s logs."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#what-a-check-can-and-cant-tell-you",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#what-a-check-can-and-cant-tell-you",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "What a check can and can’t tell you",
+    "text": "What a check can and can’t tell you\nA passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does not mean:\n\nthat anyone understands the proof. It is 175,187 files and about 17 million lines, written with AI;\nthat the formal statements mean what we think. That is why they are printed below, and why the main one is Mathlib’s own definition, written long before this project existed;\nthat every checker can’t share one bug. Using checkers written independently, in different languages, some with formal proofs of their own soundness, makes that very unlikely."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#the-five-statements",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#the-five-statements",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "The five statements",
+    "text": "The five statements\nThe proof is judged against these statements, which import nothing but Mathlib. Each is proved with sorry, Lean’s placeholder for “not proved here”; the project has to supply the real proofs under the same names. I wrote this file independently. Apart from comments it is identical to the community’s Challenge.lean, and built with my Mathlib their file exports to exactly the same bytes they published.\nimport Mathlib\n\ndef RiemannZetaZerosOnLine : Prop :=\n  ∀ s : ℂ, riemannZeta s = 0 → (¬∃ n : ℕ, s = -2 * ((n : ℂ) + 1)) → s ≠ 1 → s.re = 1 / 2\n\ndef DirichletLNonvanishingRightOfHalf : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),\n    1 / 2 &lt; s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0\n\ndef DirichletLZerosOnLine : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),\n    0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2\n\ndef PrimitiveDirichletLZerosOnLine : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →\n    ∀ s : ℂ, 0 &lt; s.re → s.re &lt; 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2\n\ntheorem riemannHypothesis : RiemannHypothesis := by sorry\ntheorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := by sorry\ntheorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := by sorry\ntheorem LFunction_eq_zero_re : DirichletLZerosOnLine := by sorry\ntheorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := by sorry\n\n\n\n\n\n\n\nTheorem\nIn words\n\n\n\n\nriemannHypothesis\nMathlib’s RiemannHypothesis: every zero of ζ other than −2, −4, −6, … (and the pole at 1) has real part ½.\n\n\nriemannZeta_eq_zero_re\nThe same statement, written out.\n\n\nLFunction_ne_zero_of_half_lt_re\nFor every modulus N and Dirichlet character χ, L(χ, s) ≠ 0 when Re s &gt; ½, except at the pole χ = 1, s = 1.\n\n\nLFunction_eq_zero_re\nEvery zero of every Dirichlet L-function in the strip 0 &lt; Re s &lt; 1 has Re s = ½.\n\n\nLFunction_eq_zero_re_of_isPrimitive\nThe same, for primitive characters.\n\n\n\nI’m not a number theorist, so I don’t rely on my own reading of the last four. They have to match the project’s definitions term for term, which the checkers enforce, and they agree with the version reviewed in public by people who are."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#how-the-check-works",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#how-the-check-works",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "How the check works",
+    "text": "How the check works\nI treated the project as untrusted code. Building a Lean project runs code it contains (tactics, macros, build commands), so nothing from it ran on my own machine, and nothing that loads it ran outside a sandbox.\n\nA fresh virtual machine with its own kernel. Every tool is pinned to an exact commit and verified, and the project is downloaded and checked inside the VM.\nNo network once the downloads are done. Mathlib, the math library the project builds on, is then compiled from source and compared file by file with Mathlib’s official build cache.\nThe statements first. The challenge file is built and exported before any project code runs.\nA sandbox for the project. The build runs under Landlock via landrun: it can read its sources and the toolchain and write only its own build folder. I tested that writes elsewhere, reading SSH keys and network connections all fail before starting.\nExport, then judge. The compiled proof is exported to a single file. The judges read only that file, so no project code runs while checking. lake comparator checks that the statements match and that only propext, Quot.sound and Classical.choice are used, then replays the whole proof through Lean’s kernel. Then it goes through every independent checker that fits in the VM’s memory."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#steps-and-status",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#steps-and-status",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Steps and status",
+    "text": "Steps and status\n\n\n\n\n\n\n\n\n\n\n#\nStep\nWhat it establishes\nStatus\nEvidence\n\n\n\n\n1\nFresh VM\nA new Debian 13 VM (22 vCPU, 106 GB RAM) with its own kernel; the build user has no sudo.\n✅ Done\nBase image SHA-512 matches Debian’s published SHA512SUMS.\n\n\n2\nToolchains\nLean v4.33.1 (build, export) and v4.36.0 (judge) match the official release tarballs.\n✅ Done\nv4.33.1: installed toolchain matches verified tarball (17493 files); v4.36.0: 18248 files.\n\n\n3\nChecker tools\nlean4export, lean4lean, con-leche, con-ron, nanoclo, Pestka and landrun cloned at pinned commits and built.\n✅ Done\nCommits listed under Provenance.\n\n\n4\nProject archive\nDownloaded inside the VM, verified, extracted read-only.\n✅ Done\nArchive checksum OK (9631b4f0…c7fc); Extracted 175190 files into lean/ (read-only).\n\n\n5\nDependencies\nMathlib and 8 packages cloned at the revisions the project pins; no prebuilt files.\n✅ Done\nmathlib at pinned 0df444a3; all worktrees clean; oleans present in packages (should be 0): 0.\n\n\n6\nNetwork cut\nVM restarted in isolated mode; nothing after this point can reach the internet.\n✅ Done\ncurl: (6) Could not resolve host: github.com; ping blocked.\n\n\n7\nMathlib from source\nBuilt from source with the network off, then compared with Mathlib’s official cache.\n✅ Done\n32 min, 0 errors. 8,689 of 8,700 cache oleans byte-identical; 10 are the cache tool itself; 1 differs (see Findings).\n\n\n8\nChallenge export\nThe five statements, built and exported before any project code ran.\n✅ Done\nThe community’s Challenge.lean, built with this Mathlib, exports to exactly bd484ac9…b2b9.\n\n\n9\nSandbox\nLandlock (landrun) confinement for everything that loads project code, tested before use.\n✅ Done\nPositive control passes; writes to sources (even after chmod), writes outside the build dir, ~/.ssh, TCP: all denied.\n\n\n10\nProject build\nAll 175,187 project modules compiled inside the sandbox (lake build).\n⏳ Running\n8,225 / 175,187 modules (4.69%), 1h10m elapsed, ~7,042/h, rough ETA 23.7 h; errors 0, sorry warnings 0\n\n\n11\nExport\nThe compiled proof written out as one file (lean4export) for the checkers.\n⏸ Pending\n\n\n\n12\nComparator\nStatements match the challenge; only the 3 standard axioms; Lean kernel + paranoid + nanoda replay.\n⏸ Pending\n\n\n\n13\nSecondary checks\nAxiom audit, per-module leanchecker replay, sources unchanged, tools unchanged.\n⏸ Pending"
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#checkers",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#checkers",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Checkers",
+    "text": "Checkers\nEach checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by any one of them would override every acceptance.\n\n\n\n\n\n\n\n\n\n\n\n\nChecker\nBy\nWhat it is\nVerdict\nTime\nPeak RAM\nEvidence\n\n\n\n\nLean kernel (C++)\nLean FRO\nThe reference kernel, replaying the export inside lake comparator.\n⏸ Pending\n\n\n\n\n\nLean kernel, paranoid mode\nLean FRO\nThe same kernel with extra internal checks.\n⏸ Pending\n\n\n\n\n\nnanoda\nChris Bailey\nIndependent kernel in Rust.\n⏸ Pending\n\n\n\n\n\ncon-leche --compare\nLean FRO\nFormally verified checker; also re-does the statement comparison.\n⏸ Pending\n\n\n\n\n\ncon-leche\nLean FRO\nFormally verified: anything it accepts has a model in set theory.\n⏸ Pending\n\n\n\n\n\ncon-ron\nLean FRO\nRust port of con-leche.\n⏸ Pending\n\n\n\n\n\nlean4lean\nMario Carneiro\nKernel written in Lean, partly verified; run module by module.\n⏸ Pending\n\n\n\n\n\nPestka\njasisz\nIndependent kernel written in Aver.\n⏸ Pending\n\n\n\n\n\nnanoclo\nsgraf812\nIndependent Rust kernel, forked from nanoda.\n⏸ Pending"
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#hashes-you-can-compare",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#hashes-you-can-compare",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Hashes you can compare",
+    "text": "Hashes you can compare\nA hash pins down exactly which bytes were checked. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed lake build here, unsandboxed elsewhere).\n\n\n\n\n\n\n\n\n\nArtifact\nPublished (SHA-256)\nOurs\nResult\n\n\n\n\nSource archive lean.tar.gz\n9631b4f0…c7fc\n9631b4f0…c7fc\n✅ Match\n\n\nChallenge export (their Challenge.lean, our build)\nbd484ac9…b2b9\nbd484ac9…b2b9\n✅ Match\n\n\nMain.olean\n9146dfb4…96ad\n—\n⏸ Pending\n\n\nStatements.olean\nf8e0aed3…d6b1\n—\n⏸ Pending\n\n\nList of all 175,187 project .olean hashes\n375cbee2…1d25\n—\n⏸ Pending\n\n\nSolution export solution.ndjson (61.6 GB)\n5ea74b91…244e\n—\n⏸ Pending"
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#findings-along-the-way",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#findings-along-the-way",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Findings along the way",
+    "text": "Findings along the way\n\n\n\n\n\n\nNoteMathlib from source matches the official cache, with one exception\n\n\n\nOf the 8,700 files in Mathlib’s official build cache, 8,689 are byte-identical to my from-source build. Ten belong to the cache tool itself and aren’t part of the math. One differs: Mathlib/Combinatorics/SimpleGraph/Walk/Operations.olean, and only in a single auto-generated lemma, SimpleGraph.Walk.take.eq_2. The other 230 constants in that file match. My build of it is deterministic (rebuilt twice, same bytes), so the cache’s copy was produced differently. Both versions are kernel-checked theorems; this is a reproducibility quirk, not a soundness problem.\n\n\n\n\n\n\n\n\nNoteA full build needs about 1.7 TB of bookkeeping\n\n\n\nFor each module, Lake writes a .setup.json file listing everything it imports. Here that averages about 7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run builds on a compressed btrfs disk.\n\n\n\n\n\n\n\n\nNoteTwo problems the tests caught\n\n\n\nMy sandbox wrapper first failed in a way that looked like success: the kernel supports Landlock ABI v6, landrun asked for v10 and refused to start, and every “access denied” test passed because nothing ran at all. A positive control (a command that must succeed) now runs first. Separately, the original checker script counted sorry warnings with the wrong quote characters, so that count could never be non-zero; it’s fixed. The axiom check was never affected."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#provenance",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#provenance",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Provenance",
+    "text": "Provenance\n\n\n\n\n\n\n\nComponent\nVersion\n\n\n\n\nLean (build, export)\nv4.33.1 (819816b2), release tarball sha256 890afd18…f235\n\n\nLean (judge)\nv4.36.0, release tarball sha256 2b7ab1ed…a6eb\n\n\nMathlib\ntag v4.33.1 (0df444a3), built from source\n\n\nlean4export\n15f6055e (tag v4.33.0), built with v4.33.1\n\n\ncon-leche\n11d8ff13\n\n\ncon-ron\nde06320f\n\n\nlean4lean\n67f63b0c, built with v4.33.1\n\n\nPestka\n48857ad7\n\n\nnanoclo\nb8cefd0d\n\n\nlandrun\nec104f6e (v0.1.18)\n\n\nVM\nDebian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM, 1 TB zstd btrfs\n\n\n\nThe scripts for every step are in kai-do/riemann-hypothesis-lean-check."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#sources",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#sources",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "Sources",
+    "text": "Sources\n\nThe original write-up: Levent Alpöge, remark.pdf (4 pages, 20 November 2026).\nThe Lean project: lean.tar.gz.part01 … part14, joined sha256 9631b4f0…c7fc.\nThe forum discussion: Lean Zulip, #general › Discussion: Alpöge Proves the Riemann Hypothesis.\nAndrew Sutherland’s checks: math.mit.edu/~drew/grh, the model for this page.\nThe community mirror and challenge: Deicyde/riemann-hypothesis.\nBackground on what checking a Lean proof involves: Kevin Buzzard, And the proof is checked in Lean, and the Lean reference on external kernels."
+  },
+  {
+    "objectID": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#how-i-used-ai",
+    "href": "posts/2026-11-21-independent-verification-lean-rh-proof/index.html#how-i-used-ai",
+    "title": "An Independent Verification of the Riemann Hypothesis Lean Proof",
+    "section": "How I used AI",
+    "text": "How I used AI\nClaude (Anthropic’s AI) set up and ran this check with me: it wrote the scripts, ran the commands and drafted this page, and I reviewed and directed the work. That is exactly why the check is built so no single party has to be trusted, including the AI running it. Every result here is read from logs, and the hashes let anyone confirm the same bytes were checked."
+  },
+  {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
     "text": "Career vs. Volunteer Fire Department Response Times\n\n\n\nstatistics\n\nr\n\nfire-ems\n\n\n\nA statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.\n\n\n\n\n\n\n\n\n\nFire & Life Safety Inspection Benchmark Report\n\n\n\nclient\n\nbenchmarking\n\nfire-ems\n\n\n\n2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.\n\n\n\n\n\n\n\n\n\nModeling Airport Disruptions with a Markov Chain\n\n\n\nstatistics\n\nr\n\n\n\nA discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.\n\n\n\n\n\n\n\n\n\nPredicting House Prices: Linear Regression vs. Tree Models\n\n\n\nstatistics\n\nr\n\nmachine-learning\n\n\n\nComparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.\n\n\n\n\n\n\n\n\n\nPredicting Life Expectancy with Linear Regression\n\n\n\nstatistics\n\nr\n\n\n\nA multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Download PDF\nFire Data Analyst | Public Safety Data Systems, Planning & Analytics"
+  },
+  {
+    "objectID": "resume.html#summary",
+    "href": "resume.html#summary",
+    "title": "Resume",
+    "section": "Summary",
+    "text": "Summary\nSenior data analyst with 8 years developing and managing the reporting infrastructure for Cobb County Fire & Emergency Services, supporting 750+ users across ~68,000 incidents annually. Specializes in SQL, data engineering, report development, and applying math, statistics, and optimization to operational problems."
+  },
+  {
+    "objectID": "resume.html#experience",
+    "href": "resume.html#experience",
+    "title": "Resume",
+    "section": "Experience",
+    "text": "Experience\n\nFire Data Analyst\nCobb County Fire & Emergency Services, Marietta, GA · Sep 2022–present\nManages the full data lifecycle for department stakeholders, from understanding fire/EMS organizational needs to building data collection forms, data pipelines, and analytics.\nTechnical Leadership and Support\n\nSenior technical resource; regularly mentors and supports fellow analysts in SQL, SSRS, and statistical analysis, reviewing queries and reports, sharing advanced techniques, and helping solve difficult data problems in the fire service domain\nServes as primary support contact for ImageTrend Elite’s 750+ users, resolving 20+ tickets per month across data integrity, user access, and analytical reporting\nDevelops training materials, including a versioned 52-page end-user guide for the NERIS form\nAuthors decision briefs; co-authored the department’s data management policy\n\nData Systems and Engineering\n\nAdministers and configures ImageTrend Elite RMS, building complex fire and EMS forms, validation rules, and workflow logic to maintain compliance with state and federal reporting standards\nServes as a subject-matter expert on the ImageTrend Elite, TeleStaff, and PremierOne CAD databases, writing SQL for reporting and analytics\nArchitects a data modernization initiative, designing a departmental data warehouse and leading the Power BI implementation\nDesigned and deployed the department’s NERIS and NEMSIS 3.5 PCR forms\nBuilds and maintains databases and reporting data marts integrating CAD, ImageTrend, TeleStaff, accreditation, and unit assignment data\nAdministers the department’s SharePoint site, permissions, and Power Automate workflows\n\nReporting and Data Quality\n\nDesigns and maintains 100+ operational and statistical SSRS reports supporting accreditation, fire, EMS, arson investigation, community risk reduction, and fire marshal operations\nMonitors data quality trends and operational anomalies and oversees NERIS and EMS data exports to state and federal reporting systems\nResponds to and investigates frequent data requests from department divisions and outside agencies, ensuring accurate, complete, and confidential information exchange\n\nPlanning and Analytics\n\nLed development of a new risk scoring method for the Community Risk Assessment and Standards of Cover\nApplies optimization, statistical models, and GIS in R to planning problems like resource placement\nLeads data integration and technical setup for the department’s Deccan deployment analysis software\n\nInnovation and Professional Development\n\nResearches and prototypes emerging machine learning, optimization, and web application techniques for adoption at CCFES, driving continuous improvement in department data practices\nPresents on public safety data science and the fire data analyst role at Kennesaw State University\n\n\n\nFounder & Data Science Consultant\nKaido Analytics LLC, Georgia (remote) · Jan 2023–present\nIndependent consultancy delivering applied statistical analysis, predictive modeling, and reproducible reporting for public safety and other clients.\n\nDesign and deliver reproducible statistical analyses and reports in R and Quarto, including an annual benchmarking report built and maintained for a client over two consecutive years\nApply regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization, and machine learning to real-world problems with complex, imperfect data, end to end, from data cleaning through client-facing reporting\n\n\n\nFire Data Technician III\nCobb County Fire & Emergency Services, Marietta, GA · Dec 2019–Sep 2022\n\nIntroduced R and RStudio for advanced analysis and managed R projects with Git and GitHub\nAdded ~40 SSRS reports (~131 total), integrating multiple data sources\n\n\n\nFire Data Technician II\nCobb County Fire & Emergency Services, Marietta, GA · May 2019–Dec 2019\n\nBuilt complex T-SQL queries, views, and data marts across Oracle, MariaDB, and SQL Server\nCreated ~58 SSRS reports (~91 total) for operational and administrative needs\n\n\n\nFire Data Technician I\nCobb County Fire & Emergency Services, Marietta, GA · Aug 2018–May 2019\n\nAdministered ImageTrend Elite forms and validations for fire/EMS reporting and user support\nDeveloped SQL for SSRS and Excel reports and managed SSRS projects in Visual Studio with Azure DevOps\n\n\n\nIndependent Information Technology Contractor\nVarious clients, Canton, GA · Feb 2015–Aug 2018\n\nSupported servers and infrastructure for small and mid-sized businesses, installing server racks and cabling, configuring networks, and providing end-user support (Personalized Technology Services)\nBuilt and maintained an HTML5/CSS3 website and web store for a CNC manufacturing start-up; designed CNC files, operated the CNC router, and assembled vacuum systems (Black Box Vacuum Solutions)"
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Resume",
+    "section": "Education",
+    "text": "Education\n\nKennesaw State University: BS in Mathematics (Statistics Concentration), minor in Data Science and Analytics, Jan 2022–2027 (expected), GPA 3.95. Relevant coursework: Statistical Methods I & II; Applied Regression Analysis; Mathematical Modeling; Linear Algebra; Differential Equations; Real Analysis; Data Structures; Programming I & II\nChattahoochee Technical College: AAS in Cybersecurity, Aug 2014–Dec 2018"
+  },
+  {
+    "objectID": "resume.html#skills",
+    "href": "resume.html#skills",
+    "title": "Resume",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming languages: R, SQL (T-SQL), Python, Java, C++, HTML/CSS\nDatabases and data engineering: Microsoft SQL Server, stored procedures, database design and normalization, data marts, data warehousing, indexing and performance tuning\nReporting and visualization: SSRS paginated reports, Power BI, Quarto and R Markdown, Shiny, ggplot2, plotly, leaflet\nStatistics and modeling: Linear and logistic regression, ANOVA and non-parametric methods, Poisson models and anomaly detection, time-series forecasting, machine learning (XGBoost, random forest, neural networks), mathematical modeling and optimization\nData analysis and wrangling: Excel, tidyverse and data.table, web scraping\nGIS and spatial: Spatial analysis in R (sf), OSRM routing and travel-time analysis, Census data (tidycensus) and geocoding\nPlatforms and tooling: Azure DevOps, Git and GitHub, CI/CD, Docker, Power Apps, Power Automate, SharePoint administration, applied LLM use and prompt engineering\nPublic safety systems: ImageTrend Elite (NERIS, NEMSIS 3.5, custom forms), PremierOne CAD, TeleStaff"
+  },
+  {
+    "objectID": "resume.html#certifications",
+    "href": "resume.html#certifications",
+    "title": "Resume",
+    "section": "Certifications",
+    "text": "Certifications\nData Science: R Basics (HarvardX, 2021)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
+  },
+  {
+    "objectID": "about.html#consulting",
+    "href": "about.html#consulting",
+    "title": "About",
+    "section": "",
+    "text": "Through Kaido Analytics LLC, I take on statistical analysis and reporting work for public safety agencies and other clients.\n\n\n\n\n\n\nImportantAvailability\n\n\n\nI’m currently accepting consulting work on a case-by-case basis only.\n\n\nThe kind of work I do:\n\nReproducible reports. Statistical analyses and reports built in R and Quarto, including recurring reports that are rebuilt each year from new data. For example, I have built and maintained an annual benchmarking report for a client for two consecutive years.\nModeling. Regression, Poisson-based demand and forecasting models, simulation, Markov chain models, optimization and machine learning.\nEnd to end. From cleaning complex, imperfect data through to client-facing reports.\n\nIf you have a project in mind, email me with a short description of the question, the data and the timeline."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\nEmail: n@kai.do\nLinkedIn · GitHub"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Nakai Zemer",
+    "section": "",
+    "text": "Math and Data Science for Fire & EMS\nI’m a fire data analyst at Cobb County Fire & Emergency Services in Georgia, where I work with an amazing team in the Fire Planning Division. Together we build and run the department’s reporting systems and analytics, and I apply statistics, optimization, and GIS to planning questions such as where to place resources to best serve the community.\nI also run Kaido Analytics LLC, a small consultancy for statistical analysis and reproducible reporting, and I’m finishing a BS in Mathematics with a concentration in statistics at Kennesaw State University."
+  },
+  {
+    "objectID": "index.html#recent-posts",
+    "href": "index.html#recent-posts",
+    "title": "Nakai Zemer",
+    "section": "Recent posts",
+    "text": "Recent posts\n\n\n\n\n\nAn Independent Verification of the Riemann Hypothesis Lean Proof\n\n\n\nmath\n\nlean\n\nverification\n\n\n\n\nA live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.\n\n\n\n\n\n\n2026-11-21\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Nakai Zemer",
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\n\n\n\nCareer vs. Volunteer Fire Department Response Times\n\n\n\nstatistics\n\nr\n\nfire-ems\n\n\n\nA statistical comparison of response times in career and volunteer fire departments, using 2019 NFIRS data for 11,884 departments.\n\n\n\n\n\n\n\n\n\nFire & Life Safety Inspection Benchmark Report\n\n\n\nclient\n\nbenchmarking\n\nfire-ems\n\n\n\n2025 and 2026 reports on fire and life safety inspection device trends for BuildingReports, from 500+ million device inspections.\n\n\n\n\n\n\n\n\n\nModeling Airport Disruptions with a Markov Chain\n\n\n\nstatistics\n\nr\n\n\n\nA discrete-time Markov chain model of U.S. airport passenger flows, used to estimate how traffic would redistribute if major hub airports went offline.\n\n\n\n\n\n\n\n\n\nPredicting House Prices: Linear Regression vs. Tree Models\n\n\n\nstatistics\n\nr\n\nmachine-learning\n\n\n\nComparing linear regression with XGBoost and random forest models for predicting home sale prices in Ames, Iowa.\n\n\n\n\n\n\n\n\n\nPredicting Life Expectancy with Linear Regression\n\n\n\nstatistics\n\nr\n\n\n\nA multiple regression analysis of 2021 WHO data on which country-level factors are associated with life expectancy at birth.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nAn Independent Verification of the Riemann Hypothesis Lean Proof\n\n\n\nmath\n\nlean\n\nverification\n\n\n\n\nA live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.\n\n\n\n\n\n\n2026-11-21\n\n8 min\n\n\n\n\nNo matching items"
   }
 ]

@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/projects.html",
     "items": [
       "/projects/fire-department-response-times/index.html",
       "/projects/flight-route-markov-chain/index.html",
@@ -9,20 +9,19 @@
     ]
   },
   {
-    "listing": "/notes.html",
-    "items": []
-  },
-  {
-    "listing": "/posts.html",
-    "items": []
-  },
-  {
-    "listing": "/projects.html",
+    "listing": "/index.html",
     "items": [
+      "/posts/2026-11-21-independent-verification-lean-rh-proof/index.html",
       "/projects/fire-department-response-times/index.html",
       "/projects/flight-route-markov-chain/index.html",
       "/projects/house-pricing-model/index.html",
       "/projects/life-expectancy-regression/index.html"
+    ]
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/2026-11-21-independent-verification-lean-rh-proof/index.html"
     ]
   }
 ]
