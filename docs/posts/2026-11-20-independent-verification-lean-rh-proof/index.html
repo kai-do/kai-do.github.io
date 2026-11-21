@@ -411,15 +411,17 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:19 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-20 11:31 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Building the project:</strong> 8,743 of 175,187 modules (4.99%) after 1h15m. No verdict yet; the checkers run after the build and export.</p>
+<p><strong>Building the project:</strong> 9,893 of 175,187 modules (5.65%) after 1h25m. No verdict yet; the checkers run after the build and export.</p>
 </div>
 </div>
 <p>On 20 November 2026, Levent Alpöge posted a <a href="https://alpo.ge/remark.pdf">short remark</a> and a 1.4 GB <a href="https://alpo.ge/lean.tar.gz.part01">Lean 4 project</a> claiming a machine-checked proof of the Riemann Hypothesis, along with the Riemann Hypothesis for every Dirichlet L-function. Lean is a proof assistant: if its kernel accepts a proof, every step has been checked mechanically. That turns “is this proof right?” into a question anyone with a computer can answer, if they are careful about what exactly they check.</p>
-<p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding. This page is that run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
+<p>Within hours, people in the Lean community had built and checked it (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>. I wanted to do it myself, end to end, for my own understanding, and to feel a small part of history being made.</p>
+<p>I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago, in a <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">Numberphile interview</a>, Terence Tao was talking about AI perhaps helping to solve the Riemann Hypothesis sometime before 2050. Now there is a claimed proof, written with AI, that Lean’s checkers accept. The only thing anyone can say with certainty is that nothing is off the table.</p>
+<p>This page is my run. It updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
 <section id="what-a-check-can-and-cant-tell-you" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</h2>
 <p>A passing check means the Lean kernel, and several independent checkers, accepted a proof of five exact formal statements from Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
@@ -431,7 +433,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-five-statements" class="level2">
 <h2 class="anchored" data-anchor-id="the-five-statements">The Five Statements</h2>
-<p>The proof is judged against these statements, which import nothing but Mathlib. Each is proved with <code>sorry</code>, Lean’s placeholder for “not proved here”; the project has to supply the real proofs under the same names. I wrote this file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and built with my Mathlib their file exports to exactly the same bytes they published.</p>
+<p>A proof is only as good as the statement it proves, so the check starts by pinning down exactly what has to be proved. It does that with two separate files.</p>
+<ul>
+<li><strong>The challenge</strong> is a short file that only <em>states</em> the five theorems below. It doesn’t prove anything. Lean won’t accept a theorem without a proof attached, so each one ends in <code>sorry</code>, Lean’s placeholder for a proof left blank.</li>
+<li><strong>The solution</strong> is the project’s own <code>Main.lean</code>. It states theorems with the same five names and supplies the real proofs, drawn from its 175,187 files.</li>
+</ul>
+<p>The checker, <a href="https://github.com/leanprover/comparator">Comparator</a>, then asks three questions. Does each statement in the solution mean exactly the same thing as in the challenge, down to the definition of every symbol? Are the proofs complete, with no <code>sorry</code> and nothing assumed beyond Lean’s three standard axioms? Does Lean’s kernel accept every step?</p>
+<p><strong>Why a separate file?</strong> Building the project runs code the project contains, and that code can change what words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that <em>looks</em> like Fermat’s Last Theorem becomes trivially “provable”. In the forum thread about this proof, someone showed that one line of <code>notation</code> can make <code>RiemannHypothesis</code> mean <code>True</code>. Reading the project’s own copy of the statements would not catch that. The challenge imports nothing but Mathlib, whose definition of the Riemann Hypothesis was written long before this project existed, and it is built before any project code runs. Comparator then confirms that the project proves that exact meaning.</p>
+<p><strong>An analogy.</strong> Think of an exam. The challenge is the official question paper, printed by the examiner before the exam with every answer box empty; that’s what <code>sorry</code> is. The solution is a student’s answer booklet, with the questions copied out at the top. A careful examiner doesn’t trust the student’s copy of the questions. They check it word for word against the official paper, and only then mark the answers. A student who quietly rewrote a hard question into an easy one is caught at the first step.</p>
+<p><strong>Where this comes from.</strong> The setup isn’t mine. It is the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a> model of a trusted challenge and an untrusted solution. The community applied it to this project in <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>, and Kevin Buzzard’s <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/">post</a> explains why each question matters. I wrote my challenge file independently. Apart from comments it is identical to the community’s <a href="https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean"><code>Challenge.lean</code></a>, and when I build their file with my Mathlib, it exports to exactly the same bytes they published.</p>
+<p>Here is the challenge:</p>
 <pre class="lean"><code>import Mathlib
 
 def RiemannZetaZerosOnLine : Prop :=
@@ -589,7 +600,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>Project build</td>
 <td>All 175,187 project modules compiled inside the sandbox (<code>lake build</code>).</td>
 <td>⏳ Running</td>
-<td>8,743 / 175,187 modules (4.99%), 1h15m elapsed, ~6,987/h, rough ETA 23.8 h; errors 0, <code>sorry</code> warnings 0</td>
+<td>9,893 / 175,187 modules (5.65%), 1h25m elapsed, ~6,975/h, rough ETA 23.7 h; errors 0, <code>sorry</code> warnings 0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
@@ -894,6 +905,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <li><strong>The forum discussion:</strong> Lean Zulip, <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">#general › Discussion: Alpöge Proves the Riemann Hypothesis</a>.</li>
 <li><strong>Andrew Sutherland’s checks:</strong> <a href="https://math.mit.edu/~drew/grh/">math.mit.edu/~drew/grh</a>, the model for this page.</li>
 <li><strong>The community mirror and challenge:</strong> <a href="https://github.com/Deicyde/riemann-hypothesis">Deicyde/riemann-hypothesis</a>.</li>
+<li><strong>The checker model:</strong> the Lean FRO’s <a href="https://github.com/leanprover/comparator">Comparator</a>.</li>
+<li><strong>Terence Tao on AI and mathematics:</strong> Numberphile, <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw"><em>No More Heroes - Terence Tao Talks to Numberphile About AI</em></a>.</li>
 <li><strong>Background on what checking a Lean proof involves:</strong> Kevin Buzzard, <a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/"><em>And the proof is checked in Lean</em></a>, and the Lean reference on <a href="https://lean-lang.org/doc/reference/latest/External-Kernels/">external kernels</a>.</li>
 </ul>
 </section>

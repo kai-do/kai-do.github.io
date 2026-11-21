@@ -25,8 +25,14 @@ what exactly they check.
 Within hours, people in the Lean community had built and checked it (see the
 [forum thread](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis)).
 The most complete public record is [Andrew Sutherland's page](https://math.mit.edu/~drew/grh/). I wanted
-to do it myself, end to end, for my own understanding. This page is that run. It updates as each step
-finishes, and every result on it is quoted from the run's logs.
+to do it myself, end to end, for my own understanding, and to feel a small part of history being made.
+
+I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago,
+in a [Numberphile interview](https://www.youtube.com/watch?v=bAnwMdfcMVw), Terence Tao was talking about AI
+perhaps helping to solve the Riemann Hypothesis sometime before 2050. Now there is a claimed proof, written with AI,
+that Lean's checkers accept. The only thing anyone can say with certainty is that nothing is off the table.
+
+This page is my run. It updates as each step finishes, and every result on it is quoted from the run's logs.
 
 ## What a Check Can and Can't Tell You
 
@@ -41,11 +47,44 @@ formal statements from Lean's three standard axioms. It does **not** mean:
 
 ## The Five Statements
 
-The proof is judged against these statements, which import nothing but Mathlib. Each is proved with
-`sorry`, Lean's placeholder for "not proved here"; the project has to supply the real proofs under the same
-names. I wrote this file independently. Apart from comments it is identical to the community's
-[`Challenge.lean`](https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean), and built
-with my Mathlib their file exports to exactly the same bytes they published.
+A proof is only as good as the statement it proves, so the check starts by pinning down exactly what has to be
+proved. It does that with two separate files.
+
+- **The challenge** is a short file that only *states* the five theorems below. It doesn't prove anything. Lean
+  won't accept a theorem without a proof attached, so each one ends in `sorry`, Lean's placeholder for a proof
+  left blank.
+- **The solution** is the project's own `Main.lean`. It states theorems with the same five names and supplies the
+  real proofs, drawn from its 175,187 files.
+
+The checker, [Comparator](https://github.com/leanprover/comparator), then asks three questions. Does each
+statement in the solution mean exactly the same thing as in the challenge, down to the definition of every symbol?
+Are the proofs complete, with no `sorry` and nothing assumed beyond Lean's three standard axioms? Does Lean's kernel
+accept every step?
+
+**Why a separate file?** Building the project runs code the project contains, and that code can change what
+words mean inside it. Kevin Buzzard demonstrates this in talks by redefining exponentiation so that something that
+*looks* like Fermat's Last Theorem becomes trivially "provable". In the forum thread about this proof, someone
+showed that one line of `notation` can make `RiemannHypothesis` mean `True`. Reading the project's own copy of the
+statements would not catch that. The challenge imports nothing but Mathlib, whose definition of the Riemann
+Hypothesis was written long before this project existed, and it is built before any project code runs. Comparator
+then confirms that the project proves that exact meaning.
+
+**An analogy.** Think of an exam. The challenge is the official question paper, printed by the examiner before
+the exam with every answer box empty; that's what `sorry` is. The solution is a student's answer booklet, with the
+questions copied out at the top. A careful examiner doesn't trust the student's copy of the questions. They check
+it word for word against the official paper, and only then mark the answers. A student who quietly rewrote a hard
+question into an easy one is caught at the first step.
+
+**Where this comes from.** The setup isn't mine. It is the Lean FRO's
+[Comparator](https://github.com/leanprover/comparator) model of a trusted challenge and an untrusted solution. The
+community applied it to this project in
+[Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis), and Kevin Buzzard's
+[post](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/) explains why each question
+matters. I wrote my challenge file independently. Apart from comments it is identical to the community's
+[`Challenge.lean`](https://github.com/Deicyde/riemann-hypothesis/blob/main/src/Challenge.lean), and when I build
+their file with my Mathlib, it exports to exactly the same bytes they published.
+
+Here is the challenge:
 
 ```lean
 import Mathlib
@@ -178,6 +217,9 @@ The scripts for every step are in
   model for this page.
 - **The community mirror and challenge:**
   [Deicyde/riemann-hypothesis](https://github.com/Deicyde/riemann-hypothesis).
+- **The checker model:** the Lean FRO's [Comparator](https://github.com/leanprover/comparator).
+- **Terence Tao on AI and mathematics:** Numberphile,
+  [*No More Heroes - Terence Tao Talks to Numberphile About AI*](https://www.youtube.com/watch?v=bAnwMdfcMVw).
 - **Background on what checking a Lean proof involves:** Kevin Buzzard,
   [*And the proof is checked in Lean*](https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/),
   and the Lean reference on [external kernels](https://lean-lang.org/doc/reference/latest/External-Kernels/).
