@@ -28,8 +28,8 @@ The most complete public record is [Andrew Sutherland's page](https://math.mit.e
 to do it myself, end to end, for my own understanding, and to feel a small part of history being made.
 
 I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago,
-in a [Numberphile interview](https://www.youtube.com/watch?v=bAnwMdfcMVw), Terence Tao was talking about AI
-perhaps helping to solve the Riemann Hypothesis sometime before 2050. Now there is a claimed proof, written with AI,
+in a [Numberphile interview](https://www.youtube.com/watch?v=bAnwMdfcMVw), I remember Terence Tao saying he
+didn't expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI,
 that Lean's checkers accept. The only thing anyone can say with certainty is that nothing is off the table.
 
 This page is my run. It updates as each step finishes, and every result on it is quoted from the run's logs.
