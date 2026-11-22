@@ -40,7 +40,7 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking:</strong> 0 of 9 checkers have accepted so far; the rest are pending or running.</p>
+<p><strong>The project build finished</strong> with no errors and no <code>sorry</code> warnings. Hashing the compiled files, then exporting the proof for the checkers. No verdict yet.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
