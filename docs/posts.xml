@@ -36,7 +36,7 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 8:24 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 8:27 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -503,11 +503,24 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why My Export’s Hash Differs from the Published One
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>My exported proof is 61,570,595,997 bytes; Andrew Sutherland’s is 209 bytes shorter, so the hashes differ. I downloaded his export (it matches his published hash) and compared the two. Listing every declaration in both, mine has exactly one his doesn’t, and none is missing: <code>_private.Mathlib.Algebra.MvPolynomial.Rename.0.MvPolynomial.coeff_killCompl._simp_1_1</code>. That is a helper theorem <code>simp</code> generates while elaborating a proof. In my build one proof happened to go through it; in his, the equivalent proof didn’t. Being a theorem, its proof is checked like everything else, so it can’t add an assumption. The first byte-level difference is of the same kind: an auto-generated bound-variable name, <code>_hyg.155</code> in his export and <code>_hyg.157</code> in mine, which Lean’s kernel ignores. The five statements are the same, which the checkers confirm against the same challenge.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Note</span>Compiled Files Match Only Partly; the Export Is the Real Comparison
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>My <code>Main.olean</code> and <code>Statements.olean</code> are byte-identical to the ones Andrew Sutherland published. Of all 175,187 compiled project files, 76,968 match his list and 98,219 don’t. I looked into why. My build is deterministic: recompiling a differing file gives the same bytes again, and so does compiling it against Mathlib’s official cache in place of my from-source Mathlib. But the bytes of a compiled <code>.olean</code> depend on exactly how Lean is invoked. Five different invocations of the same file, with and without Lake’s settings, gave five different hashes, and none matched his. His page says he called <code>lean</code> directly rather than <code>lake build</code>, and had only compared a 77-module sample against a real Lake build. So the <code>.olean</code> bytes aren’t a good fingerprint across build methods. The exported proof is: it contains only the declarations themselves, and it’s compared in the hash table above once the export finishes.</p>
+<p>My <code>Main.olean</code> and <code>Statements.olean</code> are byte-identical to the ones Andrew Sutherland published. Of all 175,187 compiled project files, 76,968 match his list and 98,219 don’t. I looked into why. My build is deterministic: recompiling a differing file gives the same bytes again, and so does compiling it against Mathlib’s official cache in place of my from-source Mathlib. But the bytes of a compiled <code>.olean</code> depend on exactly how Lean is invoked. Five different invocations of the same file, with and without Lake’s settings, gave five different hashes, and none matched his. His page says he called <code>lean</code> directly rather than <code>lake build</code>, and had only compared a 77-module sample against a real Lake build. So the <code>.olean</code> bytes aren’t a good fingerprint across build methods. The exported proof is closer: it contains only the declarations themselves (see the next box for how mine compares).</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">

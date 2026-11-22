@@ -235,6 +235,18 @@ them as if it were a solution. Comparator rejected it in 34 seconds with `error:
 riemannHypothesis`. A missing proof can't slip through either of them.
 :::
 
+::: {.callout-note title="Why My Export's Hash Differs from the Published One"}
+My exported proof is 61,570,595,997 bytes; Andrew Sutherland's is 209 bytes shorter, so the hashes differ. I
+downloaded his export (it matches his published hash) and compared the two. Listing every declaration in both,
+mine has exactly one his doesn't, and none is missing:
+`_private.Mathlib.Algebra.MvPolynomial.Rename.0.MvPolynomial.coeff_killCompl._simp_1_1`. That is a helper
+theorem `simp` generates while elaborating a proof. In my build one proof happened to go through it; in his, the
+equivalent proof didn't. Being a theorem, its proof is checked like everything else, so it can't add an assumption.
+The first byte-level difference is of the same kind: an auto-generated bound-variable name, `_hyg.155` in his
+export and `_hyg.157` in mine, which Lean's kernel ignores. The five statements are the same, which the checkers
+confirm against the same challenge.
+:::
+
 ::: {.callout-note title="Compiled Files Match Only Partly; the Export Is the Real Comparison"}
 My `Main.olean` and `Statements.olean` are byte-identical to the ones Andrew Sutherland published. Of all
 175,187 compiled project files, 76,968 match his list and 98,219 don't. I looked into why. My build is
@@ -243,8 +255,8 @@ Mathlib's official cache in place of my from-source Mathlib. But the bytes of a 
 how Lean is invoked. Five different invocations of the same file, with and without Lake's settings, gave five
 different hashes, and none matched his. His page says he called `lean` directly rather than `lake build`, and had
 only compared a 77-module sample against a real Lake build. So the `.olean` bytes aren't a good fingerprint across
-build methods. The exported proof is: it contains only the declarations themselves, and it's compared in the
-hash table above once the export finishes.
+build methods. The exported proof is closer: it contains only the declarations themselves (see the next box
+for how mine compares).
 :::
 
 ::: {.callout-note title="Mathlib from Source Matches the Official Cache, with One Exception"}
