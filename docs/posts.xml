@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 2:24 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 2:48 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking:</strong> running <code>axiomcheck</code> now. 1 checker result(s) accepted so far; the rest are pending.</p>
+<p><strong>Exporting the compiled proof</strong> for the export-based checkers. No verdict from those yet.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -264,7 +264,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">11</td>
 <td>Export</td>
 <td>The compiled proof written out as one file (<code>lean4export</code>) for the checkers.</td>
-<td>🔁 To be retried</td>
+<td>⏳ Running</td>
 <td>The first attempt stalled after 46 GB: the exporter’s memory plus the compiled files it reads didn’t fit in the VM’s RAM. It is re-run with more memory, after the checks that don’t need it.</td>
 </tr>
 <tr class="even">
@@ -278,8 +278,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">13</td>
 <td>Secondary checks</td>
 <td>Axiom audit, per-module <code>leanchecker</code> replay, sources unchanged, tools unchanged.</td>
-<td>⏸ Pending</td>
-<td></td>
+<td>⏳ In progress</td>
+<td>Axiom audit ✅ Accepted: <code>type is exactly Mathlib's RiemannHypothesis constant: true</code>; all 5 theorems <code>axioms: [Classical.choice, Quot.sound, propext]</code> <code>verdict: OK</code>; <code>RESULT: PASS</code>. Kernel replay and integrity checks still to come.</td>
 </tr>
 </tbody>
 </table>

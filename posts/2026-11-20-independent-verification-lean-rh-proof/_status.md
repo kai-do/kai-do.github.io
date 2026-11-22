@@ -1,3 +1,3 @@
-::: {.callout-important title="Status, Updated 2026-11-22 2:24 AM EST"}
-**Checking:** running `axiomcheck` now. 1 checker result(s) accepted so far; the rest are pending.
+::: {.callout-important title="Status, Updated 2026-11-22 2:48 AM EST"}
+**Exporting the compiled proof** for the export-based checkers. No verdict from those yet.
 :::
