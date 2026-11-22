@@ -40,7 +40,7 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Export finished.</strong> The checkers are starting. No verdict yet.</p>
+<p><strong>Exporting the compiled proof</strong> for the checkers. No verdict yet.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -264,8 +264,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">11</td>
 <td>Export</td>
 <td>The compiled proof written out as one file (<code>lean4export</code>) for the checkers.</td>
-<td>❌ Failed</td>
-<td><code>EXPORT EXIT 127 2026-11-22T03:50:31+00:00</code></td>
+<td>⏳ Running</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>

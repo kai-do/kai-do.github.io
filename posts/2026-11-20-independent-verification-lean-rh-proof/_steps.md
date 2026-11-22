@@ -10,6 +10,6 @@
 | 8 | Challenge export | The five statements, built and exported before any project code ran. | ✅ Done | The community's `Challenge.lean`, built with this Mathlib, exports to exactly `bd484ac9…b2b9`. |
 | 9 | Sandbox | Landlock (landrun) confinement for everything that loads project code, tested before use. | ✅ Done | Positive control passes; writes to sources (even after `chmod`), writes outside the build dir, `~/.ssh`, TCP: all denied. |
 | 10 | Project build | All 175,187 project modules compiled inside the sandbox (`lake build`). | ✅ Done | `BUILD EXIT 0 2026-11-22T03:48:12+00:00`; errors 0, `sorry` warnings 0 |
-| 11 | Export | The compiled proof written out as one file (`lean4export`) for the checkers. | ❌ Failed | `EXPORT EXIT 127 2026-11-22T03:50:31+00:00` |
+| 11 | Export | The compiled proof written out as one file (`lean4export`) for the checkers. | ⏳ Running |  |
 | 12 | Comparator | Statements match the challenge; only the 3 standard axioms; Lean kernel + paranoid + nanoda replay. | ⏸ Pending |  |
 | 13 | Secondary checks | Axiom audit, per-module `leanchecker` replay, sources unchanged, tools unchanged. | ⏸ Pending |  |
