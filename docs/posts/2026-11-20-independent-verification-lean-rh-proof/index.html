@@ -422,11 +422,11 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 8:14 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 8:24 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking:</strong> running <code>con-ron</code> now. 4 checker result(s) accepted so far; the rest are pending.</p>
+<p><strong>At least one checker did not accept the proof</strong> (a rejection, a decline or a failure to run). See the checker table for its exact output.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -753,10 +753,10 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>con-ron</td>
 <td>Lean FRO</td>
 <td>Rust port of con-leche.</td>
-<td>⏸ Pending</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td></td>
+<td>⚠️ Crashed, retrying (not a verdict)</td>
+<td style="text-align: right;">7:42.48</td>
+<td style="text-align: right;">41.8 GB</td>
+<td><code>thread has overflowed its stack</code> / <code>fatal runtime error: stack overflow, aborting</code> after 7m42s: a worker thread ran out of stack on a deeply nested term. Retrying with a larger thread stack.</td>
 </tr>
 <tr class="even">
 <td>lean4lean</td>

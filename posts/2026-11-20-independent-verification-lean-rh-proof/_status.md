@@ -1,3 +1,3 @@
-::: {.callout-important title="Status, Updated 2026-11-22 8:14 AM EST"}
-**Checking:** running `con-ron` now. 4 checker result(s) accepted so far; the rest are pending.
+::: {.callout-important title="Status, Updated 2026-11-22 8:24 AM EST"}
+**At least one checker did not accept the proof** (a rejection, a decline or a failure to run). See the checker table for its exact output.
 :::
