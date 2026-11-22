@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 6:27 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 7:53 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Exporting the compiled proof</strong> for the export-based checkers. No verdict from those yet.</p>
+<p><strong>Checking:</strong> running <code>con-leche-compare</code> now. 2 checker result(s) accepted so far; the rest are pending.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -264,8 +264,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">11</td>
 <td>Export</td>
 <td>The compiled proof written out as one file (<code>lean4export</code>) for the checkers.</td>
-<td>⏳ Running</td>
-<td>The first attempt stalled after 46 GB: the exporter’s memory plus the compiled files it reads didn’t fit in the VM’s RAM. It is re-run with more memory, after the checks that don’t need it.</td>
+<td>✅ Done</td>
+<td><code>EXPORT EXIT 0 2026-11-22T12:46:00+00:00</code>; sha256 <code>c44f24b8…7c13</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
@@ -454,8 +454,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <tr class="even">
 <td>Solution export <code>solution.ndjson</code> (61.6 GB)</td>
 <td><code>5ea74b91…244e</code></td>
-<td>—</td>
-<td>⏸ Pending</td>
+<td><code>c44f24b8…7c13</code></td>
+<td>⚠️ Differs</td>
 </tr>
 </tbody>
 </table>

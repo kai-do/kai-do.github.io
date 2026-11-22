@@ -1,3 +1,3 @@
-::: {.callout-important title="Status, Updated 2026-11-22 6:27 AM EST"}
-**Exporting the compiled proof** for the export-based checkers. No verdict from those yet.
+::: {.callout-important title="Status, Updated 2026-11-22 7:53 AM EST"}
+**Checking:** running `con-leche-compare` now. 2 checker result(s) accepted so far; the rest are pending.
 :::
