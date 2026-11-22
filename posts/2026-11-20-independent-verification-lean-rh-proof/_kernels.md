@@ -9,4 +9,4 @@
 | con-ron | Lean FRO | Rust port of con-leche. | ⚠️ Did not finish (not a verdict) | 9:22.48 | 41.8 GB | `thread has overflowed its stack` / `fatal runtime error: stack overflow, aborting`, twice. con-ron already gives its worker threads a 1 GiB stack; a deeply nested term needs more. Not retried with a modified checker. |
 | lean4lean | Mario Carneiro | Kernel written in Lean, partly verified; run module by module. | ⏸ Pending |  |  |  |
 | Pestka | jasisz | Independent kernel written in Aver. | ✅ Accepted | 18:50.37 | 43.0 GB | `checked 1468419, admitted unchecked 0, skipped 0` / `accepted` |
-| nanoclo | sgraf812 | Independent Rust kernel, forked from nanoda. | ⏸ Pending |  |  |  |
+| nanoclo | sgraf812 | Independent Rust kernel, forked from nanoda. | ✅ Accepted | 39:04.69 | 79.3 GB | `Checked 1484734 declarations with no typechecker errors`; it also reported `1 pretty printer errors: ["Unable to print axioms"]`, a display step, not a check (strict 3-axiom config, no axiom error raised) |

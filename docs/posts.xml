@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 8:41 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-22 9:19 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking.</strong> 4 checker run(s) have accepted the proof so far, and none has rejected it. 1 could not finish and is being looked at (not a verdict). Running now: <code>nanoclo</code>.</p>
+<p><strong>Checking.</strong> 5 checker run(s) have accepted the proof so far, and none has rejected it. 1 could not finish (not a verdict; see the table). Running now: <code>comparator</code>.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -394,10 +394,10 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>nanoclo</td>
 <td>sgraf812</td>
 <td>Independent Rust kernel, forked from nanoda.</td>
-<td>⏸ Pending</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td></td>
+<td>✅ Accepted</td>
+<td style="text-align: right;">39:04.69</td>
+<td style="text-align: right;">79.3 GB</td>
+<td><code>Checked 1484734 declarations with no typechecker errors</code>; it also reported <code>1 pretty printer errors: ["Unable to print axioms"]</code>, a display step, not a check (strict 3-axiom config, no axiom error raised)</td>
 </tr>
 </tbody>
 </table>
