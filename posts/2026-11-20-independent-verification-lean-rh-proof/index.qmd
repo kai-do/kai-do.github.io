@@ -235,6 +235,18 @@ them as if it were a solution. Comparator rejected it in 34 seconds with `error:
 riemannHypothesis`. A missing proof can't slip through either of them.
 :::
 
+::: {.callout-note title="Compiled Files Match Only Partly; the Export Is the Real Comparison"}
+My `Main.olean` and `Statements.olean` are byte-identical to the ones Andrew Sutherland published. Of all
+175,187 compiled project files, 76,968 match his list and 98,219 don't. I looked into why. My build is
+deterministic: recompiling a differing file gives the same bytes again, and so does compiling it against
+Mathlib's official cache in place of my from-source Mathlib. But the bytes of a compiled `.olean` depend on exactly
+how Lean is invoked. Five different invocations of the same file, with and without Lake's settings, gave five
+different hashes, and none matched his. His page says he called `lean` directly rather than `lake build`, and had
+only compared a 77-module sample against a real Lake build. So the `.olean` bytes aren't a good fingerprint across
+build methods. The exported proof is: it contains only the declarations themselves, and it's compared in the
+hash table above once the export finishes.
+:::
+
 ::: {.callout-note title="Mathlib from Source Matches the Official Cache, with One Exception"}
 Of the 8,700 files in Mathlib's official build cache, 8,689 are byte-identical to my from-source build. Ten belong
 to the cache tool itself and aren't part of the math. One differs:

@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 10:49 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-21 10:55 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>The project build finished</strong> with no errors and no <code>sorry</code> warnings. Hashing the compiled files, then exporting the proof for the checkers. No verdict yet.</p>
+<p><strong>Export finished.</strong> The checkers are starting. No verdict yet.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -264,8 +264,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">11</td>
 <td>Export</td>
 <td>The compiled proof written out as one file (<code>lean4export</code>) for the checkers.</td>
-<td>⏸ Pending</td>
-<td></td>
+<td>❌ Failed</td>
+<td><code>EXPORT EXIT 127 2026-11-22T03:50:31+00:00</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
@@ -427,20 +427,20 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <tr class="odd">
 <td><code>Main.olean</code></td>
 <td><code>9146dfb4…96ad</code></td>
-<td>—</td>
-<td>⏸ Pending</td>
+<td><code>9146dfb4…96ad</code></td>
+<td>✅ Match</td>
 </tr>
 <tr class="even">
 <td><code>Statements.olean</code></td>
 <td><code>f8e0aed3…d6b1</code></td>
-<td>—</td>
-<td>⏸ Pending</td>
+<td><code>f8e0aed3…d6b1</code></td>
+<td>✅ Match</td>
 </tr>
 <tr class="odd">
-<td>List of all 175,187 project <code>.olean</code> hashes</td>
+<td>List of all 175,187 project <code>.olean</code> hashes (175187 files; 98219 differ from the published list)</td>
 <td><code>375cbee2…1d25</code></td>
-<td>—</td>
-<td>⏸ Pending</td>
+<td><code>ad176e3c…dd4f</code></td>
+<td>⚠️ Differs</td>
 </tr>
 <tr class="even">
 <td>Solution export <code>solution.ndjson</code> (61.6 GB)</td>
@@ -486,6 +486,19 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </div>
 <div class="callout-body-container callout-body">
 <p>Before trusting a “pass”, I checked that the tools can fail. The challenge file is all <code>sorry</code>, so I fed it to them as if it were a solution. Comparator rejected it in 34 seconds with <code>error: Illegal axiom detected: 'sorryAx'</code> (exit 1), and con-leche refused it with <code>not implemented yet: use of the sorryAx axiom in value of riemannHypothesis</code>. A missing proof can’t slip through either of them.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Compiled Files Match Only Partly; the Export Is the Real Comparison
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>My <code>Main.olean</code> and <code>Statements.olean</code> are byte-identical to the ones Andrew Sutherland published. Of all 175,187 compiled project files, 76,968 match his list and 98,219 don’t. I looked into why. My build is deterministic: recompiling a differing file gives the same bytes again, and so does compiling it against Mathlib’s official cache in place of my from-source Mathlib. But the bytes of a compiled <code>.olean</code> depend on exactly how Lean is invoked. Five different invocations of the same file, with and without Lake’s settings, gave five different hashes, and none matched his. His page says he called <code>lean</code> directly rather than <code>lake build</code>, and had only compared a 77-module sample against a real Lake build. So the <code>.olean</code> bytes aren’t a good fingerprint across build methods. The exported proof is: it contains only the declarations themselves, and it’s compared in the hash table above once the export finishes.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
