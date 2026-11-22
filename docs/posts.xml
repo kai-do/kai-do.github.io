@@ -40,7 +40,7 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>At least one checker did not accept the proof</strong> (a rejection, a decline or a failure to run). See the checker table for its exact output.</p>
+<p><strong>Checking.</strong> 3 checker run(s) have accepted the proof so far, and none has rejected it. 1 could not finish and is being looked at (not a verdict). Running now: <code>con-ron</code>.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
