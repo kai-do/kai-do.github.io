@@ -255,7 +255,7 @@ Mathlib's official cache in place of my from-source Mathlib. But the bytes of a 
 how Lean is invoked. Five different invocations of the same file, with and without Lake's settings, gave five
 different hashes, and none matched his. His page says he called `lean` directly rather than `lake build`, and had
 only compared a 77-module sample against a real Lake build. So the `.olean` bytes aren't a good fingerprint across
-build methods. The exported proof is closer: it contains only the declarations themselves (see the next box
+build methods. The exported proof is closer: it contains only the declarations themselves (see the box above
 for how mine compares).
 :::
 
