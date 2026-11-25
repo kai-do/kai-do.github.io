@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-24 6:27 PM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-24 7:47 PM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking.</strong> 6 checker run(s) have accepted the proof so far, and none has rejected it. 1 could not finish (not a verdict; see the table). Running now: <code>comparator</code>.</p>
+<p><strong>Checking.</strong> 7 checker run(s) have accepted the proof so far, and none has rejected it. 1 could not finish (not a verdict; see the table). Running now: <code>comparator</code>.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -331,10 +331,10 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>nanoda</td>
 <td>Chris Bailey</td>
 <td>Independent kernel in Rust.</td>
-<td>⏸ Pending</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td></td>
+<td>✅ Accepted</td>
+<td style="text-align: right;">~1h20m</td>
+<td style="text-align: right;">~62 GB</td>
+<td><code>nanoda kernel accepts the solution</code> (inside <code>lake comparator</code>)</td>
 </tr>
 <tr class="even">
 <td>con-leche <code>--compare</code> (from <code>.olean</code>)</td>
