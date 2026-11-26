@@ -36,11 +36,11 @@
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-26 6:07 AM EST
+<span class="screen-reader-only">Important</span>Status, Updated 2026-11-26 6:24 AM EST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Checking.</strong> 9 checker run(s) have accepted the proof so far, and none has rejected it. 2 could not finish (not a verdict; see the table). Running now: <code>replay</code>.</p>
+<p><strong>Checking.</strong> 9 checker run(s) have accepted the proof so far, and none has rejected it. 3 could not finish (not a verdict; see the table). Running now: <code>replay</code>.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -278,8 +278,8 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td style="text-align: right;">13</td>
 <td>Secondary checks</td>
 <td>Axiom audit, per-module <code>leanchecker</code> replay, sources unchanged, tools unchanged.</td>
-<td>⏳ In progress</td>
-<td>Axiom audit ✅ Accepted: <code>type is exactly Mathlib's RiemannHypothesis constant: true</code>; all 5 theorems <code>axioms: [Classical.choice, Quot.sound, propext]</code> <code>verdict: OK</code>; <code>RESULT: PASS</code>. Kernel replay and integrity checks still to come.</td>
+<td>✅ Passed</td>
+<td>Axiom audit <code>RESULT: PASS</code> (exact Mathlib statement; only <code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code>); all 175,190 sources match the archive manifest; both Lean toolchains match the official releases file for file; no checker tool or checker-repo file modified. The per-module kernel replay was stopped for memory (the whole-proof Lean-kernel replay passed in Comparator).</td>
 </tr>
 </tbody>
 </table>
