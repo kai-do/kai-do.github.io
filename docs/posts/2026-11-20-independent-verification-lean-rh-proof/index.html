@@ -9,7 +9,7 @@
 <meta name="author" content="Nakai Zemer">
 <meta name="author" content="Claude">
 <meta name="dcterms.date" content="2026-11-20">
-<meta name="description" content="A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.">
+<meta name="description" content="An independent, sandboxed check of the Lean proof of the Riemann Hypothesis posted on 20 November 2026. Nine checker runs accept it and none reject it, with hashes anyone can compare.">
 
 <title>An Independent Verification of the Riemann Hypothesis Lean Proof – Nakai Zemer</title>
 <style>
@@ -88,14 +88,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="An Independent Verification of the Riemann Hypothesis Lean Proof – Nakai Zemer">
-<meta property="og:description" content="A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.">
+<meta property="og:description" content="An independent, sandboxed check of the Lean proof of the Riemann Hypothesis posted on 20 November 2026. Nine checker runs accept it and none reject it, with hashes anyone can compare.">
 <meta property="og:image" content="https://kai.do/assets/share-card.png">
 <meta property="og:site_name" content="Nakai Zemer">
 <meta property="og:image:alt" content="Nakai Zemer: Math and Data Science for Fire &amp; EMS. kai.do">
 <meta property="og:image:height" content="630">
 <meta property="og:image:width" content="1200">
 <meta name="twitter:title" content="An Independent Verification of the Riemann Hypothesis Lean Proof – Nakai Zemer">
-<meta name="twitter:description" content="A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.">
+<meta name="twitter:description" content="An independent, sandboxed check of the Lean proof of the Riemann Hypothesis posted on 20 November 2026. Nine checker runs accept it and none reject it, with hashes anyone can compare.">
 <meta name="twitter:image" content="https://kai.do/assets/share-card.png">
 <meta name="twitter:image:alt" content="Nakai Zemer: Math and Data Science for Fire &amp; EMS. kai.do">
 <meta name="twitter:card" content="summary_large_image">
@@ -342,16 +342,16 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-the-riemann-hypothesis" id="toc-what-is-the-riemann-hypothesis" class="nav-link active" data-scroll-target="#what-is-the-riemann-hypothesis">What Is the Riemann Hypothesis?</a></li>
   <li><a href="#what-happened" id="toc-what-happened" class="nav-link" data-scroll-target="#what-happened">What Happened</a></li>
-  <li><a href="#why-im-checking-it-myself" id="toc-why-im-checking-it-myself" class="nav-link" data-scroll-target="#why-im-checking-it-myself">Why I’m Checking It Myself</a></li>
+  <li><a href="#why-i-checked-it-myself" id="toc-why-i-checked-it-myself" class="nav-link" data-scroll-target="#why-i-checked-it-myself">Why I Checked It Myself</a></li>
   <li><a href="#what-a-check-can-and-cant-tell-you" id="toc-what-a-check-can-and-cant-tell-you" class="nav-link" data-scroll-target="#what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</a></li>
   <li><a href="#the-five-statements" id="toc-the-five-statements" class="nav-link" data-scroll-target="#the-five-statements">The Five Statements</a></li>
-  <li><a href="#live-results" id="toc-live-results" class="nav-link" data-scroll-target="#live-results">Live Results</a>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
-  <li><a href="#steps-and-status" id="toc-steps-and-status" class="nav-link" data-scroll-target="#steps-and-status">Steps and Status</a></li>
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
   <li><a href="#checkers" id="toc-checkers" class="nav-link" data-scroll-target="#checkers">Checkers</a></li>
   <li><a href="#hashes-you-can-compare" id="toc-hashes-you-can-compare" class="nav-link" data-scroll-target="#hashes-you-can-compare">Hashes You Can Compare</a></li>
   </ul></li>
-  <li><a href="#what-happens-next" id="toc-what-happens-next" class="nav-link" data-scroll-target="#what-happens-next">What Happens Next</a></li>
+  <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I Found</a></li>
   <li><a href="#how-i-used-ai" id="toc-how-i-used-ai" class="nav-link" data-scroll-target="#how-i-used-ai">How I Used AI</a></li>
   <li><a href="#technical-notes" id="toc-technical-notes" class="nav-link" data-scroll-target="#technical-notes">Technical Notes</a>
   <ul class="collapse">
@@ -379,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare.
+    An independent, sandboxed check of the Lean proof of the Riemann Hypothesis posted on 20 November 2026. Nine checker runs accept it and none reject it, with hashes anyone can compare.
   </div>
 </div>
 
@@ -404,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2026-11-22</p>
+      <p class="date-modified">2026-11-26</p>
     </div>
   </div>
     
@@ -415,18 +415,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>On 20 November 2026, Levent Alpöge posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous open problems in mathematics. I’m checking it myself, from scratch, on my own hardware. This page follows that check live: it updates as each step finishes, and every result on it is quoted from the run’s logs.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>On 20 November 2026, Levent Alpöge posted a computer-checkable proof of the Riemann Hypothesis, one of the most famous open problems in mathematics. I checked it myself, from scratch, on my own hardware, between 20 and 26 November. This page records that check step by step, and every result on it is quoted from the run’s logs.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status, Updated 2026-11-26 6:24 AM EST
+<span class="screen-reader-only">Tip</span>Result
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>The main checks are done.</strong> 9 checker runs accepted the proof, including Comparator (<code>Your solution is okay!</code>), and <strong>none rejected it</strong>. 2 could not finish, which is not a verdict (see the table).</p>
+<p><strong>Every checker that finished accepted the proof, and none rejected it.</strong> Comparator checks the five statements against a separate challenge file, allows only Lean’s three standard axioms and replays the whole proof through Lean’s kernel. It reported <code>Your solution is okay!</code>. Lean’s kernel (in normal and paranoid mode), nanoda, con-leche (three ways), Pestka and nanoclo all accepted it: nine accepting runs. Two more checkers, con-ron and lean4lean, didn’t finish, which is not a verdict either way. The check ran from 20 to 26 November 2026.</p>
 </div>
 </div>
 <section id="what-is-the-riemann-hypothesis" class="level2">
@@ -447,14 +447,14 @@ ul.task-list li input[type="checkbox"] {
 <p>No person can read a proof that size. Lean is what makes it checkable anyway. Lean is a proof assistant: a program whose small core, the <em>kernel</em>, accepts a proof only if every single step follows from the rules of logic. That turns “is this proof right?” into a question anyone with a powerful enough computer can answer, as long as they’re careful about exactly what they check.</p>
 <p>Within hours, people in the Lean community had built it and run it through several independent checkers (see the <a href="https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis">forum thread</a>). The most complete public record is <a href="https://math.mit.edu/~drew/grh/">Andrew Sutherland’s page</a>, which this page is modelled on.</p>
 </section>
-<section id="why-im-checking-it-myself" class="level2">
-<h2 class="anchored" data-anchor-id="why-im-checking-it-myself">Why I’m Checking It Myself</h2>
+<section id="why-i-checked-it-myself" class="level2">
+<h2 class="anchored" data-anchor-id="why-i-checked-it-myself">Why I Checked It Myself</h2>
 <p>I wanted to do it end to end, for my own understanding, and to feel a small part of history being made.</p>
 <p>I also have mixed feelings about it, and a lot of uncertainty about how AI will shape the future. Only weeks ago, in a <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">Numberphile interview</a>, I remember Terence Tao saying he didn’t expect the Riemann Hypothesis to be solved until around 2050. Now there is a claimed proof, written with AI, that Lean’s checkers accept. The only thing anyone can say with certainty is that nothing is off the table.</p>
 </section>
 <section id="what-a-check-can-and-cant-tell-you" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-check-can-and-cant-tell-you">What a Check Can and Can’t Tell You</h2>
-<p>If every check passes, it means Lean’s kernel, and several independent checkers, accepted a proof of five exact formal statements, using nothing beyond Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
+<p>When the checks pass, as they did here, it means Lean’s kernel and several independent checkers accepted a proof of five exact formal statements, using nothing beyond Lean’s three standard axioms. It does <strong>not</strong> mean:</p>
 <ul>
 <li><strong>that anyone understands the proof.</strong> Understanding it is the work of mathematicians, and it will take years;</li>
 <li><strong>that the formal statements mean what we think.</strong> That is why they are spelled out in the next section;</li>
@@ -548,16 +548,16 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <ul>
 <li><strong>Sandboxed build in a fresh VM.</strong> The project is compiled with the network off, inside a Landlock sandbox that was tested before use, so the code that builds the proof can’t touch anything else.</li>
 <li><strong>Mathlib from source.</strong> Mathlib is compiled from source and compared file by file with its official build cache, so the check doesn’t rely on prebuilt files.</li>
-<li><strong>Nine checkers.</strong> Beyond Comparator’s Lean kernel and nanoda, the proof also goes to con-leche (including its <code>--compare</code> mode, a formally verified second implementation of the statement comparison), con-ron, lean4lean, Pestka and nanoclo.</li>
-<li><strong>Secondary checks.</strong> An axiom audit that walks every constant itself, a per-module kernel replay, and checks that no source file or tool changed during the run.</li>
+<li><strong>More checkers.</strong> Beyond Comparator’s Lean kernel and nanoda, the proof also went to con-leche (including its <code>--compare</code> mode, a formally verified second implementation of the statement comparison), Pestka and nanoclo. con-ron and lean4lean were tried too, but didn’t finish.</li>
+<li><strong>Secondary checks.</strong> An axiom audit that walks every constant itself, and checks that no source file or tool changed during the run.</li>
 <li><strong>Hashes against other runs.</strong> My build and export are compared with the hashes other people published, so a match shows we checked the same bytes.</li>
 </ul>
 <p>The formal proof itself doesn’t claim more than these five statements. Alpöge’s remark says the method should extend further, but the Lean project proves exactly these five, and those are what get checked.</p>
 </section>
-<section id="live-results" class="level2">
-<h2 class="anchored" data-anchor-id="live-results">Live Results</h2>
-<section id="steps-and-status" class="level3">
-<h3 class="anchored" data-anchor-id="steps-and-status">Steps and Status</h3>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="steps" class="level3">
+<h3 class="anchored" data-anchor-id="steps">Steps</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -672,7 +672,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </section>
 <section id="checkers" class="level3">
 <h3 class="anchored" data-anchor-id="checkers">Checkers</h3>
-<p>Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by any one of them would override every acceptance.</p>
+<p>Each checker either accepts the proof, rejects it, or fails to finish. Most of them read the same exported proof file; con-leche’s <code>.olean</code> mode reads the compiled files directly. A rejection by any one of them would have overridden every acceptance.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -761,11 +761,11 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <tr class="even">
 <td>lean4lean</td>
 <td>Mario Carneiro</td>
-<td>Kernel written in Lean, partly verified; run module by module.</td>
-<td>⚠️ Not run yet (setup error, not a verdict)</td>
+<td>Kernel written in Lean, partly verified.</td>
+<td>⚠️ Not run (not a verdict)</td>
 <td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
-<td><code>Could not infer main module (tried Tree)</code>: it needs a module name; will be re-run module by module</td>
+<td>The first attempt stopped at once with <code>Could not infer main module (tried Tree)</code>, because it needs a module name. A module-by-module run would have taken days, with memory as the limit, so I stopped without it.</td>
 </tr>
 <tr class="odd">
 <td>Pestka</td>
@@ -790,7 +790,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </section>
 <section id="hashes-you-can-compare" class="level3">
 <h3 class="anchored" data-anchor-id="hashes-you-can-compare">Hashes You Can Compare</h3>
-<p>A hash is a fingerprint of a file: change one byte and it changes completely. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed here, unsandboxed elsewhere).</p>
+<p>A hash is a fingerprint of a file: change one byte and it changes completely. Matching hashes mean my run checked the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a different way (sandboxed here, unsandboxed elsewhere). Two of the hashes differ; <em>Findings</em> below explains both.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -835,21 +835,36 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <td>List of all 175,187 project <code>.olean</code> hashes (175187 files; 98219 differ from the published list)</td>
 <td><code>375cbee2…1d25</code></td>
 <td><code>ad176e3c…dd4f</code></td>
-<td>⚠️ Differs</td>
+<td>ℹ️ Differs (explained in <em>Findings</em>)</td>
 </tr>
 <tr class="even">
 <td>Solution export <code>solution.ndjson</code> (61.6 GB)</td>
 <td><code>5ea74b91…244e</code></td>
 <td><code>c44f24b8…7c13</code></td>
-<td>⚠️ Differs</td>
+<td>ℹ️ Differs (explained in <em>Findings</em>)</td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
-<section id="what-happens-next" class="level2">
-<h2 class="anchored" data-anchor-id="what-happens-next">What Happens Next</h2>
-<p>The project build takes roughly a day on this machine. After it come the export, then the checkers; the slowest, Lean’s own kernel replaying the full 61 GB proof on a single thread, may take another day or more. This page updates as each one reports. When the last result is in, I’ll write up what I found here, whatever it is.</p>
+<section id="what-i-found" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-found">What I Found</h2>
+<p><strong>The proof checks.</strong> On my own machine, with the project sandboxed and the network off, Lean’s kernel and four independent checkers (nanoda, con-leche, Pestka and nanoclo) accepted a proof of Mathlib’s <code>RiemannHypothesis</code> and of the four Dirichlet L-function statements. The proof uses only <code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>. Nothing rejected it.</p>
+<p><strong>It agrees with the other public checks.</strong> I checked the same source archive against the same challenge. My <code>Main.olean</code> is byte-identical to Andrew Sutherland’s, and my exported proof differs from his only by one auto-generated helper theorem (see <em>Findings</em>).</p>
+<p><strong>How long it took.</strong> I started the build on the evening the project was posted, and the last checker finished on the morning of 26 November:</p>
+<ul>
+<li>the project build took 24¾ hours on 22 cores;</li>
+<li>the export took about 5 hours;</li>
+<li>Comparator took 92¾ hours. Most of that was Lean’s kernel replaying the 61 GB proof on a single thread, once in normal mode and once in paranoid mode.</li>
+</ul>
+<p><strong>What didn’t finish.</strong></p>
+<ul>
+<li>con-ron crashed twice with a stack overflow. That is a limit of the checker, not a rejection.</li>
+<li>lean4lean would have needed a module-by-module run lasting days.</li>
+</ul>
+<p>Getting either one to finish meant modifying a checker or running for days more, and it would have added little next to the checkers that already agreed, so I stopped there.</p>
+<p><strong>What it means.</strong> The formal statements are proved, assuming only two things: that Mathlib’s definitions mean what mathematicians mean by them, and that every one of these independently written checkers doesn’t share the same bug. Mathlib’s definition of the Riemann Hypothesis has been in place and reviewed for years, long before this project. What a check like this can’t give is understanding. Nobody has read the proof, and finding out <em>why</em> it works, and whether the ideas hold up as mathematics, is now work for number theorists.</p>
+<p>I started this to understand it for myself, and to feel a small part of history being made. Watching a machine I set up print <code>Your solution is okay!</code> for a proof of the Riemann Hypothesis did feel like that.</p>
 </section>
 <section id="how-i-used-ai" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-used-ai">How I Used AI</h2>
@@ -865,7 +880,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 <li><strong>No network</strong> once the downloads are done. Mathlib is then compiled from source and compared file by file with Mathlib’s official build cache.</li>
 <li><strong>The statements first.</strong> The challenge file is built and exported before any project code runs.</li>
 <li><strong>A sandbox for the project.</strong> The build runs under <a href="https://landlock.io">Landlock</a> via <a href="https://github.com/Zouuup/landrun">landrun</a>: it can read its sources and the toolchain and write only its own build folder. Before starting, I tested that writes elsewhere, reading SSH keys and network connections all fail.</li>
-<li><strong>Export, then judge.</strong> The compiled proof is exported to a single file, and the judges read only that file, so no project code runs while checking. <code>lake comparator</code> checks that the statements match the challenge and that only <code>propext</code>, <code>Quot.sound</code> and <code>Classical.choice</code> are used, then replays the whole proof through Lean’s kernel. Then the proof goes through every independent checker that fits in the VM’s memory.</li>
+<li><strong>Export, then judge.</strong> The compiled proof is exported to a single file, and the judges read only that file, so no project code runs while checking. <code>lake comparator</code> checks that the statements match the challenge and that only <code>propext</code>, <code>Quot.sound</code> and <code>Classical.choice</code> are used, then replays the whole proof through Lean’s kernel. Then the proof goes through the independent checkers, one at a time, since several need 40–90 GB of memory.</li>
 </ol>
 </section>
 <section id="findings-along-the-way" class="level3">
@@ -932,7 +947,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For each module, Lake writes a <code>.setup.json</code> file listing everything it imports. Here that averages about 7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run builds on a compressed btrfs disk.</p>
+<p>For each module, Lake writes a <code>.setup.json</code> file listing everything it imports. Here that averages about 7 MB, and a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run was built on a compressed btrfs disk.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1005,7 +1020,7 @@ theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := 
 </tr>
 <tr class="odd">
 <td>VM</td>
-<td>Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM, 1 TB zstd btrfs</td>
+<td>Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM (113 GB from the export on) plus 64 GB swap, 1 TB zstd btrfs</td>
 </tr>
 </tbody>
 </table>

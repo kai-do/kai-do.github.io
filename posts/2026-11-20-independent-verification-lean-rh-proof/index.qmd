@@ -1,6 +1,6 @@
 ---
 title: "An Independent Verification of the Riemann Hypothesis Lean Proof"
-description: "A live, step-by-step independent check of the Lean proof posted on 20 November 2026: sandboxed build, nine kernel checkers, and hashes anyone can compare."
+description: "An independent, sandboxed check of the Lean proof of the Riemann Hypothesis posted on 20 November 2026. Nine checker runs accept it and none reject it, with hashes anyone can compare."
 date: 2026-11-20
 author:
   - Nakai Zemer
@@ -14,8 +14,8 @@ toc: true
 ---
 
 On 20 November 2026, Levent Alpöge posted a computer-checkable proof of the Riemann Hypothesis, one of the most
-famous open problems in mathematics. I'm checking it myself, from scratch, on my own hardware. This page follows that
-check live: it updates as each step finishes, and every result on it is quoted from the run's logs.
+famous open problems in mathematics. I checked it myself, from scratch, on my own hardware, between 20 and 26
+November. This page records that check step by step, and every result on it is quoted from the run's logs.
 
 {{< include _status.md >}}
 
@@ -62,7 +62,7 @@ Within hours, people in the Lean community had built it and run it through sever
 The most complete public record is [Andrew Sutherland's page](https://math.mit.edu/~drew/grh/), which this page is
 modelled on.
 
-## Why I'm Checking It Myself
+## Why I Checked It Myself
 
 I wanted to do it end to end, for my own understanding, and to feel a small part of history being made.
 
@@ -73,8 +73,8 @@ that Lean's checkers accept. The only thing anyone can say with certainty is tha
 
 ## What a Check Can and Can't Tell You
 
-If every check passes, it means Lean's kernel, and several independent checkers, accepted a proof of five exact
-formal statements, using nothing beyond Lean's three standard axioms. It does **not** mean:
+When the checks pass, as they did here, it means Lean's kernel and several independent checkers accepted a proof of
+five exact formal statements, using nothing beyond Lean's three standard axioms. It does **not** mean:
 
 - **that anyone understands the proof.** Understanding it is the work of mathematicians, and it will take years;
 - **that the formal statements mean what we think.** That is why they are spelled out in the next section;
@@ -159,27 +159,28 @@ goes further than the basic setup:
   that was tested before use, so the code that builds the proof can't touch anything else.
 - **Mathlib from source.** Mathlib is compiled from source and compared file by file with its official build cache,
   so the check doesn't rely on prebuilt files.
-- **Nine checkers.** Beyond Comparator's Lean kernel and nanoda, the proof also goes to con-leche (including its
-  `--compare` mode, a formally verified second implementation of the statement comparison), con-ron, lean4lean,
-  Pestka and nanoclo.
-- **Secondary checks.** An axiom audit that walks every constant itself, a per-module kernel replay, and checks that
-  no source file or tool changed during the run.
+- **More checkers.** Beyond Comparator's Lean kernel and nanoda, the proof also went to con-leche (including its
+  `--compare` mode, a formally verified second implementation of the statement comparison), Pestka and nanoclo.
+  con-ron and lean4lean were tried too, but didn't finish.
+- **Secondary checks.** An axiom audit that walks every constant itself, and checks that no source file or tool
+  changed during the run.
 - **Hashes against other runs.** My build and export are compared with the hashes other people published, so a
   match shows we checked the same bytes.
 
 The formal proof itself doesn't claim more than these five statements. Alpöge's remark says the method should
 extend further, but the Lean project proves exactly these five, and those are what get checked.
 
-## Live Results
+## Results
 
-### Steps and Status
+### Steps
 
 {{< include _steps.md >}}
 
 ### Checkers
 
-Each checker reads the same exported proof and either accepts it, rejects it, or fails to finish. A rejection by
-any one of them would override every acceptance.
+Each checker either accepts the proof, rejects it, or fails to finish. Most of them read the same exported proof
+file; con-leche's `.olean` mode reads the compiled files directly. A rejection by any one of them would have
+overridden every acceptance.
 
 {{< include _kernels.md >}}
 
@@ -187,15 +188,45 @@ any one of them would override every acceptance.
 
 A hash is a fingerprint of a file: change one byte and it changes completely. Matching hashes mean my run checked
 the same proof as other public runs, and that the build reproduces bit for bit on a different machine, built a
-different way (sandboxed here, unsandboxed elsewhere).
+different way (sandboxed here, unsandboxed elsewhere). Two of the hashes differ; *Findings* below explains both.
 
 {{< include _hashes.md >}}
 
-## What Happens Next
+## What I Found
 
-The project build takes roughly a day on this machine. After it come the export, then the checkers; the slowest,
-Lean's own kernel replaying the full 61 GB proof on a single thread, may take another day or more. This page updates
-as each one reports. When the last result is in, I'll write up what I found here, whatever it is.
+**The proof checks.** On my own machine, with the project sandboxed and the network off, Lean's kernel and four
+independent checkers (nanoda, con-leche, Pestka and nanoclo) accepted a proof of Mathlib's `RiemannHypothesis` and
+of the four Dirichlet L-function statements. The proof uses only `propext`, `Classical.choice` and `Quot.sound`.
+Nothing rejected it.
+
+**It agrees with the other public checks.** I checked the same source archive against the same challenge. My
+`Main.olean` is byte-identical to Andrew Sutherland's, and my exported proof differs from his only by one
+auto-generated helper theorem (see *Findings*).
+
+**How long it took.** I started the build on the evening the project was posted, and the last checker finished on
+the morning of 26 November:
+
+- the project build took 24¾ hours on 22 cores;
+- the export took about 5 hours;
+- Comparator took 92¾ hours. Most of that was Lean's kernel replaying the 61 GB proof on a single thread, once in
+  normal mode and once in paranoid mode.
+
+**What didn't finish.**
+
+- con-ron crashed twice with a stack overflow. That is a limit of the checker, not a rejection.
+- lean4lean would have needed a module-by-module run lasting days.
+
+Getting either one to finish meant modifying a checker or running for days more, and it would have added little
+next to the checkers that already agreed, so I stopped there.
+
+**What it means.** The formal statements are proved, assuming only two things: that Mathlib's definitions mean what
+mathematicians mean by them, and that every one of these independently written checkers doesn't share the same bug.
+Mathlib's definition of the Riemann Hypothesis has been in place and reviewed for years, long before this project.
+What a check like this can't give is understanding. Nobody has read the proof, and finding out *why* it works, and
+whether the ideas hold up as mathematics, is now work for number theorists.
+
+I started this to understand it for myself, and to feel a small part of history being made. Watching a machine I set
+up print `Your solution is okay!` for a proof of the Riemann Hypothesis did feel like that.
 
 ## How I Used AI
 
@@ -224,7 +255,7 @@ commands), so nothing from it ran on my own machine, and nothing that loads it r
 5. **Export, then judge.** The compiled proof is exported to a single file, and the judges read only that file, so
    no project code runs while checking. `lake comparator` checks that the statements match the challenge and that
    only `propext`, `Quot.sound` and `Classical.choice` are used, then replays the whole proof through Lean's kernel.
-   Then the proof goes through every independent checker that fits in the VM's memory.
+   Then the proof goes through the independent checkers, one at a time, since several need 40–90 GB of memory.
 
 ### Findings along the Way
 
@@ -271,7 +302,7 @@ a reproducibility quirk, not a soundness problem.
 ::: {.callout-note title="A Full Build Needs about 1.7 TB of Bookkeeping"}
 For each module, Lake writes a `.setup.json` file listing everything it imports. Here that averages about 7 MB, and
 a sampled estimate over all 175,187 modules is about 1.7 TB. The files compress about 26× with zstd, so this run
-builds on a compressed btrfs disk.
+was built on a compressed btrfs disk.
 :::
 
 ::: {.callout-note title="Two Problems the Tests Caught"}
@@ -296,7 +327,7 @@ warnings with the wrong quote characters, so that count could never be non-zero;
 | Pestka | `48857ad7` |
 | nanoclo | `b8cefd0d` |
 | landrun | `ec104f6e` (v0.1.18) |
-| VM | Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM, 1 TB zstd btrfs |
+| VM | Debian 13 genericcloud, kernel 6.12, 22 vCPU, 106 GB RAM (113 GB from the export on) plus 64 GB swap, 1 TB zstd btrfs |
 
 The scripts for every step are in
 [kai-do/riemann-hypothesis-lean-check](https://github.com/kai-do/riemann-hypothesis-lean-check).

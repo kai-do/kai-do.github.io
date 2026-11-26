@@ -1,3 +1,3 @@
-::: {.callout-important title="Status, Updated 2026-11-26 6:24 AM EST"}
-**The main checks are done.** 9 checker runs accepted the proof, including Comparator (`Your solution is okay!`), and **none rejected it**. 2 could not finish, which is not a verdict (see the table).
+::: {.callout-tip title="Result"}
+**Every checker that finished accepted the proof, and none rejected it.** Comparator checks the five statements against a separate challenge file, allows only Lean's three standard axioms and replays the whole proof through Lean's kernel. It reported `Your solution is okay!`. Lean's kernel (in normal and paranoid mode), nanoda, con-leche (three ways), Pestka and nanoclo all accepted it: nine accepting runs. Two more checkers, con-ron and lean4lean, didn't finish, which is not a verdict either way. The check ran from 20 to 26 November 2026.
 :::
