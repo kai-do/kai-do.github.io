@@ -1,12 +1,12 @@
 | Checker | By | What It Is | Verdict | Time | Peak RAM | Evidence |
 |---|---|---|---|--:|--:|---|
-| Lean kernel (C++) | Lean FRO | The reference kernel, replaying the export inside `lake comparator`. | ⏸ Pending |  |  |  |
+| Lean kernel (C++) | Lean FRO | The reference kernel, replaying the export inside `lake comparator`. | ✅ Accepted | ~1d 10h | ~70 GB | `Lean default kernel accepts the solution` (inside `lake comparator`) |
 | Lean kernel, paranoid mode | Lean FRO | The same kernel with extra internal checks. | ✅ Accepted | ~2d 5h | ~87 GB | `Lean paranoid kernel accepts the solution` (inside `lake comparator`) |
 | nanoda | Chris Bailey | Independent kernel in Rust. | ✅ Accepted | ~1h20m | ~62 GB | `nanoda kernel accepts the solution` (inside `lake comparator`) |
 | con-leche `--compare` (from `.olean`) | Lean FRO | Formally verified checker reading the compiled files directly and comparing the statements with the challenge (built from the trusted, pre-project Mathlib). Needs no export. | ✅ Accepted | 19:29.73 | 33.3 GB | `accepted 750237 declarations, 5 axioms justified by the solution Main (2660207 declarations accepted) (--verified)`; 5 of 5 theorems: `justified by the solution` |
 | con-leche `--compare` | Lean FRO | Formally verified checker; also re-does the statement comparison. | ✅ Accepted | 13:48.20 | 44.1 GB | `accepted 51692 declarations, 5 axioms justified by the solution solution.ndjson (1468419 declarations accepted) (--verified)`; 5 of 5 theorems: `justified by the solution` |
 | con-leche | Lean FRO | Formally verified: anything it accepts has a model in set theory. | ✅ Accepted | 12:21.59 | 44.1 GB | `accepted 1468419 declarations (--verified)` |
 | con-ron | Lean FRO | Rust port of con-leche. | ⚠️ Did not finish (not a verdict) | 9:22.48 | 41.8 GB | `thread has overflowed its stack` / `fatal runtime error: stack overflow, aborting`, twice. con-ron already gives its worker threads a 1 GiB stack; a deeply nested term needs more. Not retried with a modified checker. |
-| lean4lean | Mario Carneiro | Kernel written in Lean, partly verified; run module by module. | ⏸ Pending |  |  |  |
+| lean4lean | Mario Carneiro | Kernel written in Lean, partly verified; run module by module. | ⚠️ Not run yet (setup error, not a verdict) |  |  | `Could not infer main module (tried Tree)`: it needs a module name; will be re-run module by module |
 | Pestka | jasisz | Independent kernel written in Aver. | ✅ Accepted | 18:50.37 | 43.0 GB | `checked 1468419, admitted unchecked 0, skipped 0` / `accepted` |
 | nanoclo | sgraf812 | Independent Rust kernel, forked from nanoda. | ✅ Accepted | 39:04.69 | 79.3 GB | `Checked 1484734 declarations with no typechecker errors`; it also reported `1 pretty printer errors: ["Unable to print axioms"]`, a display step, not a check (strict 3-axiom config, no axiom error raised) |

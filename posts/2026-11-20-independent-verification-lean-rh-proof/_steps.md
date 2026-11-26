@@ -11,5 +11,5 @@
 | 9 | Sandbox | Landlock (landrun) confinement for everything that loads project code, tested before use. | ✅ Done | Positive control passes; writes to sources (even after `chmod`), writes outside the build dir, `~/.ssh`, TCP: all denied. |
 | 10 | Project build | All 175,187 project modules compiled inside the sandbox (`lake build`). | ✅ Done | `BUILD EXIT 0 2026-11-22T03:48:12+00:00`; errors 0, `sorry` warnings 0 |
 | 11 | Export | The compiled proof written out as one file (`lean4export`) for the checkers. | ✅ Done | `EXPORT EXIT 0 2026-11-22T12:46:00+00:00`; sha256 `c44f24b8…7c13` |
-| 12 | Comparator | Statements match the challenge; only the 3 standard axioms; Lean kernel + paranoid + nanoda replay. | ⏸ Pending |  |
+| 12 | Comparator | Statements match the challenge; only the 3 standard axioms; Lean kernel + paranoid + nanoda replay. | ✅ Accepted | `Your solution is okay!` (exit 0): statements match the challenge, only the 3 standard axioms, and all three kernels accept |
 | 13 | Secondary checks | Axiom audit, per-module `leanchecker` replay, sources unchanged, tools unchanged. | ⏳ In progress | Axiom audit ✅ Accepted: `type is exactly Mathlib's RiemannHypothesis constant: true`; all 5 theorems `axioms: [Classical.choice, Quot.sound, propext]` `verdict: OK`; `RESULT: PASS`. Kernel replay and integrity checks still to come. |
